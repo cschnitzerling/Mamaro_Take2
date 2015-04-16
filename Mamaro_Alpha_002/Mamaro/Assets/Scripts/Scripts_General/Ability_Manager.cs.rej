@@ -1,0 +1,14 @@
+diff a/Unity/Mamaro_002/Mamaro/Assets/Scripts/Scripts_General/Ability_Manager.cs b/Unity/Mamaro_002/Mamaro/Assets/Scripts/Scripts_General/Ability_Manager.cs	(rejected hunks)
+@@ -29,9 +29,9 @@
+ 	private string rotDir;
+ 
+ 	// vars for socket slider
+-	public bool shownOnce = false;
+-	public bool showSocket = false;
+-	public float sHangTimer = 0.0f;
++	private bool shownOnce = true;
++	private bool showSocket = false;
++	private float sHangTimer = 0.0f;
+ 	
+ 	void Awake()
+ 	{
