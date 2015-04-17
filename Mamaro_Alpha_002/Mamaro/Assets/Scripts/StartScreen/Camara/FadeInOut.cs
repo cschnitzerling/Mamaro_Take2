@@ -4,7 +4,7 @@ using System.Collections;
 public class FadeInOut : MonoBehaviour {
 	public float fadeSpeed = 1.5f; 
 
-	private bool sceneStarting = true;
+	public bool sceneStarting = true, washStarting = false;
 	private MeshFilter layerMesh;
 	// Use this for initialization
 	void Awake () 
@@ -17,6 +17,16 @@ public class FadeInOut : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
+			if (Input.GetKeyDown ("space")){
+				if (!sceneStarting) 
+				{
+				washStarting = true;
+				}
+		}
+		if (washStarting) {
+			StartWash();
+		}
+
 		if (sceneStarting) 
 		{
 			StartScene();
@@ -33,6 +43,34 @@ public class FadeInOut : MonoBehaviour {
 	{
 		layerMesh.GetComponent<Renderer>().material.color = Color.Lerp (layerMesh.GetComponent<Renderer>().material.color, Color.black, fadeSpeed * Time.deltaTime);
 		//guiTexture.color = Color.Lerp (guiTexture.color, Color.black, fadeSpeed * Time.deltaTime);
+	}
+
+	void WhiteWash()
+	{
+		//layerMesh.GetComponent<Renderer>().enabled = true;
+		layerMesh.GetComponent<Renderer>().material.color = Color.Lerp (layerMesh.GetComponent<Renderer>().material.color, Color.white, fadeSpeed * Time.deltaTime);
+		//guiTexture.color = Color.Lerp (guiTexture.color, Color.black, fadeSpeed * Time.deltaTime);
+	}
+
+	void StartWash()
+	{
+		layerMesh.GetComponent<Renderer>().enabled = true;
+		WhiteWash ();
+		//3d Based Fade in out
+		if (layerMesh.GetComponent<Renderer>().material.color.a <= 0.05f) 
+		{
+			layerMesh.GetComponent<Renderer>().material.color = Color.clear;
+			sceneStarting = false;
+		}
+		//Gui Based fade in out
+		/*
+		if (guiTexture.color.a <= 0.05f) 
+		{
+			guiTexture.color = Color.clear;
+			guiTexture.enabled = false;
+			sceneStarting = false;
+		}
+		*/
 	}
 
 	void StartScene()
