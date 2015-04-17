@@ -45,7 +45,7 @@ public class Ability_Manager : MonoBehaviour
 	void Start()
 	{
 		// set all cores to deactive
-		SetSockets(0,0,0,0,5);
+		SetSockets(0,0,0,0,2);
 		sockets[0].oppositeSocket = sockets[2];
 		sockets[1].oppositeSocket = sockets[3];
 		sockets[2].oppositeSocket = sockets[0];

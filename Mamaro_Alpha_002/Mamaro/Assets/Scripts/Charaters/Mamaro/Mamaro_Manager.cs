@@ -60,7 +60,7 @@ public class Mamaro_Manager : MonoBehaviour
 		{								   /////
 			//int testDamage = largeDamage; /////
 			//OnTakeDamage(testDamage);
-			OnMalfunction();
+			OnCorePickUp();
 		}							    /////
 		////////////////////////////////////
 	}
@@ -105,7 +105,7 @@ public class Mamaro_Manager : MonoBehaviour
 	}
 
 	/// triggers malfunction sequence
-	public void OnMalfunction()
+	public void OnCorePickUp()
 	{
 		abMan.AddSpareCore();
 		isMalfunctioning = true;

@@ -18,15 +18,25 @@ public class Game_Manager : MonoBehaviour
 	public float malfunctionSecs;
 
 	// private vars
-	public bool malMode = false;
+	public bool isMalfunction = false;
 	public float Timer_mal = 0.0f;
 
 	// class var : assign in start()
-	private MonoBehaviour[] scripts;
+	public MonoBehaviour[] scripts;
 	// public inpector assigned var
-	public MonoBehaviour[] leftEnabled;
+	public string[] leftEnabled;
 
 	public GameObject malfunction;
+
+	//Malfunction Vars
+	public float buttonAdd;
+	public float malPercent;
+	public float malAmount;
+
+	public GameObject arm;
+	public GameObject startPos;
+	public GameObject endPos;
+
 
 	void Awake()
 	{
@@ -47,10 +57,16 @@ public class Game_Manager : MonoBehaviour
 		scripts = FindObjectsOfType<MonoBehaviour>();
 	}
 
+	public void IncreaseSanity()
+	{
+		print (buttonAdd - ((float)Mamaro_Manager.inst.GetTotalCores() / 2));
+		malPercent -= buttonAdd - ((float)Mamaro_Manager.inst.GetTotalCores() / 2);
+	}
+
 	void Update()
 	{
 		// check for malMode
-		if(malMode)
+		if(isMalfunction)
 		{
 
 
@@ -58,6 +74,14 @@ public class Game_Manager : MonoBehaviour
 
 			// start counting
 			Timer_mal += Time.deltaTime;
+
+			malPercent += malAmount * Time.deltaTime;
+
+			Vector3 pos = Vector3.Lerp(startPos.transform.position, endPos.transform.position, (malPercent / 100));
+			Quaternion rot =  Quaternion.Lerp(startPos.transform.rotation, endPos.transform.rotation, (malPercent / 100));
+
+			arm.transform.position = pos;
+			arm.transform.rotation = rot;
 
 			// check for complete
 			if(Timer_mal >= malfunctionSecs)
@@ -73,16 +97,6 @@ public class Game_Manager : MonoBehaviour
 	{
 		if(on)
 		{
-			//camera lerp
-
-			//turn on malfunction gameobject
-
-
-
-
-
-
-
 			// turn off relevant scripts
 			mAttack.enabled = false;
 			mMove.enabled = false;
@@ -91,7 +105,7 @@ public class Game_Manager : MonoBehaviour
 
 			// set up malMode
 			Timer_mal = 0.0f;
-			malMode = true;
+			isMalfunction = true;
 
 			// put cam into position
 			cam.LerpTo(CamPos.Malfunction);
@@ -106,7 +120,7 @@ public class Game_Manager : MonoBehaviour
 			Lucy.enabled = true;
 			abMan.enabled = true; 
 
-			malMode = false;
+			isMalfunction = false;
 			cam.LerpTo(CamPos.Original);
 		}
 	}
@@ -114,28 +128,10 @@ public class Game_Manager : MonoBehaviour
 	/// switches off all scripts but leaves on the ones passed in. if parameter if left empty
 	/// all scripts will be switched back on.
 	private List<MonoBehaviour> disabledScripts = new List<MonoBehaviour>();
-	private void EnableScripts(MonoBehaviour[] enabled = null)
+	private void EnableScripts(bool turnOn)
 	{
-		// switch all enabled off
-		foreach(MonoBehaviour script in scripts)
-		{
-			// only switch off active scripts
-			if(script.enabled == true)
-			{
-				script.enabled = false;
-				disabledScripts.Add(script);
-			}
-		}
-		
 		// disable all but listed
-		if(enabled != null)
-		{
-			foreach(MonoBehaviour script in enabled)
-			{
-				script.enabled = true;
-			}
-		}
-		else
+		if(turnOn)
 		{
 			// enable all the disabled scripts
 			foreach(MonoBehaviour script in disabledScripts)
@@ -146,11 +142,52 @@ public class Game_Manager : MonoBehaviour
 			// empty disabled list
 			disabledScripts.Clear();
 		}
+		else
+		{	// switch all enabled off
+			foreach(MonoBehaviour script in scripts)
+			{
+				// only switch off active scripts
+				if(script.enabled == true)
+				{
+					//print (script.name);
+					if (script.name != "GAME_MANAGER")
+					{
+						script.enabled = false;
+						disabledScripts.Add(script);
+					}
+				}
+			}
+		}
 	}
+
+//	public bool CheckEnableList(string name)
+//	{
+//		for (int i = 0; i < leftEnabled.Length; i ++)
+//		{
+//			if (name == leftEnabled[i])
+//			{
+//				return true;
+//			}
+//		}
+//
+//		return false;
+//
+//	}
 
 	public void ToggleMulfulction (bool toEnable)
 	{
 		malfunction.SetActive(toEnable);
+
+		if (toEnable)
+		{
+			EnableScripts (false);
+			malPercent = 0;
+		}
+		else
+		{
+			EnableScripts(true);
+		}
+
 	}
 	
 

@@ -27,16 +27,16 @@ public class Cam_Manager : MonoBehaviour
 	[Range(0.1f, 3.0f)]
 	public float smallShake = 0.5f, mediumShake = 0.9f, largeShake = 1.4f;
 
-	public Vector3 originalPos;
+	private Vector3 originalPos;
 	public Vector3 camMalfuncPos;
 
 	// private vars
 	private float shake;
-	public Vector3 currentPos;
-	public Vector3 targetPos;
-	public Vector3 startPos;
-	public bool isMoving = false;
-	public float lerpInc;
+	private Vector3 currentPos;
+	private Vector3 targetPos;
+	private Vector3 startPos;
+	private bool isMoving = false;
+	private float lerpInc;
 
 	void Awake()
 	{
@@ -46,8 +46,8 @@ public class Cam_Manager : MonoBehaviour
 
 	void Start()
 	{
-		currentPos = transform.localPosition;
-		originalPos = transform.localPosition;
+		currentPos = cam.transform.localPosition;
+		originalPos = cam.transform.localPosition;
 	}
 
 	void Update()

@@ -49,11 +49,10 @@ public class FusionCore : MonoBehaviour {
 
 		if (timerPickup > 1f)
 		{
-			///TODO Increase MamaroStats
+			Mamaro_Manager.inst.OnCorePickUp();
 			/// 
 			/// 
 			RemoveObject();
-			Application.LoadLevel (2);
 		}
 	}
 

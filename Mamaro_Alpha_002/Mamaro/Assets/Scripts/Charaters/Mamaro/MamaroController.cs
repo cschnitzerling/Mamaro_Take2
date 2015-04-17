@@ -79,8 +79,8 @@ public class MamaroController : MonoBehaviour {
 		
 		
 		//LeftStickMovement
-		move.moveDir = transform.right * state.ThumbSticks.Left.X / 2;
-		move.moveDir += transform.forward * state.ThumbSticks.Left.Y;
+		move.moveDir = Mamaro_Manager.inst.transform.right * state.ThumbSticks.Left.X / 2;
+		move.moveDir += Mamaro_Manager.inst.transform.forward * state.ThumbSticks.Left.Y;
 		
 		//RightStickMovement
 		move.rotateEuler.y = state.ThumbSticks.Right.X;
@@ -112,10 +112,10 @@ public class MamaroController : MonoBehaviour {
 		}
 
 		// Quick Time controls
-		if(mamaro.isMalfunctioning)
+		if(Game_Manager.inst.isMalfunction)
 		{
 			if(state.Buttons.A == ButtonState.Pressed && prevState.Buttons.A == ButtonState.Released)
-				QT.Resist();
+				Game_Manager.inst.IncreaseSanity();
 		}
 
 

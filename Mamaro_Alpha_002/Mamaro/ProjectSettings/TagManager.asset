@@ -17,6 +17,8 @@ TagManager:
   - VOLUMESLIDER
   - Ruin
   - Enemy
+  - Script_Game
+  - Script_Malfunction
   layers:
   - Default
   - TransparentFX
