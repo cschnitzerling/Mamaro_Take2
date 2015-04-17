@@ -161,10 +161,6 @@ Material:
         second: 9.35999966
       data:
         first:
-          name: _InvFade
-        second: .628782988
-      data:
-        first:
           name: _WaveScale
         second: .0462896563
       data:
@@ -183,6 +179,10 @@ Material:
         first:
           name: _GerstnerIntensity
         second: 300
+      data:
+        first:
+          name: _InvFade
+        second: .628782988
       data:
         first:
           name: _HeightDisplacement
@@ -258,6 +258,7 @@ Material:
         second: {r: 1, g: 1, b: 0, a: 0}
       data:
         first:
+<<<<<<< HEAD
           name: _Displacement
         second: {r: 6.6371665, g: 20.3539829, b: -1, a: -.681415975}
       data:
@@ -266,6 +267,8 @@ Material:
         second: {r: 1, g: 1, b: .100000001, a: .100000001}
       data:
         first:
+=======
+>>>>>>> 7e2a1f0a305665200ce4a88f2e8e8fd642d0f429
           name: _RefrColor
         second: {r: .523390472, g: .947761178, b: .912149608, a: 1}
       data:
@@ -360,6 +363,14 @@ Material:
         first:
           name: _GDirectionCD
         second: {r: .70338881, g: -.679999888, b: .717573524, a: -.200000003}
+      data:
+        first:
+          name: _Displacement
+        second: {r: 6.6371665, g: 20.3539829, b: -1, a: -.681415975}
+      data:
+        first:
+          name: _ShoreTiling
+        second: {r: 1, g: 1, b: .100000001, a: .100000001}
       data:
         first:
           name: _WaveOffset

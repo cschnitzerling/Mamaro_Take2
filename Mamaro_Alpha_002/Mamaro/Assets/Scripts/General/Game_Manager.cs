@@ -23,6 +23,7 @@ public class Game_Manager : MonoBehaviour
 
 	// class var : assign in start()
 	public MonoBehaviour[] scripts;
+
 	// public inpector assigned var
 	public string[] leftEnabled;
 
@@ -59,8 +60,13 @@ public class Game_Manager : MonoBehaviour
 
 	public void IncreaseSanity()
 	{
-		print (buttonAdd - ((float)Mamaro_Manager.inst.GetTotalCores() / 2));
-		malPercent -= buttonAdd - ((float)Mamaro_Manager.inst.GetTotalCores() / 2);
+		float amount = buttonAdd - ((float)Mamaro_Manager.inst.GetTotalCores() / 2);
+
+		// limit negative value
+		if (malPercent - amount < 0.0f)
+			malPercent = 0.0f;
+		else
+			malPercent -= amount;
 	}
 
 	void Update()
@@ -68,26 +74,31 @@ public class Game_Manager : MonoBehaviour
 		// check for malMode
 		if(isMalfunction)
 		{
-
-
-			//TODO add cam effect
+			//TODO add cam effect (shader)
+			cam.ShakeCam(Shake.Small);
 
 			// start counting
 			Timer_mal += Time.deltaTime;
 
 			malPercent += malAmount * Time.deltaTime;
 
+			// Move arm towards Lucy
 			Vector3 pos = Vector3.Lerp(startPos.transform.position, endPos.transform.position, (malPercent / 100));
 			Quaternion rot =  Quaternion.Lerp(startPos.transform.rotation, endPos.transform.rotation, (malPercent / 100));
-
 			arm.transform.position = pos;
 			arm.transform.rotation = rot;
 
-			// check for complete
+			// player resisted the malfunction
 			if(Timer_mal >= malfunctionSecs)
 			{
 				Timer_mal = 0.0f;
 				MalfunctionMode(false);
+			}
+
+			// game over
+			if(malPercent >= 100.0f)
+			{
+				//TODO load gameover cut scene
 			}
 		}
 	}
@@ -97,36 +108,23 @@ public class Game_Manager : MonoBehaviour
 	{
 		if(on)
 		{
-			// turn off relevant scripts
-			mAttack.enabled = false;
-			mMove.enabled = false;
-			Lucy.enabled = false;
-			abMan.enabled = false;
-
 			// set up malMode
 			Timer_mal = 0.0f;
 			isMalfunction = true;
 
 			// put cam into position
 			cam.LerpTo(CamPos.Malfunction);
-
 		}
 		else
 		{
-
+			malPercent = 0.0f;
 			ToggleMulfulction(false);
-			mAttack.enabled = true;
-			mMove.enabled = true;
-			Lucy.enabled = true;
-			abMan.enabled = true; 
-
 			isMalfunction = false;
 			cam.LerpTo(CamPos.Original);
 		}
 	}
 	
-	/// switches off all scripts but leaves on the ones passed in. if parameter if left empty
-	/// all scripts will be switched back on.
+	/// switches off all relavant scripts in respects to malfunction state
 	private List<MonoBehaviour> disabledScripts = new List<MonoBehaviour>();
 	private void EnableScripts(bool turnOn)
 	{
@@ -159,38 +157,10 @@ public class Game_Manager : MonoBehaviour
 			}
 		}
 	}
-
-//	public bool CheckEnableList(string name)
-//	{
-//		for (int i = 0; i < leftEnabled.Length; i ++)
-//		{
-//			if (name == leftEnabled[i])
-//			{
-//				return true;
-//			}
-//		}
-//
-//		return false;
-//
-//	}
-
+	
 	public void ToggleMulfulction (bool toEnable)
 	{
 		malfunction.SetActive(toEnable);
-
-		if (toEnable)
-		{
-			EnableScripts (false);
-			malPercent = 0;
-		}
-		else
-		{
-			EnableScripts(true);
-		}
-
+		EnableScripts(!toEnable);
 	}
-	
-
-
-
 }
