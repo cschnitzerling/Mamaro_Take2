@@ -164,11 +164,11 @@ public class MamaroController : MonoBehaviour {
 
 
 		//Adust Ability Cores
-		if (state.DPad.Left == ButtonState.Pressed)
+		if (state.DPad.Left == ButtonState.Pressed && prevState.DPad.Left == ButtonState.Released)
 		{
 			Ability_Manager.inst.SelectSocketLeft();
 		}
-		else if (state.DPad.Right == ButtonState.Pressed)
+		else if (state.DPad.Right == ButtonState.Pressed && prevState.DPad.Right == ButtonState.Released)
 		{
 			Ability_Manager.inst.SelectSocketRight();
 		}
