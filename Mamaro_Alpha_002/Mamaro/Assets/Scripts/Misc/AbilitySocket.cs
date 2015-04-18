@@ -24,11 +24,19 @@ public class AbilitySocket
 	
 	// inspector hidden vars
 	//[HideInInspector]
-	public Vector3 disabledPos, enabledPos;
+	public bool isSelected = false;
+
+
 
 
 	// private vars
 	private int activeCores = 0;
+
+	//Update
+	void Update()
+	{
+		//Do lerp for scale of thing for is selected.
+	}
 
 	// changes the next deactive core to active if valid
 	public void AddCore()
@@ -62,6 +70,27 @@ public class AbilitySocket
 		{
 			// already empty
 			// TODO Play foley empty sound
+		}
+	}
+	public void SetSelected(bool selected)
+	{
+		isSelected = selected;
+
+		//TODO Lerp Betweeen these
+		if (isSelected)
+		{
+			//rint("is selceted");
+			if (socketImage.transform.localScale != Ability_Manager.inst.enabledScale)
+			{
+				socketImage.transform.localScale = Ability_Manager.inst.enabledScale;
+			}
+		}
+		else
+		{
+			if (socketImage.transform.localScale != Ability_Manager.inst.disabledScale)
+			{
+				socketImage.transform.localScale = Ability_Manager.inst.disabledScale;
+			}
 		}
 	}
 

@@ -9,29 +9,15 @@ public class Ability_Manager : MonoBehaviour
 	
 	// inspector assigned vars
 	public AbilitySocket[] sockets = new AbilitySocket[4];
-	public Image controlPanel_Parent;
 	public Text spareCoreDisplayText;
-	
-	// public vars
-	public float rotationSpeed = 2.0f;
-	public float sliderSpeed;
-	public float sliderHangTime = 2.5f;
+
 	
 	// private vars
-	private int spareCores = 0;
-	private int selectedSocket = 0;
-	private int previousSocket = 0;
-	
-	// vars for rotation
-	private float currentAngle;
-	private float lerpInc;
-	private bool isRotating;
-	private string rotDir;
-	
-	// vars for socket slider
-	public bool shownOnce = false;
-	public bool showSocket = false;
-	public float sHangTimer = 0.0f;
+	public int spareCores = 0;
+	public int selectedSocket = 0;
+
+	public Vector3 disabledScale, enabledScale;
+
 	
 	void Awake()
 	{
@@ -46,61 +32,18 @@ public class Ability_Manager : MonoBehaviour
 	{
 		// set all cores to deactive
 		SetSockets(0,0,0,0,2);
-		sockets[0].oppositeSocket = sockets[2];
-		sockets[1].oppositeSocket = sockets[3];
-		sockets[2].oppositeSocket = sockets[0];
-		sockets[3].oppositeSocket = sockets[1];
+		sockets[0].oppositeSocket = sockets[1];
+		sockets[1].oppositeSocket = sockets[0];
+		sockets[2].oppositeSocket = sockets[3];
+		sockets[3].oppositeSocket = sockets[2];
+
+		sockets[0].SetSelected(true);
 	}
 	
 	void Update()
 	{
 		// update spare core text
 		UpdateSparetext();
-		
-		//TODO add in gate for if pause here
-		// allow user input control
-		currentAngle = controlPanel_Parent.transform.rotation.eulerAngles.z;
-		//InputControl();
-		
-		// in position
-		if((int)currentAngle == GetSocketAngle(selectedSocket))
-		{
-			lerpInc = 0.0f;
-			isRotating = false;
-			
-			// extrude slider for x seconds
-			if(showSocket)
-			{
-				// slide out
-				SlideSocket(sockets[selectedSocket].socketImage, sockets[selectedSocket].disabledPos, sockets[selectedSocket].enabledPos);
-				
-				// slide shut once time limit reached or if rotating
-				sHangTimer += Time.deltaTime;
-				if(sHangTimer > sliderHangTime)
-				{
-					SlideSocket(sockets[selectedSocket].socketImage, sockets[selectedSocket].enabledPos, sockets[selectedSocket].disabledPos);
-					sHangTimer = 0.0f;
-					showSocket = false;
-					shownOnce = false;
-				}
-			}
-		}
-		else
-		{
-			currentAngle = Mathf.LerpAngle(GetSocketAngle(previousSocket), GetSocketAngle(selectedSocket), lerpInc);
-			isRotating = true;
-			controlPanel_Parent.transform.rotation = Quaternion.Euler(controlPanel_Parent.transform.rotation.x, controlPanel_Parent.transform.rotation.y, currentAngle);
-			LerpLin();
-			
-			// close slider before changing selected socket
-			if(showSocket)
-			{
-				SlideSocket(sockets[previousSocket].socketImage, sockets[previousSocket].enabledPos, sockets[previousSocket].disabledPos);
-				sHangTimer = 0.0f;
-				//showSocket = false;
-				shownOnce = false;
-			}
-		}
 	}
 	
 	// sets each socket to the desired amount
@@ -120,10 +63,10 @@ public class Ability_Manager : MonoBehaviour
 		case Sockets.Melee:
 			return sockets[0];
 			//break;
-		case Sockets.Speed:
+		case Sockets.Ranged:
 			return sockets[1];
 			//break;
-		case Sockets.Ranged:
+		case Sockets.Speed:
 			return sockets[2];
 			//break;
 		case Sockets.Shield:
@@ -147,75 +90,42 @@ public class Ability_Manager : MonoBehaviour
 	//Public Function to Allow Controller Input
 	public void SelectSocketLeft()
 	{
-		// allow change of mind during rotation
-		if(isRotating)
+		print ("Left");
+		selectedSocket -= 1;
+		if (selectedSocket < 0)
 		{
-			// only allow a change of direction during rotation
-			if(rotDir == "Right")
-			{
-				previousSocket = selectedSocket;
-				selectedSocket -= 1;
-				if (selectedSocket < 0)
-				{
-					selectedSocket = 3;
-				}
-				lerpInc = 1 - lerpInc;
-				rotDir = "Left";
-			}
+			selectedSocket = 3;
 		}
-		else
+
+		for (int i = 0; i < sockets.Length; i ++)
 		{
-			previousSocket = selectedSocket;
-			selectedSocket -= 1;
-			if (selectedSocket < 0)
-			{
-				selectedSocket = 3;
-			}
-			lerpInc = 0;
-			rotDir = "Left";
+			sockets[i].SetSelected(false);
 		}
+
+		sockets[selectedSocket].SetSelected(true);
+
 	}
 	
 	///Public Function to Select the next Socket to the left
 	public void SelectSocketRight()
 	{
-		// allow change of mind during rotation
-		if(isRotating)
+		print ("Right");
+		selectedSocket += 1;
+		if (selectedSocket > 3)
 		{
-			// only allow a change of direction during rotation
-			if(rotDir == "Left")
-			{
-				previousSocket = selectedSocket;
-				selectedSocket += 1;
-				if (selectedSocket > 3)
-				{
-					selectedSocket = 0;
-				}
-				
-				lerpInc = 1 - lerpInc;
-				rotDir = "Right";
-			}
+			selectedSocket = 0;
 		}
-		else
+
+		for (int i = 0; i < sockets.Length; i ++)
 		{
-			previousSocket = selectedSocket;
-			selectedSocket += 1;
-			if (selectedSocket > 3)
-			{
-				selectedSocket = 0;
-			}
-			
-			lerpInc = 0;
-			rotDir = "Right";
+			sockets[i].SetSelected(false);
 		}
+		
+		sockets[selectedSocket].SetSelected(true);
 	}
 	
 	public void SocketAdd()
 	{
-		
-		// add cores to selected
-		if(showSocket)
-		{
 			// check if already full
 			if(sockets[selectedSocket].GetCoreCount() < 4)
 			{
@@ -232,38 +142,36 @@ public class Ability_Manager : MonoBehaviour
 					sockets[selectedSocket].AddCore();
 				}
 			}
-			sHangTimer = 0.0f;
-		}
-		
-		// show only once per rotation or up input
-		if(!shownOnce)
-		{
-			showSocket = true;
-			shownOnce = true;
-		}
 	}
+
+//	int GetOpposite(int curSocket)
+//	{
+//		switch (curSocket)
+//		{
+//		case 0:
+//			return 1;
+//		case 1:
+//			return 0;
+//		case 2:
+//			return 3;
+//		case 3:
+//			return 2;
+//		}
+//
+//		Debug.Log("GetOpposite out of range > 3" + curSocket);
+//		return 0;
+//	}
 	
 	
 	
 	public void SocketRemove()
 	{
-		if(showSocket)
+		// check for empty
+		if(sockets[selectedSocket].GetCoreCount() > 0)
 		{
-			// check for empty
-			if(sockets[selectedSocket].GetCoreCount() > 0)
-			{
-				// remove core and reset sHangTimer
-				sockets[selectedSocket].RemoveCore();
-				spareCores++;
-			}
-			sHangTimer = 0.0f;
-		}
-		
-		// show only once per rotation or up input
-		if(!shownOnce)
-		{
-			showSocket = true;
-			shownOnce = true;
+			// remove core and reset sHangTimer
+			sockets[selectedSocket].RemoveCore();
+			spareCores++;
 		}
 	}
 
@@ -276,50 +184,9 @@ public class Ability_Manager : MonoBehaviour
 		spareCores++;
 	}
 
-	/// allows user input to control rotation and core adding/removing cores
-	private void InputControl()
-	{
-		
-		
-		/*
-		// input for which way to rotate
-		if(Input.GetKeyDown(KeyCode.LeftArrow))
-		{
-			showSocket = true;
-			SelectSocketLeft();
-		}
-		else if(Input.GetKeyDown(KeyCode.RightArrow))
-		{
-			showSocket = true;
-			SelectSocketRight();
-		}
-		*/
-		
-		
-	}
-	
 	/// returns spare core count
 	public int GetSpareCount()
 	{
 		return spareCores;
-	}
-	
-	///Returns Angle for Given Socket
-	int GetSocketAngle(int socketNum)
-	{
-		return socketNum * 90; 
-	}
-	
-	// slides image from a to b with lerp
-	private void SlideSocket(Image socket, Vector3 from, Vector3 to)
-	{
-		// TODO apply a lerp (from, to)
-		socket.transform.localPosition = to;
-	}
-	
-	/// a linear interpolation
-	private void LerpLin()
-	{
-		lerpInc += (Time.deltaTime * rotationSpeed);
 	}
 }
