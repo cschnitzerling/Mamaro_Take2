@@ -25,10 +25,12 @@ public class Script_Enemy_Ranged : MonoBehaviour
 	public Vector3 destPos;
 	private float keptDistance;
 	public Rigidbody rb;
+	private NavMeshAgent nav;
 
 	// Use this for initialization
 	void Start () 
 	{
+		nav = GetComponent<NavMeshAgent>();
 		mamaroM = Mamaro_Manager.inst;
 		rb = GetComponent<Rigidbody>();
 		destPos = this.transform.position;
@@ -87,7 +89,6 @@ public class Script_Enemy_Ranged : MonoBehaviour
 				if(pDist < keptDistance)
 				{
 					// switch to defence with new destPos
-					destPos = GetNewPos();
 					state = EnemyState.Defensive;
 				}
 				else
@@ -108,7 +109,7 @@ public class Script_Enemy_Ranged : MonoBehaviour
 		// player is within engagement range. Enemy is low on health
 		case EnemyState.Defensive:
 
-			MoveTo(destPos, moveSpeed);
+			nav.SetDestination(GetNewPos());
 
 
 			break;
