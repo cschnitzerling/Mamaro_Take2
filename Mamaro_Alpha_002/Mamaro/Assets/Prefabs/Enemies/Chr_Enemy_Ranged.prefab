@@ -45,6 +45,7 @@ GameObject:
   - 54: {fileID: 5483696}
   - 136: {fileID: 13697806}
   - 114: {fileID: 11426354}
+  - 195: {fileID: 19545864}
   m_Layer: 8
   m_Name: Chr_Enemy_Ranged
   m_TagString: Enemy
@@ -239,6 +240,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &164874
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 404912}
+  m_Layer: 0
+  m_Name: ProjectileSpawnPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &199330
 GameObject:
   m_ObjectHideFlags: 1
@@ -256,6 +272,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &404912
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 164874}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 7.88999987, z: 3.99000001}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 494272}
+  m_RootOrder: 1
 --- !u!4 &414978
 Transform:
   m_ObjectHideFlags: 1
@@ -436,6 +464,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 461546}
+  - {fileID: 404912}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &495818
@@ -917,15 +946,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 20
-  rotSpeed: 20
-  catchUpSpeed: 0
-  engagementRadius: 143.899994
+  rotSpeed: 5
+  catchUpSpeed: 40
+  engagementRadius: 205.429993
   lowHealthThreshold: 0
   explosionRadius: 15
   explosionPower: 20
+  projectile: {fileID: 0}
+  shootPos: {fileID: 404912}
+  fireRate: 5
   health: 100
   state: 0
   alert: 0
+  isMoving: 0
   pDist: 0
   destPos: {x: 0, y: 0, z: 0}
   rb: {fileID: 0}
@@ -942,6 +975,26 @@ CapsuleCollider:
   m_Height: 7
   m_Direction: 1
   m_Center: {x: 0, y: 8, z: .629999995}
+--- !u!195 &19545864
+NavMeshAgent:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 106220}
+  m_Enabled: 1
+  m_Radius: 6.01000023
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 11.3400002
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

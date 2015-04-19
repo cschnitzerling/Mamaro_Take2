@@ -16,16 +16,21 @@ public class Script_Enemy_Ranged : MonoBehaviour
 	public int lowHealthThreshold;
 	public float explosionRadius = 15.0F;
 	public float explosionPower = 20.0F;
+	public GameObject projectile;
+	public Transform shootPos;
+	public float fireRate = 5.0f;
 
 	// private vars
 	public int health = 100;
 	public EnemyState state = EnemyState.Standby;
 	public bool alert = false;
+	public bool isMoving = false;
 	public float pDist;
 	public Vector3 destPos;
 	private float keptDistance;
 	public Rigidbody rb;
 	private NavMeshAgent nav;
+	private float timerFire = 0.0f;
 
 	// Use this for initialization
 	void Start () 
@@ -35,12 +40,14 @@ public class Script_Enemy_Ranged : MonoBehaviour
 		rb = GetComponent<Rigidbody>();
 		destPos = this.transform.position;
 
+		// 3/4 the value of engagement radius
 		keptDistance = engagementRadius * 0.75f;
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
+		// track player dist
 		pDist = Vector3.Distance(mamaroM.transform.position, this.transform.position);
 
 		///test////////
@@ -62,17 +69,11 @@ public class Script_Enemy_Ranged : MonoBehaviour
 			}
 
 			// wait for mamaro to stop malfunctioning
-			if(alert && !mamaroM.isMalfunctioning)
+			if(alert && !Game_Manager.inst.isMalfunction)
 			{
-				// check which state to revert to
+				// player within range
 				if(pDist < engagementRadius)
-				{
-					// check health level
-					if(health <= lowHealthThreshold)
-						state = EnemyState.Defensive;
-					else
-						state = EnemyState.Offensive;
-				}
+					state = EnemyState.Offensive;
 				else
 					state = EnemyState.Stalking;
 			}
@@ -82,39 +83,60 @@ public class Script_Enemy_Ranged : MonoBehaviour
 		// player is within engagment range. Enemy health is sufficient
 		case EnemyState.Offensive:
 
-			// is player in engagement range
-			if(pDist < engagementRadius)
+			// always face Mamaro
+			LookTowards(mamaroM.transform.position);
+			nav.SetDestination(destPos);
+			nav.speed = moveSpeed;
+
+			// reached destination
+			if(nav.remainingDistance < 1.0f)
+				isMoving = false;
+
+			if(!isMoving)
 			{
-				// is the player too close
-				if(pDist < keptDistance)
+				// is player in engagement range
+				if(pDist < engagementRadius)
 				{
-					// switch to defence with new destPos
-					state = EnemyState.Defensive;
+					// is the player too close
+					if(pDist < keptDistance)
+					{
+						// change pos
+						state = EnemyState.Defensive;
+					}
 				}
 				else
 				{
-					// attack the player at rate x
+					// catch up to the player
+					state = EnemyState.Stalking;
 				}
 			}
-			else
+
+			// fire every x seconds
+			timerFire += Time.deltaTime;
+			if(timerFire >= fireRate)
 			{
-				// catch up to the player
-				state = EnemyState.Stalking;
+				Instantiate(projectile, shootPos.position, shootPos.rotation);
+				timerFire = 0.0f;
 			}
 
-			// apply movement
 
 			break;
 
-		// player is within engagement range. Enemy is low on health
+		// player is within keptDistance
 		case EnemyState.Defensive:
 
-			nav.SetDestination(GetNewPos());
-
+			isMoving = true;
+			destPos = GetNewPos();
+			state = EnemyState.Offensive;
 
 			break;
 
 		case EnemyState.Stalking:
+
+			// increase speed to catch up to player
+			destPos = mamaroM.transform.position;
+			nav.SetDestination(destPos);
+			nav.speed = catchUpSpeed;
 
 			// check if back in range
 			if(pDist < engagementRadius)
@@ -129,28 +151,10 @@ public class Script_Enemy_Ranged : MonoBehaviour
 		}
 	}
 	
-	/// moves the enemy towards the destPos
-	private void MoveTo(Vector3 pos, float speed)
+	/// slerp towards facing target
+	public void LookTowards(Vector3 target)
 	{
-		// not yet reached destPos
-		if(Vector3.Distance(this.transform.position, destPos) > 1.0f)
-		{
-			// face destPos
-			LookTowards(destPos);
-			transform.Translate(-transform.forward * speed * Time.deltaTime);// = new Vector3(pPos.x, pPos.y, pPos.z - speed * Time.deltaTime);
-		}
-		else
-		{
-			// face players
-			LookTowards(mamaroM.transform.position);
-			state = EnemyState.Offensive;
-		}
-	}
-
-	// slowly looks faces target pos
-	public void LookTowards(Vector3 pos)
-	{
-		transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(pos - transform.position), rotSpeed * Time.deltaTime);
+		transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(target - transform.position), rotSpeed * Time.deltaTime);
 	}
 
 	/// reduces health and checks for death
