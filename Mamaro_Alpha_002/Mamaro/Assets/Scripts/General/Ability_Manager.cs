@@ -18,6 +18,10 @@ public class Ability_Manager : MonoBehaviour
 
 	public Vector3 disabledScale, enabledScale;
 
+	public UI_CoreChageSprites[] coreChangeSprites = new UI_CoreChageSprites[6];
+
+	public float coreChangeTime;
+	
 	
 	void Awake()
 	{
@@ -90,7 +94,6 @@ public class Ability_Manager : MonoBehaviour
 	//Public Function to Allow Controller Input
 	public void SelectSocketLeft()
 	{
-		print ("Left");
 		selectedSocket -= 1;
 		if (selectedSocket < 0)
 		{
@@ -109,7 +112,6 @@ public class Ability_Manager : MonoBehaviour
 	///Public Function to Select the next Socket to the left
 	public void SelectSocketRight()
 	{
-		print ("Right");
 		selectedSocket += 1;
 		if (selectedSocket > 3)
 		{
@@ -134,36 +136,19 @@ public class Ability_Manager : MonoBehaviour
 				{
 					sockets[selectedSocket].AddCore();
 					spareCores--;
+
+					ActivateChangeSprite(selectedSocket, true);
 				}
 				else if(sockets[selectedSocket].oppositeSocket.GetCoreCount() > 0)
 				{
 					// add from opposite
 					sockets[selectedSocket].oppositeSocket.RemoveCore();
 					sockets[selectedSocket].AddCore();
+					ActivateChangeSprite(selectedSocket, false);
 				}
 			}
 	}
 
-//	int GetOpposite(int curSocket)
-//	{
-//		switch (curSocket)
-//		{
-//		case 0:
-//			return 1;
-//		case 1:
-//			return 0;
-//		case 2:
-//			return 3;
-//		case 3:
-//			return 2;
-//		}
-//
-//		Debug.Log("GetOpposite out of range > 3" + curSocket);
-//		return 0;
-//	}
-	
-	
-	
 	public void SocketRemove()
 	{
 		// check for empty
@@ -172,6 +157,55 @@ public class Ability_Manager : MonoBehaviour
 			// remove core and reset sHangTimer
 			sockets[selectedSocket].RemoveCore();
 			spareCores++;
+
+			ActivateChangeSprite(selectedSocket, true);
+		}
+	}
+
+	public void ActivateChangeSprite (int socketNum, bool fromSpare)
+	{
+		switch (socketNum)
+		{
+		case 0:
+			if (fromSpare)
+			{
+				coreChangeSprites[1].TurnOn(coreChangeTime);
+			}
+			else
+			{
+				coreChangeSprites[0].TurnOn(coreChangeTime);
+			}
+			break;
+		case 1:
+			if (fromSpare)
+			{
+				coreChangeSprites[2].TurnOn(coreChangeTime);
+			}
+			else
+			{
+				coreChangeSprites[0].TurnOn(coreChangeTime);
+			}
+			break;
+		case 2:
+			if (fromSpare)
+			{
+				coreChangeSprites[5].TurnOn(coreChangeTime);
+			}
+			else
+			{
+				coreChangeSprites[3].TurnOn(coreChangeTime);
+			}
+			break;
+		case 3:
+			if (fromSpare)
+			{
+				coreChangeSprites[4].TurnOn(coreChangeTime);
+			}
+			else
+			{
+				coreChangeSprites[3].TurnOn(coreChangeTime);
+			}
+			break;
 		}
 	}
 
