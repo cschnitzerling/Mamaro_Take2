@@ -29,6 +29,8 @@ public class AbilitySocket
 
 
 
+
+
 	// private vars
 	private int activeCores = 0;
 

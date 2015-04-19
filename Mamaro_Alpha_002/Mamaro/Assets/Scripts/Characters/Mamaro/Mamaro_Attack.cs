@@ -7,7 +7,7 @@ public class Mamaro_Attack : MonoBehaviour
 
 	//inspector assigned vars
 	public int maxAttack, maxRangedCoolDown;
-	[Range(15.0f, 30.0f)]
+	[Range(15.0f, 50.0f)]
 	public float chargeRate = 10.0f;
 	public Collider fistCollider;
 
@@ -15,8 +15,14 @@ public class Mamaro_Attack : MonoBehaviour
 	public bool isAttacking = false;
 	public float punchCharge = 0.0f, rangedCharge = 0.0f;
 
+	public float shotDelay = 2.0f;
+	public float timerShotDelay = 0.0f;
+
 	public bool isChargePunch = false;
 	public bool isChargeRange = false;
+
+	public bool isAttackPunch = false;
+	public bool isAttackRange = false;
 
 	public GameObject bullet;
 	public GameObject bulletSpawn;
@@ -43,10 +49,18 @@ public class Mamaro_Attack : MonoBehaviour
 	void Update () 
 	{
 		//TODO apply gate for if pause here
-		PunchAttack ();
-		RangedAttack();
 		ChargePunch();
 		ChargeRanged();
+
+		if (timerShotDelay > 0)
+		{
+			timerShotDelay -= Time.deltaTime;
+
+			if (timerShotDelay < 0)
+			{
+				timerShotDelay = 0;
+			}
+		}
 
 		//check to turn off fist collider
 		if (anim.GetCurrentAnimatorStateInfo(0).IsName("CHR_Mamaro_Anim_Idle"))
@@ -61,150 +75,121 @@ public class Mamaro_Attack : MonoBehaviour
 
 
 	// applies punch attack sequence
-	private void PunchAttack()
+	public void ButtonDownPunch()
 	{
-
+		if (!isChargeRange && punchCharge == 0 && timerShotDelay == 0)
+		{
+			Mamaro_Attack.inst.isChargePunch = true;
+		}
+	}
+	public void ButtonUpPunch()
+	{
+		if (isChargePunch)
+		{
+			Mamaro_Attack.inst.isChargePunch = false;
+			Mamaro_Attack.inst.isAttackPunch = true;
+			timerShotDelay = shotDelay;
+		}
 	}
 
 	// applies ranged attack sequence
-	private void RangedAttack()
+	public void ButtonDownRange()
 	{
-	
+		if (!isChargePunch && punchCharge == 0 && timerShotDelay == 0)
+		{
+			Mamaro_Attack.inst.isChargeRange = true;
+		}
+	}
+	public void ButtonUpRange()
+	{
+		if (isChargeRange)
+		{
+			Mamaro_Attack.inst.isChargeRange = false;
+			Mamaro_Attack.inst.isAttackRange = true;
+			timerShotDelay = shotDelay;
+		}
 	}
 
 	// adds punch charge from 0 to 100 in respects to time held
 	private void ChargePunch()
 	{
+
+		if (isAttackPunch)
+			{
+
+			// reduce at half charge rate until empty
+			//Set Animation to start
+			anim.SetTrigger("Trig_MeeleAttack");
+			anim.SetBool("Bool_MeeleCharge", false);
+
+			isAttackPunch = false;
+		}
 		// receive held input
-		if(isChargePunch)
+		else if(isChargePunch)
 		{
-			if(!isAttacking)
+			anim.SetBool("Bool_MeeleCharge", true);
+
+			if(punchCharge < 100.0f)
 			{
-				if (punchCharge == 0)
-				{
-					//Set Animation to start
-					anim.SetBool("Bool_MeeleCharge", true);
+				punchCharge += Time.deltaTime * chargeRate;
 
-					punchCharge += 20;
-				}
-
-				if(punchCharge < 100.0f)
-				{
-					punchCharge += Time.deltaTime * chargeRate;
-
-					// limit to max of 100
-					if(punchCharge > 100.0f)
-						punchCharge = 100.0f;
-				}
-			}
-			else
-			{
-				punchCharge -= Time.deltaTime * (chargeRate * 2f);
-				
-				if(punchCharge < 0.0f)
-				{
-					isAttacking = false;
-					punchCharge = 0.0f;
-				}
+				// limit to max of 100
+				if(punchCharge > 100.0f)
+					punchCharge = 100.0f;
 			}
 		}
 		else
 		{
-			// reduce at half charge rate until empty
-			if(punchCharge > 0.0f)
+			punchCharge -= Time.deltaTime * (chargeRate * 2f);
+			
+			if(punchCharge < 0.0f)
 			{
-				if (!isAttacking)
-				{
-					isAttacking = true;
-					
-					//Set Animation to start
-						anim.SetTrigger("Trig_MeeleAttack");
-						anim.SetBool("Bool_MeeleCharge", false);
-
-					if (timerxx > 2)
-					{
-						timerxx = 0;
-						Lucy_Manager.inst.OnChangeFear(FearType.AttackLv3);
-					}
-				}
-
-				punchCharge -= Time.deltaTime * (chargeRate * 2f); 
-
-				// don't drop below 0.0f
-				if(punchCharge < 0.0f)
-				{
-					isAttacking = false;
-					punchCharge = 0.0f;
-				}
+				isAttacking = false;
+				punchCharge = 0.0f;
 			}
 		}
+
+
 	}
 
 	// adds ranged charge from 0 to 100 in respects to time held
 	private void ChargeRanged()
 	{
+		if (isAttackRange)
+		{
+			anim.SetTrigger("Trig_RangedAttack");
+			anim.SetBool("Bool_RangedCharge", false);
+
+			Instantiate (bullet,bulletSpawn.transform.position,transform.rotation);
+			Lucy_Manager.inst.OnChangeFear(FearType.AttackLv3);
+
+			isAttackRange = false;
+
+		}
 		// receive held input
 		if(isChargeRange)
 		{
-			if (!isAttacking)
-			{
-				if (rangedCharge == 0)
-				{
-					//Set Animation to start
-					anim.SetBool("Bool_RangedCharge", true);
-					rangedCharge += 30;
-				}
+			anim.SetBool("Bool_RangedCharge", true);
 
-				if(rangedCharge < 100.0f)
-				{
-					rangedCharge += Time.deltaTime * chargeRate;
-					
-					// limit to max of 100
-					if(rangedCharge > 100.0f)
-						rangedCharge = 100.0f;
-				}
-			}
-			else
+			if(rangedCharge < 100.0f)
 			{
-				rangedCharge -= Time.deltaTime * (chargeRate * 2f);
-
-				if(rangedCharge < 0.0f)
-				{
-					isAttacking = false;
-					rangedCharge = 0.0f;
-				}
+				rangedCharge += Time.deltaTime * chargeRate;
+				
+				// limit to max of 100
+				if(rangedCharge > 100.0f)
+					rangedCharge = 100.0f;
 			}
 		}
-		else 
+		else
 		{
-			// reduce at half charge rate until empty
-			if(rangedCharge > 0.0f)
+			rangedCharge -= Time.deltaTime * (chargeRate * 2f);
+			
+			if(rangedCharge < 0.0f)
 			{
-				if (!isAttacking)
-				{
-					isAttacking = true;
-					//Set Animation to start
-
-						anim.SetTrigger("Trig_RangedAttack");
-						anim.SetBool("Bool_RangedCharge", false);
-
-					if (timerxx > 2)
-					{
-						Instantiate (bullet,bulletSpawn.transform.position,transform.rotation);
-						timerxx = 0;
-						Lucy_Manager.inst.OnChangeFear(FearType.AttackLv3);
-					}
-
-				}
-
-				rangedCharge -= Time.deltaTime * (chargeRate * 2f);
-
-				if(rangedCharge < 0.0f)
-				{
-					isAttacking = false;
-					rangedCharge = 0.0f;
-				}
+				isAttacking = false;
+				rangedCharge = 0.0f;
 			}
 		}
+
 	}
 }

@@ -20,6 +20,7 @@ public class Turtorial_2 : MonoBehaviour {
 		if (col.tag == "Player")
 		{
 			tt.SetActive (true);
+			Destroy (gameObject);
 		}
 	}
 }
