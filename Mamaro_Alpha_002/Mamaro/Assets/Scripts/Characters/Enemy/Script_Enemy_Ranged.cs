@@ -207,7 +207,7 @@ public class Script_Enemy_Ranged : MonoBehaviour
 	{
 		Destroy (nav);
 		Audio_Manager.inst.PlayOnce(AA.Env_General_PhysicalExpolsion_2, transform.position);
-		Vector3 centerPos = new Vector3 (transform.position.x, transform.position.y + 10.0f, transform.position.z);
+		Vector3 centerPos = new Vector3 (transform.position.x, transform.position.y + 20.0f, transform.position.z);
 		Instantiate (fusionCore, centerPos, Quaternion.identity);
 		Instantiate(explosion, centerPos, Quaternion.identity);
 		Vector3 explosionPos = this.transform.position + transform.forward * 2;
