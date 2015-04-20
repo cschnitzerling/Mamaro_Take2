@@ -236,15 +236,15 @@ ModelImporter:
     4300100: GeoSphere014
     4300102: Box023
     4300104: Plane003
-    7400000: MAMARO_ANIM_Walk
-    7400002: MAMARO_ANIM_PunchCharge
-    7400004: MAMARO_ANIM_PunchAttack
-    7400006: MAMARO_ANIM_CannonCharge
-    7400008: MAMARO_ANIM_CannonAttack
-    7400010: MAMARO_ANIM_Block
-    7400012: MAMARO_ANIM_PowerUp
-    7400014: MAMARO_ANIM_DodgeLeft
-    7400016: MAMARO_ANIM_DodgeRight
+    7400000: FBX_mamaro_Walk
+    7400002: FBX_mamaro_PunchCharge
+    7400004: FBX_mamaro_PunchAttack
+    7400006: FBX_mamaro_CannonCharge
+    7400008: FBX_mamaro_CannonAttack
+    7400010: FBX_mamaro_Block
+    7400012: FBX_mamaro_PowerUp
+    7400014: FBX_mamaro_DodgeLeft
+    7400016: FBX_mamaro_DodgeRight
     9500000: //RootNode
     13700000: Box006
     13700002: Box007
@@ -315,7 +315,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: MAMARO_ANIM_Walk
+      name: FBX_mamaro_Walk
       takeName: Take 001
       firstFrame: 1
       lastFrame: 65
@@ -546,7 +546,7 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: MAMARO_ANIM_PunchCharge
+      name: FBX_mamaro_PunchCharge
       takeName: Take 001
       firstFrame: 78
       lastFrame: 93
@@ -777,7 +777,7 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: MAMARO_ANIM_PunchAttack
+      name: FBX_mamaro_PunchAttack
       takeName: Take 001
       firstFrame: 93
       lastFrame: 106
@@ -1008,10 +1008,10 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: MAMARO_ANIM_CannonCharge
+      name: FBX_mamaro_CannonCharge
       takeName: Take 001
       firstFrame: 121
-      lastFrame: 140
+      lastFrame: 159
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -1239,10 +1239,10 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: MAMARO_ANIM_CannonAttack
+      name: FBX_mamaro_CannonAttack
       takeName: Take 001
-      firstFrame: 140
-      lastFrame: 165
+      firstFrame: 159
+      lastFrame: 178
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -1470,7 +1470,7 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: MAMARO_ANIM_Block
+      name: FBX_mamaro_Block
       takeName: Take 001
       firstFrame: 258
       lastFrame: 274
@@ -1701,7 +1701,7 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: MAMARO_ANIM_PowerUp
+      name: FBX_mamaro_PowerUp
       takeName: Take 001
       firstFrame: 234
       lastFrame: 250
@@ -1932,7 +1932,7 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: MAMARO_ANIM_DodgeLeft
+      name: FBX_mamaro_DodgeLeft
       takeName: Take 001
       firstFrame: 292
       lastFrame: 300
@@ -2163,7 +2163,7 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: MAMARO_ANIM_DodgeRight
+      name: FBX_mamaro_DodgeRight
       takeName: Take 001
       firstFrame: 311
       lastFrame: 315

@@ -13,37 +13,37 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Bool_MeeleCharge
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Trig_RangedAttack
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Trig_MeeleAttack
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Speed
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Bool_Block
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -65,7 +65,7 @@ AnimatorController:
     m_Behaviours: []
     m_BlendingMode: 0
     m_SyncedLayerIndex: -1
-    m_DefaultWeight: 1
+    m_DefaultWeight: .850000024
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 0}
@@ -685,7 +685,7 @@ AnimatorState:
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
   m_Mirror: 0
-  m_Motion: {fileID: 7400004, guid: c0bb3552d0c28d24a8354e35fa471ca8, type: 3}
+  m_Motion: {fileID: 7400000, guid: bc68884c94ded1c4a8ec3cbe0ed9531d, type: 2}
   m_Tag: 
 --- !u!1102 &110203866
 AnimatorState:
@@ -723,7 +723,7 @@ AnimatorState:
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
   m_Mirror: 0
-  m_Motion: {fileID: 7400002, guid: c0bb3552d0c28d24a8354e35fa471ca8, type: 3}
+  m_Motion: {fileID: 7400000, guid: e09466d260d2b9e40a0891dfdc564d36, type: 2}
   m_Tag: 
 --- !u!1102 &110210180
 AnimatorState:
@@ -783,7 +783,7 @@ AnimatorState:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: CHR_Mamaro_Anim_Shoot_Shoot
-  m_Speed: 3
+  m_Speed: 1.5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 110177590}
@@ -793,7 +793,7 @@ AnimatorState:
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
   m_Mirror: 0
-  m_Motion: {fileID: 7400008, guid: c0bb3552d0c28d24a8354e35fa471ca8, type: 3}
+  m_Motion: {fileID: 7400000, guid: f3f445f0be96d7946ae8f85758b4ce49, type: 2}
   m_Tag: 
 --- !u!1102 &110256236
 AnimatorState:
@@ -802,7 +802,7 @@ AnimatorState:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: CHR_Mamaro_Anim_Shoot_Charge
-  m_Speed: 1
+  m_Speed: 2
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 110197448}
@@ -812,7 +812,7 @@ AnimatorState:
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
   m_Mirror: 0
-  m_Motion: {fileID: 7400006, guid: c0bb3552d0c28d24a8354e35fa471ca8, type: 3}
+  m_Motion: {fileID: 7400000, guid: bbcd2a23b8aee2145a79e6b0eccb4362, type: 2}
   m_Tag: 
 --- !u!1102 &110276822
 AnimatorState:
@@ -864,7 +864,7 @@ AnimatorState:
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
   m_Mirror: 0
-  m_Motion: {fileID: 7400010, guid: c0bb3552d0c28d24a8354e35fa471ca8, type: 3}
+  m_Motion: {fileID: 7400000, guid: b317aa631acda3047ac004ad79affef3, type: 2}
   m_Tag: 
 --- !u!1102 &110296010
 AnimatorState:
@@ -958,12 +958,6 @@ AnimatorStateMachine:
   m_AnyStateTransitions: []
   m_EntryTransitions: []
   m_StateMachineTransitions:
-    data:
-      first: {fileID: 0}
-      second: []
-    data:
-      first: {fileID: 0}
-      second: []
     data:
       first: {fileID: 0}
       second: []

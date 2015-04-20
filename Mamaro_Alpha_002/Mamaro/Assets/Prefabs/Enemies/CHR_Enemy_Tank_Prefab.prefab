@@ -163,9 +163,10 @@ GameObject:
   - 54: {fileID: 5468464}
   - 195: {fileID: 19560318}
   - 114: {fileID: 11420092}
+  - 65: {fileID: 6532368}
   m_Layer: 0
   m_Name: CHR_Enemy_Tank_Prefab
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -336,7 +337,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 168058}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 513.599976, y: 192.300003, z: 589.109985}
+  m_LocalPosition: {x: 533.099976, y: 303.299988, z: 167.199997}
   m_LocalScale: {x: 8, y: 8, z: 8}
   m_Children:
   - {fileID: 493858}
@@ -836,6 +837,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 4
   m_CollisionDetection: 0
+--- !u!65 &6532368
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 168058}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.07000005, y: .340000004, z: 2.46000004}
+  m_Center: {x: 0, y: 1.87, z: 0}
 --- !u!95 &9569780
 Animator:
   serializedVersion: 3
@@ -864,16 +877,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8b0daa3618d7f44faa8a86245902a92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 20
-  rotSpeed: 10
-  catchUpSpeed: 40
-  engagementRadius: 200
+  moveSpeed: 0
+  rotSpeed: 2
+  catchUpSpeed: 0
+  engagementRadius: 73.9000015
   lowHealthThreshold: 0
   explosionRadius: 15
   explosionPower: 20
   projectile: {fileID: 174928, guid: 0aeaa9fd1c5175b4bbac866b6614d3e4, type: 2}
   shootPos: {fileID: 428184}
-  fireRate: 5
+  fireRate: 10
   destroyTime: 5
   explosion: {fileID: 180484, guid: 85d308a2e7ed867438ccf8993ee59b09, type: 2}
   fusionCore: {fileID: 197428, guid: 198957e62549abd46a70b05e07e8197c, type: 2}

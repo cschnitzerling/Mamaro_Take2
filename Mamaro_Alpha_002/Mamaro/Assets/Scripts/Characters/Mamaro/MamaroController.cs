@@ -24,11 +24,6 @@ public class MamaroController : MonoBehaviour {
 
 	public List<FusionCore> fusionCores;
 
-	public float leftTrig;
-	public float rightTrig;
-
-
-
 	void Awake()
 	{
 		if (inst == null)
@@ -137,9 +132,6 @@ public class MamaroController : MonoBehaviour {
 				print ("Y");
 			}
 		}
-
-		leftTrig = state.Triggers.Left;
-		rightTrig = state.Triggers.Right;
 
 		//Punch Attack
 		if (state.Triggers.Right > 0)
