@@ -56,8 +56,7 @@ public class FusionCore : MonoBehaviour {
 		if (timerPickup > 1f)
 		{
 			Mamaro_Manager.inst.OnCorePickUp();
-			/// 
-			/// 
+			Audio_Manager.inst.PlayOnce(AA.Chr_Robot_Attack_CannonCharge_3, transform.position);
 			RemoveObject();
 		}
 	}
@@ -69,11 +68,10 @@ public class FusionCore : MonoBehaviour {
 
 		if (timerPickup > 1f)
 		{
-			///TODO Decrease Lucys Fear
-			/// 
-			/// 
+			//TODO Decrease Lucys Fear
+			//TODO Increase Lucy's fear bar
+			Audio_Manager.inst.PlayOnce(AA.Chr_Robot_Attack_CannonHit_1, transform.position);
 			RemoveObject();
-			Application.LoadLevel (2);
 		}
 	}
 

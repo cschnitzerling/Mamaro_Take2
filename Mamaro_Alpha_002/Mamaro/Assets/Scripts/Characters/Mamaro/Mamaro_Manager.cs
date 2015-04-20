@@ -133,7 +133,7 @@ public class Mamaro_Manager : MonoBehaviour
 			else
 				health += amount;
 
-			//TODO play fixing audio here
+			Audio_Manager.inst.PlayOnce(AA.Chr_Mamaro_Attack_ChargePunch_1);
 		}
 	}
 
