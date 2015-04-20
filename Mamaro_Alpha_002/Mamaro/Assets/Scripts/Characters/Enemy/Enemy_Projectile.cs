@@ -6,6 +6,7 @@ public class Enemy_Projectile : MonoBehaviour {
 	public float speed;
 	public float destroyTime;
 	public int damageAmount;
+	public GameObject explosion;
 	
 	private float timerDestroy;
 	private Rigidbody rb;
@@ -14,6 +15,7 @@ public class Enemy_Projectile : MonoBehaviour {
 	void Start () 
 	{
 		rb = GetComponent<Rigidbody>();
+		transform.rotation = Quaternion.LookRotation(Mamaro_Manager.inst.transform.position - transform.position);
 	}
 	
 	// Update is called once per frame
@@ -21,7 +23,7 @@ public class Enemy_Projectile : MonoBehaviour {
 	{
 		rb.AddRelativeForce(Vector3.forward * (speed*100) * Time.deltaTime, ForceMode.Acceleration);
 
-		LookTowards(Mamaro_Manager.inst.transform.position);
+		//LookTowards(Mamaro_Manager.inst.transform.position);
 
 		// destroy after x seconds
 		timerDestroy += Time.deltaTime;
@@ -32,18 +34,19 @@ public class Enemy_Projectile : MonoBehaviour {
 	/// slerp towards facing target
 	public void LookTowards(Vector3 target)
 	{
-		transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(target - transform.position), 1.0f);
+		transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(target - transform.position), 0.25f);
 	}
 
 	void OnDestroy()
 	{
-		//TODO particle explosion
-		//TODO PLay explosion sound
+		Instantiate(explosion, transform.position, Quaternion.identity);
+		Audio_Manager.inst.PlayOnce(AA.Env_General_PhysicalExpolsion_2);
 		Destroy(gameObject);
 	}
 
 	void OnCollisionEnter(Collision otherObj)
 	{
+		print ("Hit");
 		if(otherObj.transform.tag == "Player")
 		{
 			Mamaro_Manager.inst.OnTakeDamage(damageAmount);
