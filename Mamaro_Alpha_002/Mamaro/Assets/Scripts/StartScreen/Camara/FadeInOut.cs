@@ -4,7 +4,7 @@ using System.Collections;
 public class FadeInOut : MonoBehaviour {
 	public float fadeSpeed = 1.5f; 
 
-	public bool sceneStarting = true, washStarting = false, sceneEnding = false, nextScene = false;
+	public bool sceneStarting = true, washStarting = false, sceneEnding = false, nextScene = false, sceneReseting = false;
 	private MeshFilter layerMesh;
 	// Use this for initialization
 	void Awake () 
@@ -40,6 +40,11 @@ public class FadeInOut : MonoBehaviour {
 		if(nextScene)
 		{
 			StartNextScene();
+		}
+
+		if(sceneReseting)
+		{
+			ResetScene();
 		}
 	}
 
@@ -112,6 +117,25 @@ public class FadeInOut : MonoBehaviour {
 		if (layerMesh.GetComponent<Renderer>().material.color.a >= 0.95f) 
 		{
 			Application.LoadLevel("Level");
+		}
+		
+		/*
+		if (guiTexture.color.a <= 0.05f) 
+		{
+			Application.LoadLevel(0);
+		}
+		*/
+	}
+
+	public void ResetScene()
+	{
+		layerMesh.GetComponent<Renderer>().enabled = true;
+		//guiTexture.enabled = true;
+		WhiteWash ();
+		
+		if (layerMesh.GetComponent<Renderer>().material.color.a >= 0.95f) 
+		{
+			Application.LoadLevel(Application.loadedLevel);
 		}
 		
 		/*
