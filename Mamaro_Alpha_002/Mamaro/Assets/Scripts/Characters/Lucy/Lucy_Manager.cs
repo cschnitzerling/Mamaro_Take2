@@ -47,6 +47,9 @@ public class Lucy_Manager : MonoBehaviour {
 	{
 		fear = 50;
 		mamaro = Mamaro_Manager.inst;
+		Audio_Manager.inst.PlayRecursive(AA.Chr_Lucy_Cry_1, transform.position, "LucyCry");
+		Audio_Manager.inst.StopRecursive("LucyCry");
+		Audio_Manager.inst.SetVolume("LucyCry", 0.5f);
 	}
 	
 	// Update is called once per frame
@@ -72,9 +75,13 @@ public class Lucy_Manager : MonoBehaviour {
 		if (mamaro.isMalfunctioning)
 		{
 			ChangeState(LucyState.Tapping);
+			if(!Audio_Manager.inst.IsPlaying("LucyCry"))
+			{
+				Audio_Manager.inst.PlayRecursive("LucyCry");
+			}
 		}
 
-		//Switch for each of Lucy's Staes.
+		//Switch for each of Lucy's States.
 		switch (state)
 		{
 		case LucyState.Idle:
@@ -142,6 +149,7 @@ public class Lucy_Manager : MonoBehaviour {
 		}
 		else 
 		{
+			Audio_Manager.inst.StopRecursive("LucyCry");
 			ChangeState(LucyState.Idle);
 		}
 	}
