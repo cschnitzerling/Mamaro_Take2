@@ -236,7 +236,15 @@ ModelImporter:
     4300100: GeoSphere014
     4300102: Box023
     4300104: Plane003
-    7400000: Take 001
+    7400000: MAMARO_ANIM_Walk
+    7400002: MAMARO_ANIM_PunchCharge
+    7400004: MAMARO_ANIM_PunchAttack
+    7400006: MAMARO_ANIM_CannonCharge
+    7400008: MAMARO_ANIM_CannonAttack
+    7400010: MAMARO_ANIM_Block
+    7400012: MAMARO_ANIM_PowerUp
+    7400014: MAMARO_ANIM_DodgeLeft
+    7400016: MAMARO_ANIM_DodgeRight
     9500000: //RootNode
     13700000: Box006
     13700002: Box007
@@ -305,7 +313,2086 @@ ModelImporter:
     animationScaleError: .5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: MAMARO_ANIM_Walk
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 65
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Base Human
+        weight: 1
+      - path: Base HumanHub001
+        weight: 1
+      - path: Base HumanHub001/Base HumanLLeg1
+        weight: 1
+      - path: Base HumanHub001/Base HumanLLeg1/Base HumanLLegAnkle
+        weight: 1
+      - path: Base HumanHub001/Base HumanRLeg1
+        weight: 1
+      - path: Base HumanHub001/Base HumanRLeg1/Base HumanRLegAnkle
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanLArmCollarbone
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanLArmCollarbone/Base
+          HumanLArm1
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanLArmCollarbone/Base
+          HumanLArm1/Base HumanLArm2
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanLArmCollarbone/Base
+          HumanLArm1/Base HumanLArm2/Base HumanLArm3
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanLArmCollarbone/Base
+          HumanLArm1/Base HumanLArm2/Base HumanLArm3/Base HumanLArmPalm
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit11
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit11/Base
+          HumanRArmDigit12
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit31
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit31/Base
+          HumanRArmDigit32
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit31/Base
+          HumanRArmDigit32/Base HumanRArmDigit33
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit41
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit41/Base
+          HumanRArmDigit42
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit41/Base
+          HumanRArmDigit42/Base HumanRArmDigit43
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit41
+          1
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit41
+          1/Base HumanRArmDigit42 1
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit41
+          1/Base HumanRArmDigit42 1/Base HumanRArmDigit43 1
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanSpine 1
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanSpine 1/Base
+          HumanHub003
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanSpine 1/Base
+          HumanHub003/Base HumanHub003Bone001
+        weight: 1
+      - path: Base HumanLLegPlatform
+        weight: 1
+      - path: Base HumanRLegPlatform
+        weight: 1
+      - path: Box008
+        weight: 1
+      - path: Box008/Box007
+        weight: 1
+      - path: Box008/Box007/Box006
+        weight: 1
+      - path: Box008/Box007/Cylinder009
+        weight: 1
+      - path: Box008/Box007/Cylinder010
+        weight: 1
+      - path: Box008/Box007/Object012
+        weight: 1
+      - path: Box008/Cylinder018
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere001
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere001/Box010
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere001/Box010/GeoSphere002
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere001/Box010/GeoSphere002/Box011
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere001/Box010/GeoSphere002/Box011/GeoSphere003
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere001/Box010/GeoSphere002/Box011/GeoSphere003/Box012
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere004
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere004/Box013
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere004/Box013/GeoSphere005
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere004/Box013/GeoSphere005/Box015
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere004/Box013/GeoSphere005/Box015/GeoSphere006
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere004/Box013/GeoSphere005/Box015/GeoSphere006/Box014
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere007
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere007/Box016
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere007/Box016/GeoSphere008
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere007/Box016/GeoSphere008/Box018
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere007/Box016/GeoSphere008/Box018/GeoSphere009
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere007/Box016/GeoSphere008/Box018/GeoSphere009/Box017
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere010
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere010/Box019
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere010/Box019/GeoSphere012
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere010/Box019/GeoSphere012/Box020
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Plane005
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Object001
+        weight: 1
+      - path: Box008/GeoSphere013
+        weight: 1
+      - path: Box008/GeoSphere013/Box022
+        weight: 1
+      - path: Box008/GeoSphere014
+        weight: 1
+      - path: Box008/GeoSphere014/Box023
+        weight: 1
+      - path: Box008/Object004
+        weight: 1
+      - path: Box008/Object004/Object005
+        weight: 1
+      - path: Box008/Object004/Object005/Object006
+        weight: 1
+      - path: Box008/Object004/Object005/Object006/Object007
+        weight: 1
+      - path: Box008/Object004/Object005/Object006/Object008
+        weight: 1
+      - path: Box008/Object004/Object005/Object006/Object008/Object009
+        weight: 1
+      - path: Box008/Object004/Object005/Object006/Object008/Object009/Object010
+        weight: 1
+      - path: Box008/Object004/Object005/Object006/Object008/Object009/Object010/Object011
+        weight: 1
+      - path: Box008/Object004/Object005/Object006/Object008/Object009/Object010/Object011/Box021
+        weight: 1
+      - path: Box008/Object004/Object005/Object006/Object008/Object009/Object013
+        weight: 1
+      - path: Plane003
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: MAMARO_ANIM_PunchCharge
+      takeName: Take 001
+      firstFrame: 78
+      lastFrame: 93
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Base Human
+        weight: 1
+      - path: Base HumanHub001
+        weight: 1
+      - path: Base HumanHub001/Base HumanLLeg1
+        weight: 1
+      - path: Base HumanHub001/Base HumanLLeg1/Base HumanLLegAnkle
+        weight: 1
+      - path: Base HumanHub001/Base HumanRLeg1
+        weight: 1
+      - path: Base HumanHub001/Base HumanRLeg1/Base HumanRLegAnkle
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanLArmCollarbone
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanLArmCollarbone/Base
+          HumanLArm1
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanLArmCollarbone/Base
+          HumanLArm1/Base HumanLArm2
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanLArmCollarbone/Base
+          HumanLArm1/Base HumanLArm2/Base HumanLArm3
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanLArmCollarbone/Base
+          HumanLArm1/Base HumanLArm2/Base HumanLArm3/Base HumanLArmPalm
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit11
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit11/Base
+          HumanRArmDigit12
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit31
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit31/Base
+          HumanRArmDigit32
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit31/Base
+          HumanRArmDigit32/Base HumanRArmDigit33
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit41
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit41/Base
+          HumanRArmDigit42
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit41/Base
+          HumanRArmDigit42/Base HumanRArmDigit43
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit41
+          1
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit41
+          1/Base HumanRArmDigit42 1
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit41
+          1/Base HumanRArmDigit42 1/Base HumanRArmDigit43 1
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanSpine 1
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanSpine 1/Base
+          HumanHub003
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanSpine 1/Base
+          HumanHub003/Base HumanHub003Bone001
+        weight: 1
+      - path: Base HumanLLegPlatform
+        weight: 1
+      - path: Base HumanRLegPlatform
+        weight: 1
+      - path: Box008
+        weight: 1
+      - path: Box008/Box007
+        weight: 1
+      - path: Box008/Box007/Box006
+        weight: 1
+      - path: Box008/Box007/Cylinder009
+        weight: 1
+      - path: Box008/Box007/Cylinder010
+        weight: 1
+      - path: Box008/Box007/Object012
+        weight: 1
+      - path: Box008/Cylinder018
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere001
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere001/Box010
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere001/Box010/GeoSphere002
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere001/Box010/GeoSphere002/Box011
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere001/Box010/GeoSphere002/Box011/GeoSphere003
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere001/Box010/GeoSphere002/Box011/GeoSphere003/Box012
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere004
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere004/Box013
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere004/Box013/GeoSphere005
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere004/Box013/GeoSphere005/Box015
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere004/Box013/GeoSphere005/Box015/GeoSphere006
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere004/Box013/GeoSphere005/Box015/GeoSphere006/Box014
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere007
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere007/Box016
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere007/Box016/GeoSphere008
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere007/Box016/GeoSphere008/Box018
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere007/Box016/GeoSphere008/Box018/GeoSphere009
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere007/Box016/GeoSphere008/Box018/GeoSphere009/Box017
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere010
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere010/Box019
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere010/Box019/GeoSphere012
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere010/Box019/GeoSphere012/Box020
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Plane005
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Object001
+        weight: 1
+      - path: Box008/GeoSphere013
+        weight: 1
+      - path: Box008/GeoSphere013/Box022
+        weight: 1
+      - path: Box008/GeoSphere014
+        weight: 1
+      - path: Box008/GeoSphere014/Box023
+        weight: 1
+      - path: Box008/Object004
+        weight: 1
+      - path: Box008/Object004/Object005
+        weight: 1
+      - path: Box008/Object004/Object005/Object006
+        weight: 1
+      - path: Box008/Object004/Object005/Object006/Object007
+        weight: 1
+      - path: Box008/Object004/Object005/Object006/Object008
+        weight: 1
+      - path: Box008/Object004/Object005/Object006/Object008/Object009
+        weight: 1
+      - path: Box008/Object004/Object005/Object006/Object008/Object009/Object010
+        weight: 1
+      - path: Box008/Object004/Object005/Object006/Object008/Object009/Object010/Object011
+        weight: 1
+      - path: Box008/Object004/Object005/Object006/Object008/Object009/Object010/Object011/Box021
+        weight: 1
+      - path: Box008/Object004/Object005/Object006/Object008/Object009/Object013
+        weight: 1
+      - path: Plane003
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: MAMARO_ANIM_PunchAttack
+      takeName: Take 001
+      firstFrame: 93
+      lastFrame: 106
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Base Human
+        weight: 1
+      - path: Base HumanHub001
+        weight: 1
+      - path: Base HumanHub001/Base HumanLLeg1
+        weight: 1
+      - path: Base HumanHub001/Base HumanLLeg1/Base HumanLLegAnkle
+        weight: 1
+      - path: Base HumanHub001/Base HumanRLeg1
+        weight: 1
+      - path: Base HumanHub001/Base HumanRLeg1/Base HumanRLegAnkle
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanLArmCollarbone
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanLArmCollarbone/Base
+          HumanLArm1
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanLArmCollarbone/Base
+          HumanLArm1/Base HumanLArm2
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanLArmCollarbone/Base
+          HumanLArm1/Base HumanLArm2/Base HumanLArm3
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanLArmCollarbone/Base
+          HumanLArm1/Base HumanLArm2/Base HumanLArm3/Base HumanLArmPalm
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit11
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit11/Base
+          HumanRArmDigit12
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit31
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit31/Base
+          HumanRArmDigit32
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit31/Base
+          HumanRArmDigit32/Base HumanRArmDigit33
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit41
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit41/Base
+          HumanRArmDigit42
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit41/Base
+          HumanRArmDigit42/Base HumanRArmDigit43
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit41
+          1
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit41
+          1/Base HumanRArmDigit42 1
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit41
+          1/Base HumanRArmDigit42 1/Base HumanRArmDigit43 1
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanSpine 1
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanSpine 1/Base
+          HumanHub003
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanSpine 1/Base
+          HumanHub003/Base HumanHub003Bone001
+        weight: 1
+      - path: Base HumanLLegPlatform
+        weight: 1
+      - path: Base HumanRLegPlatform
+        weight: 1
+      - path: Box008
+        weight: 1
+      - path: Box008/Box007
+        weight: 1
+      - path: Box008/Box007/Box006
+        weight: 1
+      - path: Box008/Box007/Cylinder009
+        weight: 1
+      - path: Box008/Box007/Cylinder010
+        weight: 1
+      - path: Box008/Box007/Object012
+        weight: 1
+      - path: Box008/Cylinder018
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere001
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere001/Box010
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere001/Box010/GeoSphere002
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere001/Box010/GeoSphere002/Box011
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere001/Box010/GeoSphere002/Box011/GeoSphere003
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere001/Box010/GeoSphere002/Box011/GeoSphere003/Box012
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere004
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere004/Box013
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere004/Box013/GeoSphere005
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere004/Box013/GeoSphere005/Box015
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere004/Box013/GeoSphere005/Box015/GeoSphere006
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere004/Box013/GeoSphere005/Box015/GeoSphere006/Box014
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere007
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere007/Box016
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere007/Box016/GeoSphere008
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere007/Box016/GeoSphere008/Box018
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere007/Box016/GeoSphere008/Box018/GeoSphere009
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere007/Box016/GeoSphere008/Box018/GeoSphere009/Box017
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere010
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere010/Box019
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere010/Box019/GeoSphere012
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere010/Box019/GeoSphere012/Box020
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Plane005
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Object001
+        weight: 1
+      - path: Box008/GeoSphere013
+        weight: 1
+      - path: Box008/GeoSphere013/Box022
+        weight: 1
+      - path: Box008/GeoSphere014
+        weight: 1
+      - path: Box008/GeoSphere014/Box023
+        weight: 1
+      - path: Box008/Object004
+        weight: 1
+      - path: Box008/Object004/Object005
+        weight: 1
+      - path: Box008/Object004/Object005/Object006
+        weight: 1
+      - path: Box008/Object004/Object005/Object006/Object007
+        weight: 1
+      - path: Box008/Object004/Object005/Object006/Object008
+        weight: 1
+      - path: Box008/Object004/Object005/Object006/Object008/Object009
+        weight: 1
+      - path: Box008/Object004/Object005/Object006/Object008/Object009/Object010
+        weight: 1
+      - path: Box008/Object004/Object005/Object006/Object008/Object009/Object010/Object011
+        weight: 1
+      - path: Box008/Object004/Object005/Object006/Object008/Object009/Object010/Object011/Box021
+        weight: 1
+      - path: Box008/Object004/Object005/Object006/Object008/Object009/Object013
+        weight: 1
+      - path: Plane003
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: MAMARO_ANIM_CannonCharge
+      takeName: Take 001
+      firstFrame: 121
+      lastFrame: 140
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Base Human
+        weight: 1
+      - path: Base HumanHub001
+        weight: 1
+      - path: Base HumanHub001/Base HumanLLeg1
+        weight: 1
+      - path: Base HumanHub001/Base HumanLLeg1/Base HumanLLegAnkle
+        weight: 1
+      - path: Base HumanHub001/Base HumanRLeg1
+        weight: 1
+      - path: Base HumanHub001/Base HumanRLeg1/Base HumanRLegAnkle
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanLArmCollarbone
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanLArmCollarbone/Base
+          HumanLArm1
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanLArmCollarbone/Base
+          HumanLArm1/Base HumanLArm2
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanLArmCollarbone/Base
+          HumanLArm1/Base HumanLArm2/Base HumanLArm3
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanLArmCollarbone/Base
+          HumanLArm1/Base HumanLArm2/Base HumanLArm3/Base HumanLArmPalm
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit11
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit11/Base
+          HumanRArmDigit12
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit31
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit31/Base
+          HumanRArmDigit32
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit31/Base
+          HumanRArmDigit32/Base HumanRArmDigit33
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit41
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit41/Base
+          HumanRArmDigit42
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit41/Base
+          HumanRArmDigit42/Base HumanRArmDigit43
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit41
+          1
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit41
+          1/Base HumanRArmDigit42 1
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit41
+          1/Base HumanRArmDigit42 1/Base HumanRArmDigit43 1
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanSpine 1
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanSpine 1/Base
+          HumanHub003
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanSpine 1/Base
+          HumanHub003/Base HumanHub003Bone001
+        weight: 1
+      - path: Base HumanLLegPlatform
+        weight: 1
+      - path: Base HumanRLegPlatform
+        weight: 1
+      - path: Box008
+        weight: 1
+      - path: Box008/Box007
+        weight: 1
+      - path: Box008/Box007/Box006
+        weight: 1
+      - path: Box008/Box007/Cylinder009
+        weight: 1
+      - path: Box008/Box007/Cylinder010
+        weight: 1
+      - path: Box008/Box007/Object012
+        weight: 1
+      - path: Box008/Cylinder018
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere001
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere001/Box010
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere001/Box010/GeoSphere002
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere001/Box010/GeoSphere002/Box011
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere001/Box010/GeoSphere002/Box011/GeoSphere003
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere001/Box010/GeoSphere002/Box011/GeoSphere003/Box012
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere004
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere004/Box013
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere004/Box013/GeoSphere005
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere004/Box013/GeoSphere005/Box015
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere004/Box013/GeoSphere005/Box015/GeoSphere006
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere004/Box013/GeoSphere005/Box015/GeoSphere006/Box014
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere007
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere007/Box016
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere007/Box016/GeoSphere008
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere007/Box016/GeoSphere008/Box018
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere007/Box016/GeoSphere008/Box018/GeoSphere009
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere007/Box016/GeoSphere008/Box018/GeoSphere009/Box017
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere010
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere010/Box019
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere010/Box019/GeoSphere012
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere010/Box019/GeoSphere012/Box020
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Plane005
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Object001
+        weight: 1
+      - path: Box008/GeoSphere013
+        weight: 1
+      - path: Box008/GeoSphere013/Box022
+        weight: 1
+      - path: Box008/GeoSphere014
+        weight: 1
+      - path: Box008/GeoSphere014/Box023
+        weight: 1
+      - path: Box008/Object004
+        weight: 1
+      - path: Box008/Object004/Object005
+        weight: 1
+      - path: Box008/Object004/Object005/Object006
+        weight: 1
+      - path: Box008/Object004/Object005/Object006/Object007
+        weight: 1
+      - path: Box008/Object004/Object005/Object006/Object008
+        weight: 1
+      - path: Box008/Object004/Object005/Object006/Object008/Object009
+        weight: 1
+      - path: Box008/Object004/Object005/Object006/Object008/Object009/Object010
+        weight: 1
+      - path: Box008/Object004/Object005/Object006/Object008/Object009/Object010/Object011
+        weight: 1
+      - path: Box008/Object004/Object005/Object006/Object008/Object009/Object010/Object011/Box021
+        weight: 1
+      - path: Box008/Object004/Object005/Object006/Object008/Object009/Object013
+        weight: 1
+      - path: Plane003
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: MAMARO_ANIM_CannonAttack
+      takeName: Take 001
+      firstFrame: 140
+      lastFrame: 165
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Base Human
+        weight: 1
+      - path: Base HumanHub001
+        weight: 1
+      - path: Base HumanHub001/Base HumanLLeg1
+        weight: 1
+      - path: Base HumanHub001/Base HumanLLeg1/Base HumanLLegAnkle
+        weight: 1
+      - path: Base HumanHub001/Base HumanRLeg1
+        weight: 1
+      - path: Base HumanHub001/Base HumanRLeg1/Base HumanRLegAnkle
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanLArmCollarbone
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanLArmCollarbone/Base
+          HumanLArm1
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanLArmCollarbone/Base
+          HumanLArm1/Base HumanLArm2
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanLArmCollarbone/Base
+          HumanLArm1/Base HumanLArm2/Base HumanLArm3
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanLArmCollarbone/Base
+          HumanLArm1/Base HumanLArm2/Base HumanLArm3/Base HumanLArmPalm
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit11
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit11/Base
+          HumanRArmDigit12
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit31
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit31/Base
+          HumanRArmDigit32
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit31/Base
+          HumanRArmDigit32/Base HumanRArmDigit33
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit41
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit41/Base
+          HumanRArmDigit42
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit41/Base
+          HumanRArmDigit42/Base HumanRArmDigit43
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit41
+          1
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit41
+          1/Base HumanRArmDigit42 1
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit41
+          1/Base HumanRArmDigit42 1/Base HumanRArmDigit43 1
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanSpine 1
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanSpine 1/Base
+          HumanHub003
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanSpine 1/Base
+          HumanHub003/Base HumanHub003Bone001
+        weight: 1
+      - path: Base HumanLLegPlatform
+        weight: 1
+      - path: Base HumanRLegPlatform
+        weight: 1
+      - path: Box008
+        weight: 1
+      - path: Box008/Box007
+        weight: 1
+      - path: Box008/Box007/Box006
+        weight: 1
+      - path: Box008/Box007/Cylinder009
+        weight: 1
+      - path: Box008/Box007/Cylinder010
+        weight: 1
+      - path: Box008/Box007/Object012
+        weight: 1
+      - path: Box008/Cylinder018
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere001
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere001/Box010
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere001/Box010/GeoSphere002
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere001/Box010/GeoSphere002/Box011
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere001/Box010/GeoSphere002/Box011/GeoSphere003
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere001/Box010/GeoSphere002/Box011/GeoSphere003/Box012
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere004
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere004/Box013
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere004/Box013/GeoSphere005
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere004/Box013/GeoSphere005/Box015
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere004/Box013/GeoSphere005/Box015/GeoSphere006
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere004/Box013/GeoSphere005/Box015/GeoSphere006/Box014
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere007
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere007/Box016
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere007/Box016/GeoSphere008
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere007/Box016/GeoSphere008/Box018
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere007/Box016/GeoSphere008/Box018/GeoSphere009
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere007/Box016/GeoSphere008/Box018/GeoSphere009/Box017
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere010
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere010/Box019
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere010/Box019/GeoSphere012
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere010/Box019/GeoSphere012/Box020
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Plane005
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Object001
+        weight: 1
+      - path: Box008/GeoSphere013
+        weight: 1
+      - path: Box008/GeoSphere013/Box022
+        weight: 1
+      - path: Box008/GeoSphere014
+        weight: 1
+      - path: Box008/GeoSphere014/Box023
+        weight: 1
+      - path: Box008/Object004
+        weight: 1
+      - path: Box008/Object004/Object005
+        weight: 1
+      - path: Box008/Object004/Object005/Object006
+        weight: 1
+      - path: Box008/Object004/Object005/Object006/Object007
+        weight: 1
+      - path: Box008/Object004/Object005/Object006/Object008
+        weight: 1
+      - path: Box008/Object004/Object005/Object006/Object008/Object009
+        weight: 1
+      - path: Box008/Object004/Object005/Object006/Object008/Object009/Object010
+        weight: 1
+      - path: Box008/Object004/Object005/Object006/Object008/Object009/Object010/Object011
+        weight: 1
+      - path: Box008/Object004/Object005/Object006/Object008/Object009/Object010/Object011/Box021
+        weight: 1
+      - path: Box008/Object004/Object005/Object006/Object008/Object009/Object013
+        weight: 1
+      - path: Plane003
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: MAMARO_ANIM_Block
+      takeName: Take 001
+      firstFrame: 258
+      lastFrame: 274
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Base Human
+        weight: 1
+      - path: Base HumanHub001
+        weight: 1
+      - path: Base HumanHub001/Base HumanLLeg1
+        weight: 1
+      - path: Base HumanHub001/Base HumanLLeg1/Base HumanLLegAnkle
+        weight: 1
+      - path: Base HumanHub001/Base HumanRLeg1
+        weight: 1
+      - path: Base HumanHub001/Base HumanRLeg1/Base HumanRLegAnkle
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanLArmCollarbone
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanLArmCollarbone/Base
+          HumanLArm1
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanLArmCollarbone/Base
+          HumanLArm1/Base HumanLArm2
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanLArmCollarbone/Base
+          HumanLArm1/Base HumanLArm2/Base HumanLArm3
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanLArmCollarbone/Base
+          HumanLArm1/Base HumanLArm2/Base HumanLArm3/Base HumanLArmPalm
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit11
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit11/Base
+          HumanRArmDigit12
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit31
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit31/Base
+          HumanRArmDigit32
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit31/Base
+          HumanRArmDigit32/Base HumanRArmDigit33
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit41
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit41/Base
+          HumanRArmDigit42
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit41/Base
+          HumanRArmDigit42/Base HumanRArmDigit43
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit41
+          1
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit41
+          1/Base HumanRArmDigit42 1
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit41
+          1/Base HumanRArmDigit42 1/Base HumanRArmDigit43 1
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanSpine 1
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanSpine 1/Base
+          HumanHub003
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanSpine 1/Base
+          HumanHub003/Base HumanHub003Bone001
+        weight: 1
+      - path: Base HumanLLegPlatform
+        weight: 1
+      - path: Base HumanRLegPlatform
+        weight: 1
+      - path: Box008
+        weight: 1
+      - path: Box008/Box007
+        weight: 1
+      - path: Box008/Box007/Box006
+        weight: 1
+      - path: Box008/Box007/Cylinder009
+        weight: 1
+      - path: Box008/Box007/Cylinder010
+        weight: 1
+      - path: Box008/Box007/Object012
+        weight: 1
+      - path: Box008/Cylinder018
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere001
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere001/Box010
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere001/Box010/GeoSphere002
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere001/Box010/GeoSphere002/Box011
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere001/Box010/GeoSphere002/Box011/GeoSphere003
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere001/Box010/GeoSphere002/Box011/GeoSphere003/Box012
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere004
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere004/Box013
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere004/Box013/GeoSphere005
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere004/Box013/GeoSphere005/Box015
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere004/Box013/GeoSphere005/Box015/GeoSphere006
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere004/Box013/GeoSphere005/Box015/GeoSphere006/Box014
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere007
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere007/Box016
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere007/Box016/GeoSphere008
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere007/Box016/GeoSphere008/Box018
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere007/Box016/GeoSphere008/Box018/GeoSphere009
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere007/Box016/GeoSphere008/Box018/GeoSphere009/Box017
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere010
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere010/Box019
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere010/Box019/GeoSphere012
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere010/Box019/GeoSphere012/Box020
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Plane005
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Object001
+        weight: 1
+      - path: Box008/GeoSphere013
+        weight: 1
+      - path: Box008/GeoSphere013/Box022
+        weight: 1
+      - path: Box008/GeoSphere014
+        weight: 1
+      - path: Box008/GeoSphere014/Box023
+        weight: 1
+      - path: Box008/Object004
+        weight: 1
+      - path: Box008/Object004/Object005
+        weight: 1
+      - path: Box008/Object004/Object005/Object006
+        weight: 1
+      - path: Box008/Object004/Object005/Object006/Object007
+        weight: 1
+      - path: Box008/Object004/Object005/Object006/Object008
+        weight: 1
+      - path: Box008/Object004/Object005/Object006/Object008/Object009
+        weight: 1
+      - path: Box008/Object004/Object005/Object006/Object008/Object009/Object010
+        weight: 1
+      - path: Box008/Object004/Object005/Object006/Object008/Object009/Object010/Object011
+        weight: 1
+      - path: Box008/Object004/Object005/Object006/Object008/Object009/Object010/Object011/Box021
+        weight: 1
+      - path: Box008/Object004/Object005/Object006/Object008/Object009/Object013
+        weight: 1
+      - path: Plane003
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: MAMARO_ANIM_PowerUp
+      takeName: Take 001
+      firstFrame: 234
+      lastFrame: 250
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Base Human
+        weight: 1
+      - path: Base HumanHub001
+        weight: 1
+      - path: Base HumanHub001/Base HumanLLeg1
+        weight: 1
+      - path: Base HumanHub001/Base HumanLLeg1/Base HumanLLegAnkle
+        weight: 1
+      - path: Base HumanHub001/Base HumanRLeg1
+        weight: 1
+      - path: Base HumanHub001/Base HumanRLeg1/Base HumanRLegAnkle
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanLArmCollarbone
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanLArmCollarbone/Base
+          HumanLArm1
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanLArmCollarbone/Base
+          HumanLArm1/Base HumanLArm2
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanLArmCollarbone/Base
+          HumanLArm1/Base HumanLArm2/Base HumanLArm3
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanLArmCollarbone/Base
+          HumanLArm1/Base HumanLArm2/Base HumanLArm3/Base HumanLArmPalm
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit11
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit11/Base
+          HumanRArmDigit12
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit31
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit31/Base
+          HumanRArmDigit32
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit31/Base
+          HumanRArmDigit32/Base HumanRArmDigit33
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit41
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit41/Base
+          HumanRArmDigit42
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit41/Base
+          HumanRArmDigit42/Base HumanRArmDigit43
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit41
+          1
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit41
+          1/Base HumanRArmDigit42 1
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit41
+          1/Base HumanRArmDigit42 1/Base HumanRArmDigit43 1
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanSpine 1
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanSpine 1/Base
+          HumanHub003
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanSpine 1/Base
+          HumanHub003/Base HumanHub003Bone001
+        weight: 1
+      - path: Base HumanLLegPlatform
+        weight: 1
+      - path: Base HumanRLegPlatform
+        weight: 1
+      - path: Box008
+        weight: 1
+      - path: Box008/Box007
+        weight: 1
+      - path: Box008/Box007/Box006
+        weight: 1
+      - path: Box008/Box007/Cylinder009
+        weight: 1
+      - path: Box008/Box007/Cylinder010
+        weight: 1
+      - path: Box008/Box007/Object012
+        weight: 1
+      - path: Box008/Cylinder018
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere001
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere001/Box010
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere001/Box010/GeoSphere002
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere001/Box010/GeoSphere002/Box011
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere001/Box010/GeoSphere002/Box011/GeoSphere003
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere001/Box010/GeoSphere002/Box011/GeoSphere003/Box012
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere004
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere004/Box013
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere004/Box013/GeoSphere005
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere004/Box013/GeoSphere005/Box015
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere004/Box013/GeoSphere005/Box015/GeoSphere006
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere004/Box013/GeoSphere005/Box015/GeoSphere006/Box014
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere007
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere007/Box016
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere007/Box016/GeoSphere008
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere007/Box016/GeoSphere008/Box018
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere007/Box016/GeoSphere008/Box018/GeoSphere009
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere007/Box016/GeoSphere008/Box018/GeoSphere009/Box017
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere010
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere010/Box019
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere010/Box019/GeoSphere012
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere010/Box019/GeoSphere012/Box020
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Plane005
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Object001
+        weight: 1
+      - path: Box008/GeoSphere013
+        weight: 1
+      - path: Box008/GeoSphere013/Box022
+        weight: 1
+      - path: Box008/GeoSphere014
+        weight: 1
+      - path: Box008/GeoSphere014/Box023
+        weight: 1
+      - path: Box008/Object004
+        weight: 1
+      - path: Box008/Object004/Object005
+        weight: 1
+      - path: Box008/Object004/Object005/Object006
+        weight: 1
+      - path: Box008/Object004/Object005/Object006/Object007
+        weight: 1
+      - path: Box008/Object004/Object005/Object006/Object008
+        weight: 1
+      - path: Box008/Object004/Object005/Object006/Object008/Object009
+        weight: 1
+      - path: Box008/Object004/Object005/Object006/Object008/Object009/Object010
+        weight: 1
+      - path: Box008/Object004/Object005/Object006/Object008/Object009/Object010/Object011
+        weight: 1
+      - path: Box008/Object004/Object005/Object006/Object008/Object009/Object010/Object011/Box021
+        weight: 1
+      - path: Box008/Object004/Object005/Object006/Object008/Object009/Object013
+        weight: 1
+      - path: Plane003
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: MAMARO_ANIM_DodgeLeft
+      takeName: Take 001
+      firstFrame: 292
+      lastFrame: 300
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Base Human
+        weight: 1
+      - path: Base HumanHub001
+        weight: 1
+      - path: Base HumanHub001/Base HumanLLeg1
+        weight: 1
+      - path: Base HumanHub001/Base HumanLLeg1/Base HumanLLegAnkle
+        weight: 1
+      - path: Base HumanHub001/Base HumanRLeg1
+        weight: 1
+      - path: Base HumanHub001/Base HumanRLeg1/Base HumanRLegAnkle
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanLArmCollarbone
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanLArmCollarbone/Base
+          HumanLArm1
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanLArmCollarbone/Base
+          HumanLArm1/Base HumanLArm2
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanLArmCollarbone/Base
+          HumanLArm1/Base HumanLArm2/Base HumanLArm3
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanLArmCollarbone/Base
+          HumanLArm1/Base HumanLArm2/Base HumanLArm3/Base HumanLArmPalm
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit11
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit11/Base
+          HumanRArmDigit12
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit31
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit31/Base
+          HumanRArmDigit32
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit31/Base
+          HumanRArmDigit32/Base HumanRArmDigit33
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit41
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit41/Base
+          HumanRArmDigit42
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit41/Base
+          HumanRArmDigit42/Base HumanRArmDigit43
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit41
+          1
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit41
+          1/Base HumanRArmDigit42 1
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit41
+          1/Base HumanRArmDigit42 1/Base HumanRArmDigit43 1
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanSpine 1
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanSpine 1/Base
+          HumanHub003
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanSpine 1/Base
+          HumanHub003/Base HumanHub003Bone001
+        weight: 1
+      - path: Base HumanLLegPlatform
+        weight: 1
+      - path: Base HumanRLegPlatform
+        weight: 1
+      - path: Box008
+        weight: 1
+      - path: Box008/Box007
+        weight: 1
+      - path: Box008/Box007/Box006
+        weight: 1
+      - path: Box008/Box007/Cylinder009
+        weight: 1
+      - path: Box008/Box007/Cylinder010
+        weight: 1
+      - path: Box008/Box007/Object012
+        weight: 1
+      - path: Box008/Cylinder018
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere001
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere001/Box010
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere001/Box010/GeoSphere002
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere001/Box010/GeoSphere002/Box011
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere001/Box010/GeoSphere002/Box011/GeoSphere003
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere001/Box010/GeoSphere002/Box011/GeoSphere003/Box012
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere004
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere004/Box013
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere004/Box013/GeoSphere005
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere004/Box013/GeoSphere005/Box015
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere004/Box013/GeoSphere005/Box015/GeoSphere006
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere004/Box013/GeoSphere005/Box015/GeoSphere006/Box014
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere007
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere007/Box016
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere007/Box016/GeoSphere008
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere007/Box016/GeoSphere008/Box018
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere007/Box016/GeoSphere008/Box018/GeoSphere009
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere007/Box016/GeoSphere008/Box018/GeoSphere009/Box017
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere010
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere010/Box019
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere010/Box019/GeoSphere012
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere010/Box019/GeoSphere012/Box020
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Plane005
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Object001
+        weight: 1
+      - path: Box008/GeoSphere013
+        weight: 1
+      - path: Box008/GeoSphere013/Box022
+        weight: 1
+      - path: Box008/GeoSphere014
+        weight: 1
+      - path: Box008/GeoSphere014/Box023
+        weight: 1
+      - path: Box008/Object004
+        weight: 1
+      - path: Box008/Object004/Object005
+        weight: 1
+      - path: Box008/Object004/Object005/Object006
+        weight: 1
+      - path: Box008/Object004/Object005/Object006/Object007
+        weight: 1
+      - path: Box008/Object004/Object005/Object006/Object008
+        weight: 1
+      - path: Box008/Object004/Object005/Object006/Object008/Object009
+        weight: 1
+      - path: Box008/Object004/Object005/Object006/Object008/Object009/Object010
+        weight: 1
+      - path: Box008/Object004/Object005/Object006/Object008/Object009/Object010/Object011
+        weight: 1
+      - path: Box008/Object004/Object005/Object006/Object008/Object009/Object010/Object011/Box021
+        weight: 1
+      - path: Box008/Object004/Object005/Object006/Object008/Object009/Object013
+        weight: 1
+      - path: Plane003
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: MAMARO_ANIM_DodgeRight
+      takeName: Take 001
+      firstFrame: 311
+      lastFrame: 315
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Base Human
+        weight: 1
+      - path: Base HumanHub001
+        weight: 1
+      - path: Base HumanHub001/Base HumanLLeg1
+        weight: 1
+      - path: Base HumanHub001/Base HumanLLeg1/Base HumanLLegAnkle
+        weight: 1
+      - path: Base HumanHub001/Base HumanRLeg1
+        weight: 1
+      - path: Base HumanHub001/Base HumanRLeg1/Base HumanRLegAnkle
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanLArmCollarbone
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanLArmCollarbone/Base
+          HumanLArm1
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanLArmCollarbone/Base
+          HumanLArm1/Base HumanLArm2
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanLArmCollarbone/Base
+          HumanLArm1/Base HumanLArm2/Base HumanLArm3
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanLArmCollarbone/Base
+          HumanLArm1/Base HumanLArm2/Base HumanLArm3/Base HumanLArmPalm
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit11
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit11/Base
+          HumanRArmDigit12
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit31
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit31/Base
+          HumanRArmDigit32
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit31/Base
+          HumanRArmDigit32/Base HumanRArmDigit33
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit41
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit41/Base
+          HumanRArmDigit42
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit41/Base
+          HumanRArmDigit42/Base HumanRArmDigit43
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit41
+          1
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit41
+          1/Base HumanRArmDigit42 1
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanRArmCollarbone/Base
+          HumanRArm1/Base HumanRArm2/Base HumanRArm3/Base HumanRArmPalm/Base HumanRArmDigit41
+          1/Base HumanRArmDigit42 1/Base HumanRArmDigit43 1
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanSpine 1
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanSpine 1/Base
+          HumanHub003
+        weight: 1
+      - path: Base HumanHub001/Base HumanSpine/Base HumanHub002/Base HumanSpine 1/Base
+          HumanHub003/Base HumanHub003Bone001
+        weight: 1
+      - path: Base HumanLLegPlatform
+        weight: 1
+      - path: Base HumanRLegPlatform
+        weight: 1
+      - path: Box008
+        weight: 1
+      - path: Box008/Box007
+        weight: 1
+      - path: Box008/Box007/Box006
+        weight: 1
+      - path: Box008/Box007/Cylinder009
+        weight: 1
+      - path: Box008/Box007/Cylinder010
+        weight: 1
+      - path: Box008/Box007/Object012
+        weight: 1
+      - path: Box008/Cylinder018
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere001
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere001/Box010
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere001/Box010/GeoSphere002
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere001/Box010/GeoSphere002/Box011
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere001/Box010/GeoSphere002/Box011/GeoSphere003
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere001/Box010/GeoSphere002/Box011/GeoSphere003/Box012
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere004
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere004/Box013
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere004/Box013/GeoSphere005
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere004/Box013/GeoSphere005/Box015
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere004/Box013/GeoSphere005/Box015/GeoSphere006
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere004/Box013/GeoSphere005/Box015/GeoSphere006/Box014
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere007
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere007/Box016
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere007/Box016/GeoSphere008
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere007/Box016/GeoSphere008/Box018
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere007/Box016/GeoSphere008/Box018/GeoSphere009
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere007/Box016/GeoSphere008/Box018/GeoSphere009/Box017
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere010
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere010/Box019
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere010/Box019/GeoSphere012
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Cylinder019/Object003/Object002/GeoSphere010/Box019/GeoSphere012/Box020
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Box009/ElbowJoint/Plane005
+        weight: 1
+      - path: Box008/Cylinder018/shoulderpad/Cylinder017/Object001
+        weight: 1
+      - path: Box008/GeoSphere013
+        weight: 1
+      - path: Box008/GeoSphere013/Box022
+        weight: 1
+      - path: Box008/GeoSphere014
+        weight: 1
+      - path: Box008/GeoSphere014/Box023
+        weight: 1
+      - path: Box008/Object004
+        weight: 1
+      - path: Box008/Object004/Object005
+        weight: 1
+      - path: Box008/Object004/Object005/Object006
+        weight: 1
+      - path: Box008/Object004/Object005/Object006/Object007
+        weight: 1
+      - path: Box008/Object004/Object005/Object006/Object008
+        weight: 1
+      - path: Box008/Object004/Object005/Object006/Object008/Object009
+        weight: 1
+      - path: Box008/Object004/Object005/Object006/Object008/Object009/Object010
+        weight: 1
+      - path: Box008/Object004/Object005/Object006/Object008/Object009/Object010/Object011
+        weight: 1
+      - path: Box008/Object004/Object005/Object006/Object008/Object009/Object010/Object011/Box021
+        weight: 1
+      - path: Box008/Object004/Object005/Object006/Object008/Object009/Object013
+        weight: 1
+      - path: Plane003
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
     isReadable: 1
   meshes:
     lODScreenPercentages: []

@@ -25,6 +25,10 @@ public class MamaroMovement : MonoBehaviour {
 	public AbilitySocket socketMove;
 
 	public static MamaroMovement inst;
+	public AnimationState walkAnim;
+
+	//Animation Variables
+	Animator anim;
 
 	void Awake()
 	{
@@ -33,6 +37,7 @@ public class MamaroMovement : MonoBehaviour {
 		{
 			inst = this;
 		}
+		anim = GetComponentInChildren<Animator>();
 		isRun = false;
 		isDodge = false;
 	}
@@ -89,6 +94,10 @@ public class MamaroMovement : MonoBehaviour {
 
 		//Add in booster to gravity
 		rb.AddForce(Vector3.down * 5000);
+
+		//Animation speed
+		anim.SetFloat("Speed",moveDir.magnitude / 15);
+	
 
 	}
 
