@@ -176,6 +176,8 @@ public class Comic_Controller: MonoBehaviour {
 
 		}
 
+		if(Input.GetKeyDown(KeyCode.Space))
+			CamMove.NewTarget();
 		
 		
 		//Adust Ability Cores

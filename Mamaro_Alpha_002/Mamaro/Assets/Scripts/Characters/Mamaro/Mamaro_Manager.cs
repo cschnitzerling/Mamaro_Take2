@@ -26,10 +26,13 @@ public class Mamaro_Manager : MonoBehaviour
 	// private vars
 	public int meleeCores, speedCores, rangedCores, shieldCores;
 
+	Animator anim;
+
 	void Awake()
 	{
 		if (inst == null)
 			inst = this;
+		anim = GetComponentInChildren<Animator>();
 	}
 
 	// Use this for initialization
@@ -107,6 +110,7 @@ public class Mamaro_Manager : MonoBehaviour
 	public void SetBlocking(bool input)
 	{
 		isBlocking = input;
+		anim.SetBool("Bool_Block", input);
 	}
 
 	/// triggers malfunction sequence
@@ -129,7 +133,7 @@ public class Mamaro_Manager : MonoBehaviour
 			else
 				health += amount;
 
-			//TODO play fixing audio here
+			Audio_Manager.inst.PlayOnce(AA.Chr_Mamaro_Attack_ChargePunch_1);
 		}
 	}
 

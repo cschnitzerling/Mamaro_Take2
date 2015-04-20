@@ -298,7 +298,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 196764}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.35800004, z: .880999982}
+  m_LocalPosition: {x: 0, y: 2.3599999, z: -.159999996}
   m_LocalScale: {x: .25, y: .25, z: .25}
   m_Children: []
   m_Father: {fileID: 442822}
@@ -336,8 +336,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 168058}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 513.599976, y: 197.679993, z: 589.109985}
-  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_LocalPosition: {x: 513.599976, y: 192.300003, z: 589.109985}
+  m_LocalScale: {x: 8, y: 8, z: 8}
   m_Children:
   - {fileID: 493858}
   - {fileID: 428184}
@@ -875,6 +875,8 @@ MonoBehaviour:
   shootPos: {fileID: 428184}
   fireRate: 5
   destroyTime: 5
+  explosion: {fileID: 180484, guid: 85d308a2e7ed867438ccf8993ee59b09, type: 2}
+  fusionCore: {fileID: 197428, guid: 198957e62549abd46a70b05e07e8197c, type: 2}
   health: 100
   state: 0
   alert: 0
@@ -898,8 +900,8 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 2.03999996
-  m_BaseOffset: -.579999983
+  m_Height: 1.60000002
+  m_BaseOffset: -.920000017
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!1001 &100100000

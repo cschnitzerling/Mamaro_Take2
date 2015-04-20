@@ -46,7 +46,6 @@ public class Enemy_Projectile : MonoBehaviour {
 
 	void OnCollisionEnter(Collision otherObj)
 	{
-		print ("Hit");
 		if(otherObj.transform.tag == "Player")
 		{
 			Mamaro_Manager.inst.OnTakeDamage(damageAmount);
