@@ -4,11 +4,7 @@ using System.Collections;
 public class Explosion : MonoBehaviour {
 	float timer;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		timer += Time.deltaTime;
@@ -19,13 +15,14 @@ public class Explosion : MonoBehaviour {
 
 			for (int i = 0; i < temp.Length; i ++)
 			{
-				temp[i].Stop ();
+				temp[i].Stop();
 			}
 
 		}
 
 		if (timer > 5)
 		{
+			Audio_Manager.inst.PlayOnce(AA.Env_General_PhysicalExpolsion_2, transform.position);
 			Destroy(gameObject);
 		}
 	}
