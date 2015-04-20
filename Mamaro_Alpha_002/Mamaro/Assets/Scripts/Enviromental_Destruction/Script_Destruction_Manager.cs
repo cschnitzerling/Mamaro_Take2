@@ -4,13 +4,13 @@ using System.Collections;
 public class Script_Destruction_Manager : MonoBehaviour {
 	public GameObject destructionObject;
 	public GameObject mamaro;
-	public BoxCollider mamaroFistCol;
+	//public BoxCollider mamaroFistCol;
 	public Script_Destruction_Chunks[] chunklets = new Script_Destruction_Chunks[0];
 	public int punchCount;
 	// Use this for initialization
 	void Awake () {
 		mamaro = GameObject.FindGameObjectWithTag ("Player");
-		mamaroFistCol = mamaro.GetComponentInChildren<BoxCollider> ();
+		//mamaroFistCol = mamaro.GetComponentInChildren<BoxCollider> ();
 		if (gameObject.tag == "Wall") {
 			GameObject WallDestroLoad = Resources.Load ("Envi_Destructables/Kelpi_Wall_Busted") as GameObject;
 			destructionObject = WallDestroLoad;
@@ -34,9 +34,9 @@ public class Script_Destruction_Manager : MonoBehaviour {
 			Instantiate (destructionObject, new Vector3 (transform.position.x, transform.position.y + 0, transform.position.z), transform.rotation);
 		} 
 	}
-	void OnCollisionEnter(Collision col)
+	void OnTriggerEnter(Collider col)
 	{
-		if (col.collider == mamaroFistCol && Ability_Manager.inst.GetSocket(Sockets.Melee).GetCoreCount() > 1) {
+		if (col.tag == "Fist" && Ability_Manager.inst.GetSocket(Sockets.Melee).GetCoreCount() > 1) {
 			//Debug.Log ("MYFACE");
 			BlowUp();
 			punchCount ++;
@@ -45,9 +45,9 @@ public class Script_Destruction_Manager : MonoBehaviour {
 
 	}
 
-	void OnCollisionStay(Collision col)
+	void OnTriggerStay(Collider col)
 	{
-		if (col.collider == mamaroFistCol) {
+		if (col.tag == "Fist") {
 			Debug.Log ("Ouch");
 		}
 	}

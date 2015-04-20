@@ -35,6 +35,12 @@ public class Lucy_Manager : MonoBehaviour {
 	public RectTransform meter;
 	public Material color;
 
+	public GameObject lucyIncFear;
+
+	public Animator anim;
+
+
+
 	void Awake()
 	{
 		if (inst == null)
@@ -116,6 +122,11 @@ public class Lucy_Manager : MonoBehaviour {
 	//Allows the Fear Meter to be increased or decreased.
 	public void OnChangeFear(FearType fearType)
 	{
+		if ((int)fearType > 0)
+		{
+			lucyIncFear.SetActive(true);
+		}
+
 		if (fear <= fearMax && fear >= 0)
 		{
 			fear += (int)fearType;
@@ -133,15 +144,20 @@ public class Lucy_Manager : MonoBehaviour {
 
 		if (fear > fearFrightenedLevel)
 		{
-
+			anim.SetBool("Bool_Scared", true);
+			anim.SetBool("Bool_Repair", false);
 			ChangeState(LucyState.Petrified);
 		}
 		else if(fear > fearScaredLevel)
 		{
+			anim.SetBool("Bool_Scared", false);
+			anim.SetBool("Bool_Repair", true);
 			ChangeState(LucyState.Scared);
 		}
 		else 
 		{
+			anim.SetBool("Bool_Scared", false);
+			anim.SetBool("Bool_Repair", false);
 			ChangeState(LucyState.Idle);
 		}
 	}
@@ -154,6 +170,8 @@ public class Lucy_Manager : MonoBehaviour {
 	// Play Lucy Audio
 	void Idle()
 	{
+		anim.SetBool("Bool_Scared", false);
+		anim.SetBool("Bool_Repair", false);
 		if (mamaro.health < mamaro.maxHealth)
 		{
 			ChangeState(LucyState.Repair);
@@ -167,6 +185,8 @@ public class Lucy_Manager : MonoBehaviour {
 	/// Slowly Repairs Mamaro
 	void Repair()
 	{
+		anim.SetBool("Bool_Scared", false);
+		anim.SetBool("Bool_Repair", true);
 		if (mamaro.health == mamaro.maxHealth)
 		{
 			ChangeState(LucyState.Idle);
