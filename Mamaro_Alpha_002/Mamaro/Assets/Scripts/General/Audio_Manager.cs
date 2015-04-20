@@ -47,13 +47,13 @@ public class Audio_Manager : MonoBehaviour
 	void Update()
 	{
 		// check to destroy oneshots
-		foreach(AudioSource a in oneShots)
+		for(int i = 0; i < oneShots.Count; ++i)
 		{
 			// has stopped playing
-			if(!a.isPlaying)
+			if(!oneShots[i].isPlaying)
 			{
-				Destroy(a.gameObject);
-				oneShots.Remove(a);
+				Destroy(oneShots[i].gameObject);
+				oneShots.Remove(oneShots[i]);
 			}
 		}
 	}
