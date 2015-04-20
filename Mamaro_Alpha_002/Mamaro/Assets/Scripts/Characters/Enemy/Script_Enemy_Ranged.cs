@@ -20,6 +20,8 @@ public class Script_Enemy_Ranged : MonoBehaviour
 	public Transform shootPos;
 	public float fireRate = 5.0f;
 	public float destroyTime = 5.0f;
+	public GameObject explosion;
+	public GameObject fusionCore;
 
 	// private vars
 	public int health = 100;
@@ -171,7 +173,7 @@ public class Script_Enemy_Ranged : MonoBehaviour
 	/// reduces health and checks for death
 	public void OnTakeDamage(int amount)
 	{
-		//TODO play hit audio
+		Audio_Manager.inst.PlayOnce(AA.Chr_Robot_Damage_MetalOnMetal_2, transform.position);
 
 		// check if already dead
 		if(health > 0)
@@ -184,7 +186,6 @@ public class Script_Enemy_Ranged : MonoBehaviour
 		{
 			// death sequence
 			DetachChildren(this.transform);
-			//TODO apply particles
 			Explode();
 			Audio_Manager.inst.PlayOnce(AA.Env_General_PhysicalExpolsion_2, transform.position);
 			timerDestroy = destroyTime;
@@ -194,6 +195,11 @@ public class Script_Enemy_Ranged : MonoBehaviour
 	/// Adds explosive force to surrounding rigid bodies
 	public void Explode()
 	{
+		Destroy (nav);
+		Audio_Manager.inst.PlayOnce(AA.Env_General_PhysicalExpolsion_2, transform.position);
+		Vector3 centerPos = new Vector3 (transform.position.x, transform.position.y + 10.0f, transform.position.z);
+		Instantiate (fusionCore, centerPos, Quaternion.identity);
+		Instantiate(explosion, centerPos, Quaternion.identity);
 		Vector3 explosionPos = this.transform.position + transform.forward * 2;
 		Collider[] colliders = Physics.OverlapSphere(explosionPos, explosionRadius);
 
@@ -201,7 +207,7 @@ public class Script_Enemy_Ranged : MonoBehaviour
 		{
 			if (hit && hit.GetComponent<Rigidbody>())
 			{
-				hit.GetComponent<Rigidbody>().AddExplosionForce(explosionPower, explosionPos, explosionPower, 1.0F, ForceMode.Impulse);
+				hit.GetComponent<Rigidbody>().AddExplosionForce(explosionPower, explosionPos, explosionPower, 0.35F, ForceMode.Impulse);
 			}
 		}
 	}

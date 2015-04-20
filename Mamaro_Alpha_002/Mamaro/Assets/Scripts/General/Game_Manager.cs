@@ -145,7 +145,7 @@ public class Game_Manager : MonoBehaviour
 			foreach(MonoBehaviour script in scripts)
 			{
 				// only switch off active scripts
-				if(script.enabled == true)
+				if(script != null && script.enabled == true)
 				{
 					//print (script.name);
 					if (script.name != "GAME_MANAGER")

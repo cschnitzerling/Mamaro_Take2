@@ -13,11 +13,16 @@ public class FusionCore : MonoBehaviour {
 	public float previousTime;
 	public float timerPickup;
 
+	private string audioKey;
+
 	// Use this for initialization
 	void Start () 
 	{
+		audioKey = gameObject.GetInstanceID().ToString();
 		ui.SetActive (false);
 		timerPickup = 0;
+		Audio_Manager.inst.PlayRecursive(AA.Chr_Robot_Attack_HoldCharge_1, transform.position, audioKey);
+
 	}
 	
 	// Update is called once per frame
@@ -30,6 +35,7 @@ public class FusionCore : MonoBehaviour {
 			Application.LoadLevel(0);
 		}
 		/////////////////////////////////////////////////////////////////////////////////
+
 
 		//Reset if Button Released for a single frame.
 		if (timerPickup > 0 && timerPickup == previousTime)
@@ -102,6 +108,8 @@ public class FusionCore : MonoBehaviour {
 		{
 			ui.SetActive(false);
 		}
+
+		Audio_Manager.inst.DestroyRecursive(audioKey);
 		Destroy(gameObject);
 	}
 }
