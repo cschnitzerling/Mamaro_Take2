@@ -3690,6 +3690,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 425908}
   - 65: {fileID: 6527228}
+  - 114: {fileID: 11443992}
   m_Layer: 0
   m_Name: Mamaro_Fist
   m_TagString: Fist
@@ -4575,8 +4576,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 130102}
-  m_LocalRotation: {x: 0, y: .211580426, z: 0, w: -.977360666}
-  m_LocalPosition: {x: 520.419983, y: 284.299988, z: -411.040009}
+  m_LocalRotation: {x: 0, y: .0382439271, z: 0, w: -.999268472}
+  m_LocalPosition: {x: 522.26001, y: 283.940002, z: -413.070007}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 477252}
@@ -5832,7 +5833,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 157508}
-  m_LocalRotation: {x: .58385855, y: .648931205, z: -.352456957, w: .33730039}
+  m_LocalRotation: {x: .583858609, y: .648931265, z: -.352456987, w: .33730042}
   m_LocalPosition: {x: -4.34000015, y: -.0900000036, z: -.0799999982}
   m_LocalScale: {x: 1.42856777, y: 1.42857563, z: 1.42856991}
   m_Children:
@@ -6502,8 +6503,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 175278}
-  m_LocalRotation: {x: 0, y: -.211580426, z: 0, w: -.977360666}
-  m_LocalPosition: {x: -3.4000001, y: 3.29999995, z: 11.8999996}
+  m_LocalRotation: {x: 0, y: .0436193943, z: 0, w: .999048233}
+  m_LocalPosition: {x: -1.48001933, y: 3.29998779, z: 6.43000507}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 405712}
@@ -8295,7 +8296,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: 8.72999954, y: 6.07999992, z: 4.4000001}
+  m_Size: {x: 13.3699999, y: 6.53000021, z: 4.4000001}
   m_Center: {x: -2.41000009, y: 0, z: 0}
 --- !u!65 &6581918
 BoxCollider:
@@ -8374,6 +8375,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11443992
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 185238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37dc35d0632d3f44f9f424069c626ab9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11477682
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8385,7 +8397,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ec7a59c170f256419aba75440db4071, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxAttack: 0
+  maxAttack: 20
   maxRangedCoolDown: 0
   chargeRate: 50
   fistCollider: {fileID: 6527228}
