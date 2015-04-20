@@ -27,6 +27,9 @@ public class Mamaro_Attack : MonoBehaviour
 	public GameObject bullet;
 	public GameObject bulletSpawn;
 
+	private bool aRangeOnce = false;
+	private bool aPunchOnce = false;
+
 	float timerxx;
 
 
@@ -80,6 +83,13 @@ public class Mamaro_Attack : MonoBehaviour
 		if (!isChargeRange && punchCharge == 0 && timerShotDelay == 0)
 		{
 			Mamaro_Attack.inst.isChargePunch = true;
+
+			// play swing back once
+			if(!aPunchOnce)
+			{
+				aPunchOnce = true;
+				Audio_Manager.inst.PlayOnce(AA.Chr_Mamaro_Attack_ChargePunch_1);
+			}
 		}
 	}
 	public void ButtonUpPunch()
@@ -90,6 +100,9 @@ public class Mamaro_Attack : MonoBehaviour
 			Mamaro_Attack.inst.isAttackPunch = true;
 			timerShotDelay = shotDelay;
 		}
+
+		aPunchOnce = false;
+		Audio_Manager.inst.PlayOnce(AA.Chr_Mamaro_Movement_Dodge_2);
 	}
 
 	// applies ranged attack sequence
@@ -98,16 +111,29 @@ public class Mamaro_Attack : MonoBehaviour
 		if (!isChargePunch && punchCharge == 0 && timerShotDelay == 0)
 		{
 			Mamaro_Attack.inst.isChargeRange = true;
+
+			// play charge audio once
+			if(!aRangeOnce)
+			{
+				aRangeOnce = true;
+				Audio_Manager.inst.PlayOnce(AA.Chr_Robot_Attack_CannonCharge_3);
+				Audio_Manager.inst.PlayRecursive(AA.Chr_Robot_Attack_HoldCharge_1, transform.position, "RangeKey");
+			}
 		}
 	}
+
 	public void ButtonUpRange()
 	{
 		if (isChargeRange)
 		{
 			Mamaro_Attack.inst.isChargeRange = false;
 			Mamaro_Attack.inst.isAttackRange = true;
+			Audio_Manager.inst.PlayOnce(AA.Chr_Robot_Attack_CannonFire_1);
 			timerShotDelay = shotDelay;
 		}
+
+		aRangeOnce = false;
+		Audio_Manager.inst.DestroyRecursive("RangeKey");
 	}
 
 	// adds punch charge from 0 to 100 in respects to time held
@@ -148,8 +174,6 @@ public class Mamaro_Attack : MonoBehaviour
 				punchCharge = 0.0f;
 			}
 		}
-
-
 	}
 
 	// adds ranged charge from 0 to 100 in respects to time held

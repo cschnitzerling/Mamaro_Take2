@@ -20,7 +20,11 @@ TagManager:
   - Script_Game
   - Script_Malfunction
   - Targets
+<<<<<<< HEAD
   - Fist
+=======
+  - FadeScene
+>>>>>>> c5c897a6911f250b59ea65f48c2bac4c8966b9f7
   layers:
   - Default
   - TransparentFX

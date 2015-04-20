@@ -149,6 +149,7 @@ public class Comic_Controller: MonoBehaviour {
 		//Dodge Controls
 		if (Input.GetKeyDown(KeyCode.Space))
 		{
+			CamMove.NewTarget();
 		}
 		
 		// Quick Time controls
@@ -175,6 +176,8 @@ public class Comic_Controller: MonoBehaviour {
 
 		}
 
+		if(Input.GetKeyDown(KeyCode.Space))
+			CamMove.NewTarget();
 		
 		
 		//Adust Ability Cores

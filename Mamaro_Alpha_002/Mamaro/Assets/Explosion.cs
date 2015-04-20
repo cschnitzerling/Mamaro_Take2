@@ -22,7 +22,6 @@ public class Explosion : MonoBehaviour {
 
 		if (timer > 5)
 		{
-			Audio_Manager.inst.PlayOnce(AA.Env_General_PhysicalExpolsion_2, transform.position);
 			Destroy(gameObject);
 		}
 	}

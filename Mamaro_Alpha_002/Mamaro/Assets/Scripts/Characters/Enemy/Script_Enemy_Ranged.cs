@@ -35,10 +35,13 @@ public class Script_Enemy_Ranged : MonoBehaviour
 	private NavMeshAgent nav;
 	private float timerFire = 0.0f;
 	private float timerDestroy;
+	private string audioKey;
 
 	// Use this for initialization
 	void Start () 
 	{
+		audioKey = GetInstanceID().ToString();
+		Audio_Manager.inst.PlayRecursive(AA.Chr_Robot_Attack_HoldCharge_1, transform.position, audioKey);
 		nav = GetComponent<NavMeshAgent>();
 		mamaroM = Mamaro_Manager.inst;
 		rb = GetComponent<Rigidbody>();
@@ -53,6 +56,7 @@ public class Script_Enemy_Ranged : MonoBehaviour
 	{
 		// track player dist
 		pDist = Vector3.Distance(mamaroM.transform.position, this.transform.position);
+		Audio_Manager.inst.SetRecursivePos(audioKey, transform.position);
 
 		///test////////
 		if(Input.GetKeyDown(KeyCode.F5))
@@ -103,6 +107,12 @@ public class Script_Enemy_Ranged : MonoBehaviour
 			// reached destination
 			if(nav.remainingDistance < 1.0f)
 				isMoving = false;
+
+			// louder volume when moving
+			if(isMoving)
+				Audio_Manager.inst.SetVolume(audioKey, Mathf.Lerp(Audio_Manager.inst.GetVolume(audioKey), 1.0f, 0.1f));
+			else
+				Audio_Manager.inst.SetVolume(audioKey, Mathf.Lerp(Audio_Manager.inst.GetVolume(audioKey), 0.5f, 0.1f));
 
 			if(!isMoving)
 			{
@@ -197,7 +207,7 @@ public class Script_Enemy_Ranged : MonoBehaviour
 	{
 		Destroy (nav);
 		Audio_Manager.inst.PlayOnce(AA.Env_General_PhysicalExpolsion_2, transform.position);
-		Vector3 centerPos = new Vector3 (transform.position.x, transform.position.y + 10.0f, transform.position.z);
+		Vector3 centerPos = new Vector3 (transform.position.x, transform.position.y + 20.0f, transform.position.z);
 		Instantiate (fusionCore, centerPos, Quaternion.identity);
 		Instantiate(explosion, centerPos, Quaternion.identity);
 		Vector3 explosionPos = this.transform.position + transform.forward * 2;
