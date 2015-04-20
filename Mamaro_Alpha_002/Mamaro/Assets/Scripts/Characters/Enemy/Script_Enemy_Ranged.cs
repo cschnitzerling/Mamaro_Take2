@@ -9,16 +9,17 @@ public class Script_Enemy_Ranged : MonoBehaviour
 	Mamaro_Manager mamaroM;	// access to player position, etc.
 
 	// inspector assigned vars
-	public float moveSpeed;
-	public float rotSpeed;
-	public float catchUpSpeed;
-	public float engagementRadius;
+	public float moveSpeed = 20;
+	public float rotSpeed = 10;
+	public float catchUpSpeed = 40;
+	public float engagementRadius = 200.0f;
 	public int lowHealthThreshold;
 	public float explosionRadius = 15.0F;
 	public float explosionPower = 20.0F;
 	public GameObject projectile;
 	public Transform shootPos;
 	public float fireRate = 5.0f;
+	public float destroyTime = 5.0f;
 
 	// private vars
 	public int health = 100;
@@ -31,6 +32,7 @@ public class Script_Enemy_Ranged : MonoBehaviour
 	public Rigidbody rb;
 	private NavMeshAgent nav;
 	private float timerFire = 0.0f;
+	private float timerDestroy;
 
 	// Use this for initialization
 	void Start () 
@@ -53,6 +55,14 @@ public class Script_Enemy_Ranged : MonoBehaviour
 		///test////////
 		if(Input.GetKeyDown(KeyCode.F5))
 			OnTakeDamage(50);
+
+		// check for destroy
+		if(timerDestroy > 0.0f)
+		{
+			timerDestroy -= Time.deltaTime;
+			if(timerDestroy <= 0.5f)
+				Destroy(gameObject);
+		}
 
 
 		switch (state) 
@@ -115,6 +125,7 @@ public class Script_Enemy_Ranged : MonoBehaviour
 			timerFire += Time.deltaTime;
 			if(timerFire >= fireRate)
 			{
+				Audio_Manager.inst.PlayOnce(AA.Chr_Robot_Attack_Laser_1, transform.position);
 				Instantiate(projectile, shootPos.position, shootPos.rotation);
 				timerFire = 0.0f;
 			}
@@ -175,7 +186,8 @@ public class Script_Enemy_Ranged : MonoBehaviour
 			DetachChildren(this.transform);
 			//TODO apply particles
 			Explode();
-			Destroy(this);
+			Audio_Manager.inst.PlayOnce(AA.Env_General_PhysicalExpolsion_2, transform.position);
+			timerDestroy = destroyTime;
 		}
 	}
 

@@ -952,9 +952,10 @@ MonoBehaviour:
   lowHealthThreshold: 0
   explosionRadius: 15
   explosionPower: 20
-  projectile: {fileID: 0}
+  projectile: {fileID: 108688, guid: 7a2f19cb15dba9542b7bf4272daca788, type: 2}
   shootPos: {fileID: 404912}
   fireRate: 5
+  destroyTime: 3
   health: 100
   state: 0
   alert: 0

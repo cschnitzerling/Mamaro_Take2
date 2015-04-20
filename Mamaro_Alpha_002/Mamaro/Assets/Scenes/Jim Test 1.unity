@@ -562,6 +562,90 @@ Transform:
   - {fileID: 1223258632}
   m_Father: {fileID: 0}
   m_RootOrder: 15
+--- !u!1 &624815520
+GameObject:
+  m_PrefabParentObject: {fileID: 198298, guid: 473f640b7583ce74f90bb2499ad6c0f5, type: 2}
+  m_PrefabInternal: {fileID: 59108003}
+--- !u!114 &624815523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 624815520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e5ce04a23194874eab201a47a054213, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!82 &624815524
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 624815520}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!1 &775652104
 GameObject:
   m_ObjectHideFlags: 0
@@ -675,9 +759,13 @@ Prefab:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 11426354, guid: 7fc78d5fdbc7ddb4abfeb24549106e8d, type: 2}
-      propertyPath: projectile
-      value: 
-      objectReference: {fileID: 108688, guid: 7a2f19cb15dba9542b7bf4272daca788, type: 2}
+      propertyPath: rotSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 11426354, guid: 7fc78d5fdbc7ddb4abfeb24549106e8d, type: 2}
+      propertyPath: destroyTime
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7fc78d5fdbc7ddb4abfeb24549106e8d, type: 2}
   m_IsPrefabParent: 0
