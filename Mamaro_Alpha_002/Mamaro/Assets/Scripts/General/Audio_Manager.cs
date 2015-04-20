@@ -133,6 +133,7 @@ public class Audio_Manager : MonoBehaviour
 				// assign the audiosource
 				AudioSource tempA = tempObj.GetComponent<AudioSource>();
 				tempA.loop = true;
+				tempA.spatialBlend = 1.0f;
 				tempA.clip = assets[clip];
 				tempA.Play();
 				

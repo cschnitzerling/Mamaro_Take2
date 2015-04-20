@@ -18,6 +18,8 @@ public class FusionCore : MonoBehaviour {
 	{
 		ui.SetActive (false);
 		timerPickup = 0;
+		Audio_Manager.inst.PlayRecursive(AA.Chr_Robot_Attack_HoldCharge_1, transform.position, "FC_CoreHum");
+
 	}
 	
 	// Update is called once per frame
@@ -31,7 +33,6 @@ public class FusionCore : MonoBehaviour {
 		}
 		/////////////////////////////////////////////////////////////////////////////////
 
-		Audio_Manager.inst.PlayRecursive(AA.Chr_Robot_Attack_HoldCharge_1, transform.position, "FC_CoreHum");
 
 		//Reset if Button Released for a single frame.
 		if (timerPickup > 0 && timerPickup == previousTime)
