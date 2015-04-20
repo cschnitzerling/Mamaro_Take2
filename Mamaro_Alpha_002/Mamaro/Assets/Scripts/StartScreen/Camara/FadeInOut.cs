@@ -4,7 +4,7 @@ using System.Collections;
 public class FadeInOut : MonoBehaviour {
 	public float fadeSpeed = 1.5f; 
 
-	public bool sceneStarting = true, washStarting = false;
+	public bool sceneStarting = true, washStarting = false, sceneEnding = false;
 	private MeshFilter layerMesh;
 	// Use this for initialization
 	void Awake () 
@@ -27,6 +27,11 @@ public class FadeInOut : MonoBehaviour {
 			StartWash();
 		}
 
+		if (sceneEnding) 
+		{
+			EndScene();
+		}
+
 		if (sceneStarting) 
 		{
 			StartScene();
@@ -47,7 +52,6 @@ public class FadeInOut : MonoBehaviour {
 
 	void WhiteWash()
 	{
-		//layerMesh.GetComponent<Renderer>().enabled = true;
 		layerMesh.GetComponent<Renderer>().material.color = Color.Lerp (layerMesh.GetComponent<Renderer>().material.color, Color.white, fadeSpeed * Time.deltaTime);
 		//guiTexture.color = Color.Lerp (guiTexture.color, Color.black, fadeSpeed * Time.deltaTime);
 	}
@@ -94,15 +98,15 @@ public class FadeInOut : MonoBehaviour {
 		*/
 	}
 
-	void EndScene()
+	public void EndScene()
 	{
 		layerMesh.GetComponent<Renderer>().enabled = true;
 		//guiTexture.enabled = true;
-		FadetoBlack ();
+		WhiteWash ();
 
-		if (layerMesh.GetComponent<Renderer>().material.color.a <= 0.05f) 
+		if (layerMesh.GetComponent<Renderer>().material.color.a >= 0.95f) 
 		{
-			Application.LoadLevel(0);
+			Application.LoadLevel("Credits");
 		}
 
 		/*

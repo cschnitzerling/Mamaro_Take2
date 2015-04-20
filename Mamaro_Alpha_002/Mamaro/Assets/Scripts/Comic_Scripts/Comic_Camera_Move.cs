@@ -10,7 +10,6 @@ public class Comic_Camera_Move : MonoBehaviour {
 	public int counter;
 	// Use this for initialization
 	void Awake () {
-		counter = 1;
 		AddTargets ();
 	}
 
@@ -35,7 +34,6 @@ public class Comic_Camera_Move : MonoBehaviour {
 	public void NewTarget()
 	{
 		if (target == null) {
-			//SortTargetByDistance ();
 			target = targets [0];
 		} else {
 			int Index = targets.IndexOf(target);
@@ -54,13 +52,16 @@ public class Comic_Camera_Move : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		if (target == null) {
+			target = targets [0];
+		}
 		SortedList ();
 		curPos = gameObject.transform;
 		if (Input.GetKeyDown ("1")) {
 			NewTarget();
 		}
 		if (target != null) {
-			transform.position = Vector3.Lerp (curPos.position, target.position, 1);
+			transform.position = Vector3.Lerp (curPos.position, target.position, .05f);
 		}
 	}
 }

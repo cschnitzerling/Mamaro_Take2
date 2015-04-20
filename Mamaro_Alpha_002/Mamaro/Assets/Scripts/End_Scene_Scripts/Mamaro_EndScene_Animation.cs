@@ -9,20 +9,21 @@ public class Mamaro_EndScene_Animation : MonoBehaviour {
 	void Awake () {
 		handAnim = GetComponentInChildren<Mamaro_Hand_Animation> ();
 		anim = GetComponent<Animator> ();
-		anim.SetBool ("Active", false);
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		handMarmActive = handAnim.handActive;
 		handMarmEnded = handAnim.handEnd;
+
+		anim.SetBool ("HandActive", handMarmActive);
+
 		if (anim.GetBool ("Active") == true) {
-			transform.Translate(0,0,.08f);
+			transform.Translate(0,0,.06f);
 		}
-		if (Input.GetKeyDown ("space")) {
-			if(handMarmActive){
+
+			if(handMarmEnded){
 			anim.SetBool ("Active", true);
-			}
 		}
 	}
 
