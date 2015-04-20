@@ -4,27 +4,7 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Tutorial_PunchRock
-  - Tutorial_Rock
-  - Mamaro_Fist
-  - Build
-  - Wall
-  - Terrain
-  - Tutorial_ShootPillar
-  - GUIPUASE
-  - GUIHUD
-  - GUI
-  - VOLUMESLIDER
-  - Ruin
   - Enemy
-  - Script_Game
-  - Script_Malfunction
-  - Targets
-<<<<<<< HEAD
-  - Fist
-=======
-  - FadeScene
->>>>>>> c5c897a6911f250b59ea65f48c2bac4c8966b9f7
   layers:
   - Default
   - TransparentFX
@@ -34,7 +14,7 @@ TagManager:
   - UI
   - 
   - 
-  - Enemy
+  - 
   - 
   - 
   - 

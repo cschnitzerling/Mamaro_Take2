@@ -183,7 +183,11 @@ public class Script_Enemy_Ranged : MonoBehaviour
 	/// reduces health and checks for death
 	public void OnTakeDamage(int amount)
 	{
+		print("enmey");
 		Audio_Manager.inst.PlayOnce(AA.Chr_Robot_Damage_MetalOnMetal_2, transform.position);
+
+		alert = true;
+		state = EnemyState.Stalking;
 
 		// check if already dead
 		if(health > 0)
@@ -220,6 +224,7 @@ public class Script_Enemy_Ranged : MonoBehaviour
 				hit.GetComponent<Rigidbody>().AddExplosionForce(explosionPower, explosionPos, explosionPower, 0.35F, ForceMode.Impulse);
 			}
 		}
+		Destroy(gameObject);
 	}
 
 	// deparents children up to x deep

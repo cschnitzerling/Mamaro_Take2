@@ -29,7 +29,7 @@ public class LaserFire : MonoBehaviour {
 		if (col.tag == "Enemy")
 		{
 
-			col.SendMessage("OnTakeDamage");
+			col.SendMessage("OnTakeDamage",20);
 		}
 
 		Destroy (gameObject);

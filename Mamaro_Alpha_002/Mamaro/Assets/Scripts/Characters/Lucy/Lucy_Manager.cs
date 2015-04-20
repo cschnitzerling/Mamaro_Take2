@@ -36,8 +36,8 @@ public class Lucy_Manager : MonoBehaviour {
 	public Material color;
 
 	public GameObject lucyIncFear;
-
-	public Animator anim;
+	public GameObject lucy;
+	Animator anim;
 
 
 
@@ -51,6 +51,7 @@ public class Lucy_Manager : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
+		anim = lucy.GetComponent<Animator>();
 		fear = 50;
 		mamaro = Mamaro_Manager.inst;
 		Audio_Manager.inst.PlayRecursive(AA.Chr_Lucy_Cry_1, transform.position, "LucyCry");
@@ -163,12 +164,9 @@ public class Lucy_Manager : MonoBehaviour {
 		}
 		else 
 		{
-<<<<<<< HEAD
 			anim.SetBool("Bool_Scared", false);
 			anim.SetBool("Bool_Repair", false);
-=======
 			Audio_Manager.inst.StopRecursive("LucyCry");
->>>>>>> c5c897a6911f250b59ea65f48c2bac4c8966b9f7
 			ChangeState(LucyState.Idle);
 		}
 	}

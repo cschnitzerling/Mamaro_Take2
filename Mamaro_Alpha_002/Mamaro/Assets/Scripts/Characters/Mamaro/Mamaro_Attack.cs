@@ -184,7 +184,7 @@ public class Mamaro_Attack : MonoBehaviour
 			anim.SetTrigger("Trig_RangedAttack");
 			anim.SetBool("Bool_RangedCharge", false);
 
-			Instantiate (bullet,bulletSpawn.transform.position,transform.rotation);
+			Instantiate (bullet,bulletSpawn.transform.position,bulletSpawn.transform.rotation);
 			Lucy_Manager.inst.OnChangeFear(FearType.AttackLv3);
 
 			isAttackRange = false;

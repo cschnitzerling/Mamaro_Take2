@@ -3,7 +3,7 @@ using System.Collections;
 
 public class FusionCore : MonoBehaviour {
 
-	public GameObject ui;
+	GameObject ui;
 
 	public RectTransform buttonX;
 	public RectTransform buttonY;
@@ -18,6 +18,11 @@ public class FusionCore : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
+		ui = Pickup_UI.inst.gameObject;
+
+		buttonX = Pickup_UI.inst.buttonX;
+		buttonY = Pickup_UI.inst.buttonY;
+
 		audioKey = gameObject.GetInstanceID().ToString();
 		ui.SetActive (false);
 		timerPickup = 0;
