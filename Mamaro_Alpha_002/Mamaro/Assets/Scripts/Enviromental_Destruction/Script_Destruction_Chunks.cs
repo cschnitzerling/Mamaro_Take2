@@ -22,18 +22,18 @@ public class Script_Destruction_Chunks : MonoBehaviour {
 	void OnCollisionEnter(Collision col)
 	{
 		if (col.gameObject.tag == "Terrain") {
-			Debug.Log ("MYFACE");
+			//Debug.Log ("MYFACE");
 			GameObject.Destroy(this.gameObject, 10);
 		}
 
 		if (col.collider == mamaroFistCol) {
-			Debug.Log ("MYFACE");
+			//Debug.Log ("MYFACE");
 			rigBod.isKinematic = false;
 			GameObject.Destroy(this.gameObject, 1);
 		}
 
 		if (col.gameObject.tag == "Destro") {
-			Debug.Log ("Buddy");
+			//Debug.Log ("Buddy");
 			rigBod.velocity = Vector3.zero;
 			rigBod.angularVelocity = Vector3.zero;
 		}

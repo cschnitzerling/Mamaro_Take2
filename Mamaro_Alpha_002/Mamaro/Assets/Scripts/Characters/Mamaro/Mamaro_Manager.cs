@@ -104,6 +104,11 @@ public class Mamaro_Manager : MonoBehaviour
 		}
 	}
 
+	public void SetBlocking(bool input)
+	{
+		isBlocking = input;
+	}
+
 	/// triggers malfunction sequence
 	public void OnCorePickUp()
 	{

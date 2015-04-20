@@ -24,6 +24,9 @@ public class MamaroController : MonoBehaviour {
 
 	public List<FusionCore> fusionCores;
 
+	public float leftTrig;
+	public float rightTrig;
+
 
 
 	void Awake()
@@ -135,28 +138,38 @@ public class MamaroController : MonoBehaviour {
 			}
 		}
 
-
+		leftTrig = state.Triggers.Left;
+		rightTrig = state.Triggers.Right;
 
 		//Punch Attack
-		if (state.Buttons.RightShoulder == ButtonState.Pressed)// && prevState.Buttons.RightShoulder == ButtonState.Released)
+		if (state.Triggers.Right > 0)
 		{
 			Mamaro_Attack.inst.ButtonDownPunch();
 		}
-		if (state.Buttons.RightShoulder == ButtonState.Released && prevState.Buttons.RightShoulder == ButtonState.Pressed)
+		if (state.Triggers.Right == 0 && prevState.Triggers.Right > 0)
 		{
 			Mamaro_Attack.inst.ButtonUpPunch();
 		}
 
 		//Range Attack
-		if (state.Buttons.LeftShoulder == ButtonState.Pressed)
+		if (state.Triggers.Left > 0)
 		{
 			Mamaro_Attack.inst.ButtonDownRange();
 		}
-		if (state.Buttons.LeftShoulder == ButtonState.Released && prevState.Buttons.LeftShoulder == ButtonState.Pressed)
+		if (state.Triggers.Left == 0 && prevState.Triggers.Left > 0)
 		{
 			Mamaro_Attack.inst.ButtonUpRange();
 		}
 
+		//Block
+		if (state.Buttons.LeftShoulder == ButtonState.Pressed && prevState.Buttons.LeftShoulder == ButtonState.Released)
+		{
+			mamaro.SetBlocking(true);
+		}
+		if (state.Buttons.LeftShoulder == ButtonState.Released && prevState.Buttons.LeftShoulder == ButtonState.Pressed)
+		{
+			mamaro.SetBlocking(false);
+		}
 
 
 
