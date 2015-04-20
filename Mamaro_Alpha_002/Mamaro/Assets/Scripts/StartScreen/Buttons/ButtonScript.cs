@@ -24,7 +24,7 @@ public class ButtonScript : MonoBehaviour {
 		if(Input.GetMouseButton(0) && mouseOver == true){
 			if(mouseOver){
 				if(transform.name == "StartButton"){
-					Application.LoadLevel("Level");
+					Application.LoadLevel("ComicScene");
 				}
 				else if(transform.name == "GoBackStartButton")
 				{

@@ -21,6 +21,9 @@ TagManager:
   - Script_Malfunction
   - Targets
   - FadeScene
+  - Fade
+  - LightTrig
+  - AtEnd
   layers:
   - Default
   - TransparentFX

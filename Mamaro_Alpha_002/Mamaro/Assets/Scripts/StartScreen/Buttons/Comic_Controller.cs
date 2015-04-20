@@ -9,9 +9,16 @@ public class Comic_Controller: MonoBehaviour {
 	
 	public ControllerType InputDevice;
 
+	public Lightanimation_Controller animMove;
+
 	public Comic_Camera_Move CamMove;
 
+	public End_Comic_Trigger isAtEnd;
+
 	public static Comic_Controller inst;
+
+	public FadeInOut fadeOut;
+
 	//###########################################
 	//Required For X Input
 	bool playerIndexSet = false;
@@ -23,7 +30,10 @@ public class Comic_Controller: MonoBehaviour {
 	
 	void Awake()
 	{
+		fadeOut = GameObject.FindGameObjectWithTag ("FadeScene").GetComponent<FadeInOut> ();
+		animMove = GameObject.FindGameObjectWithTag ("LightTrig").GetComponent<Lightanimation_Controller> ();
 		CamMove = Camera.main.GetComponent<Comic_Camera_Move> ();
+		isAtEnd = GameObject.FindGameObjectWithTag ("AtEnd").GetComponent<End_Comic_Trigger> ();
 		if (inst == null)
 		{
 			inst = this;
@@ -77,6 +87,14 @@ public class Comic_Controller: MonoBehaviour {
 		//Dodge Controls
 		if (state.Buttons.A == ButtonState.Pressed && prevState.Buttons.A == ButtonState.Released)
 		{
+			if(isAtEnd.isIn){
+				Debug.Log("beuin");
+				fadeOut.nextScene = true;
+			}
+			if(animMove.isIn){
+			animMove.hasPressed = true;
+				CamMove.NewTarget();
+			}
 			CamMove.NewTarget();
 		}
 

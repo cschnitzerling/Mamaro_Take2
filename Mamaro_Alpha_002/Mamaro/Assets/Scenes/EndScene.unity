@@ -1978,6 +1978,7 @@ MonoBehaviour:
   sceneStarting: 1
   washStarting: 0
   sceneEnding: 0
+  nextScene: 0
 --- !u!23 &646487644
 MeshRenderer:
   m_ObjectHideFlags: 0

@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class End_Comic_Trigger : MonoBehaviour {
-
+	public bool isIn;
 	// Use this for initialization
 	void Start () {
 	
@@ -12,4 +12,17 @@ public class End_Comic_Trigger : MonoBehaviour {
 	void Update () {
 	
 	}
+
+	void OnTriggerStay(Collider col){
+		if (col.gameObject.tag == "MainCamera") {
+			isIn = true;
+		}
+}
+
+	void OnTriggerExit(Collider col){
+		if (col.gameObject.tag == "MainCamera") {
+			isIn = false;
+		}
+	}
+
 }

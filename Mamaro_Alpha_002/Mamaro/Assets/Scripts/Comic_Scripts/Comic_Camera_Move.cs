@@ -8,8 +8,13 @@ public class Comic_Camera_Move : MonoBehaviour {
 	public List<Transform> targets = new List<Transform>();
 	public Transform target, curPos;
 	public int counter;
+	public Lightanimation_Controller animMove;
+	public End_Comic_Trigger isAtEnd;
 	// Use this for initialization
 	void Awake () {
+		isAtEnd = GameObject.FindGameObjectWithTag ("AtEnd").GetComponent<End_Comic_Trigger> ();
+		animMove = GameObject.FindGameObjectWithTag ("LightTrig").GetComponent<Lightanimation_Controller> ();
+
 		AddTargets ();
 	}
 
@@ -33,20 +38,21 @@ public class Comic_Camera_Move : MonoBehaviour {
 
 	public void NewTarget()
 	{
-		if (target == null) {
-			target = targets [0];
-		} else {
-			int Index = targets.IndexOf(target);
-			if(Index < targets.Count - 1)
-			{
-				Index ++;
-			}else{
-				Index = 0;
+		if (!animMove.isIn) {
+			if (target == null) {
+				target = targets [0];
+			} else {
+				int Index = targets.IndexOf (target);
+				if (Index < targets.Count - 1) {
+					Index ++;
+				} else {
+					Index = 0;
+				}
+				//DeselectTarget();
+				target = targets [Index];
 			}
-			//DeselectTarget();
-			target = targets[Index];
+			//SelectTarget();
 		}
-		//SelectTarget();
 	}
 
 
@@ -61,7 +67,11 @@ public class Comic_Camera_Move : MonoBehaviour {
 			NewTarget();
 		}
 		if (target != null) {
-			transform.position = Vector3.Lerp (curPos.position, target.position, .05f);
+			if (!animMove.isPlaying && !animMove.hasPressed){
+				if(!isAtEnd.isIn){
+				transform.position = Vector3.Lerp (curPos.position, target.position, .05f);
+				}
+		}
 		}
 	}
 }
