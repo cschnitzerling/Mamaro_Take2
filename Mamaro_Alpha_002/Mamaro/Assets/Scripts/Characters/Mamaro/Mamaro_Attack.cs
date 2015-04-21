@@ -82,7 +82,7 @@ public class Mamaro_Attack : MonoBehaviour
 	{
 		if (!isChargeRange && punchCharge == 0 && timerShotDelay == 0)
 		{
-			Mamaro_Attack.inst.isChargePunch = true;
+			isChargePunch = true;
 
 			// play swing back once
 			if(!aPunchOnce)
@@ -92,12 +92,37 @@ public class Mamaro_Attack : MonoBehaviour
 			}
 		}
 	}
+
+	public void OnSendFear(int socketCount)
+	{
+		switch(socketCount)
+		{
+		case 0:
+			break;
+		case 1:
+			Lucy_Manager.inst.OnChangeFear(FearType.AttackLv1);
+			break;
+		case 2:
+			Lucy_Manager.inst.OnChangeFear(FearType.AttackLv2);
+			break;
+		case 3:
+			Lucy_Manager.inst.OnChangeFear(FearType.AttackLv3);
+			break;
+		case 4:
+			Lucy_Manager.inst.OnChangeFear(FearType.AttackLv4);
+			break;
+		}
+	}
+
 	public void ButtonUpPunch()
 	{
 		if (isChargePunch)
 		{
-			Mamaro_Attack.inst.isChargePunch = false;
-			Mamaro_Attack.inst.isAttackPunch = true;
+			//Addfear
+			OnSendFear(Ability_Manager.inst.GetSocket(Sockets.Melee).GetCoreCount());
+			
+			isChargePunch = false;
+			isAttackPunch = true;
 			timerShotDelay = shotDelay;
 		}
 
@@ -110,7 +135,7 @@ public class Mamaro_Attack : MonoBehaviour
 	{
 		if (!isChargePunch && punchCharge == 0 && timerShotDelay == 0)
 		{
-			Mamaro_Attack.inst.isChargeRange = true;
+			isChargeRange = true;
 
 			// play charge audio once
 			if(!aRangeOnce)
@@ -126,8 +151,11 @@ public class Mamaro_Attack : MonoBehaviour
 	{
 		if (isChargeRange)
 		{
-			Mamaro_Attack.inst.isChargeRange = false;
-			Mamaro_Attack.inst.isAttackRange = true;
+			//Addfear
+			OnSendFear(Ability_Manager.inst.GetSocket(Sockets.Ranged).GetCoreCount());
+
+			isChargeRange = false;
+			isAttackRange = true;
 			Audio_Manager.inst.PlayOnce(AA.Chr_Robot_Attack_CannonFire_1);
 			timerShotDelay = shotDelay;
 		}
@@ -185,7 +213,6 @@ public class Mamaro_Attack : MonoBehaviour
 			anim.SetBool("Bool_RangedCharge", false);
 
 			Instantiate (bullet,bulletSpawn.transform.position,bulletSpawn.transform.rotation);
-			Lucy_Manager.inst.OnChangeFear(FearType.AttackLv3);
 
 			isAttackRange = false;
 

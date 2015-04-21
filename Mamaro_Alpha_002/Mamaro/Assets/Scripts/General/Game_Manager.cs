@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class Game_Manager : MonoBehaviour 
 {
@@ -29,6 +30,8 @@ public class Game_Manager : MonoBehaviour
 
 	public GameObject malfunction;
 
+	public SpriteRenderer malFuncSprite;
+
 	//Malfunction Vars
 	public float buttonAdd;
 	public float malPercent;
@@ -38,7 +41,12 @@ public class Game_Manager : MonoBehaviour
 	public GameObject startPos;
 	public GameObject endPos;
 
-	public Transform resetPos;
+
+	public Vector3 resetPos;
+	public Quaternion resetRot;
+	//public Transform resetPos;
+
+
 
 	void Awake()
 	{
@@ -56,7 +64,8 @@ public class Game_Manager : MonoBehaviour
 		abMan = Ability_Manager.inst;
 		cam = Cam_Manager.inst;
 
-		resetPos = Mamaro_Manager.inst.transform;
+		resetPos = Mamaro_Manager.inst.gameObject.transform.position;
+		resetRot = Mamaro_Manager.inst.gameObject.transform.rotation;
 		scripts = FindObjectsOfType<MonoBehaviour>();
 	}
 
@@ -76,11 +85,11 @@ public class Game_Manager : MonoBehaviour
 		// reset the level
 		if (Input.GetKeyDown(KeyCode.F1))
 		{
-			Mamaro_Manager.inst.transform.position = resetPos.position;
-			Mamaro_Manager.inst.transform.rotation = resetPos.rotation;
+
+			ResetPlayer();
 		}
 		
-		print ("Yes");
+
 		
 		// to quit the game
 		if(Input.GetKeyDown(KeyCode.Escape))
@@ -105,6 +114,15 @@ public class Game_Manager : MonoBehaviour
 			arm.transform.position = pos;
 			arm.transform.rotation = rot;
 
+			float percent = (float)malPercent / 100f;
+
+			Color tempColour = malFuncSprite.color;
+
+			tempColour.a = ((malPercent * 0.01f));
+			Vector3 tempScale = new Vector3 (1 - (percent /2),1 - (percent /2),1 - (percent /2));
+			malFuncSprite.gameObject.transform.localScale = tempScale;
+			malFuncSprite.color = tempColour;
+
 			// player resisted the malfunction
 			if(Timer_mal >= malfunctionSecs)
 			{
@@ -123,8 +141,9 @@ public class Game_Manager : MonoBehaviour
 	/// Puts player back at the start pos
 	public void ResetPlayer()
 	{
-		Mamaro_Manager.inst.transform.position = resetPos.position;
-		Mamaro_Manager.inst.transform.rotation = resetPos.rotation;
+		print("hit");
+		Mamaro_Manager.inst.gameObject.transform.position = resetPos;
+		Mamaro_Manager.inst.gameObject.transform.rotation = resetRot;
 	}
 
 	/// Switches scripts on or off

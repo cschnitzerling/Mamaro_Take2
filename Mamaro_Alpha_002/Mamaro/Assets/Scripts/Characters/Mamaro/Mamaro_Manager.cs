@@ -62,8 +62,8 @@ public class Mamaro_Manager : MonoBehaviour
 		if(Input.GetKeyDown(KeyCode.F4))	/////
 		{								   /////
 			//int testDamage = largeDamage; /////
-			//OnTakeDamage(testDamage);
-			OnCorePickUp();
+			OnTakeDamage(20);
+			//OnCorePickUp();
 		}							    /////
 		////////////////////////////////////
 	}
@@ -80,8 +80,9 @@ public class Mamaro_Manager : MonoBehaviour
 			// check for dead
 			if(health - amount <= 0)
 			{
-				//TODO commence death protocol
-				//TODO play death audio
+				health = 0;
+				print("bla bla black sheeep");
+				OnDeath();
 			}
 			else
 			{
@@ -105,6 +106,15 @@ public class Mamaro_Manager : MonoBehaviour
 				}
 			}
 		}
+
+	}
+
+	void OnDeath()
+	{
+
+		OnCorePickUp();
+		GM.buttonAdd = 6;
+
 	}
 
 	public void SetBlocking(bool input)
