@@ -100,7 +100,8 @@ public class Script_Enemy_Ranged : MonoBehaviour
 		case EnemyState.Offensive:
 
 			// always face Mamaro
-			LookTowards(mamaroM.transform.position);
+			Vector3 lookPos = new Vector3(mamaroM.gameObject.transform.position.x, transform.position.y, mamaroM.gameObject.transform.position.z);
+			LookTowards(lookPos);
 			nav.SetDestination(destPos);
 			nav.speed = moveSpeed;
 
@@ -183,11 +184,10 @@ public class Script_Enemy_Ranged : MonoBehaviour
 	/// reduces health and checks for death
 	public void OnTakeDamage(int amount)
 	{
-		print("enmey");
 		Audio_Manager.inst.PlayOnce(AA.Chr_Robot_Damage_MetalOnMetal_2, transform.position);
 
 		alert = true;
-		state = EnemyState.Stalking;
+		state = EnemyState.Offensive;
 
 		// check if already dead
 		if(health > 0)
@@ -286,11 +286,11 @@ public class Script_Enemy_Ranged : MonoBehaviour
 	/// returns a valid new position within the given range
 	private Vector3 GetNewPos()
 	{
-		bool foundPath = false;
 		Vector3 tempV;
 		float breakTimer = 0.0f;
 
 		// only return a clear path position
+		bool foundPath = false;
 		while(!foundPath)
 		{
 			// break for constant loop defence
@@ -306,7 +306,7 @@ public class Script_Enemy_Ranged : MonoBehaviour
 			Vector3 selected = new Vector3(tempV.x, transform.position.y, tempV.z);
 
 			// within engagement range but out of keptDistance range
-			float fromPlayer = Vector3.Distance(mamaroM.transform.position, selected);
+			float fromPlayer = Vector3.Distance(mamaroM.gameObject.transform.position, selected);
 			if(fromPlayer > keptDistance && fromPlayer < engagementRadius)
 			{
 				// check if point A and B have an obstacle in the way

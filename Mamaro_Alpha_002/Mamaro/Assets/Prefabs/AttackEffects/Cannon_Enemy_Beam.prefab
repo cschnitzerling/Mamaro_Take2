@@ -13,7 +13,7 @@ GameObject:
   - 136: {fileID: 13644190}
   - 114: {fileID: 11431896}
   - 54: {fileID: 5438606}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cannon_Enemy_Beam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30,7 +30,7 @@ GameObject:
   - 4: {fileID: 422806}
   - 198: {fileID: 19820384}
   - 199: {fileID: 19904690}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CannonGlowSource 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47,7 +47,7 @@ GameObject:
   - 4: {fileID: 444610}
   - 198: {fileID: 19822212}
   - 199: {fileID: 19974428}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CannonGlowSource 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64,7 +64,7 @@ GameObject:
   - 4: {fileID: 494992}
   - 198: {fileID: 19844462}
   - 199: {fileID: 19909926}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CannonGlowSource 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -81,7 +81,7 @@ GameObject:
   - 4: {fileID: 432414}
   - 198: {fileID: 19837752}
   - 199: {fileID: 19959434}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CannonGlowSource 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,7 +98,7 @@ GameObject:
   - 4: {fileID: 497752}
   - 198: {fileID: 19896740}
   - 199: {fileID: 19980846}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CannonGlowSource 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,7 +115,7 @@ GameObject:
   - 4: {fileID: 494844}
   - 198: {fileID: 19861800}
   - 199: {fileID: 19938004}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CannonGlowSource 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -132,7 +132,7 @@ GameObject:
   - 4: {fileID: 494520}
   - 198: {fileID: 19867144}
   - 199: {fileID: 19925854}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CannonGlowSource 7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,7 +149,7 @@ GameObject:
   - 4: {fileID: 461220}
   - 198: {fileID: 19806626}
   - 199: {fileID: 19936798}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CannonGlowSource 8
   m_TagString: Untagged
   m_Icon: {fileID: 0}

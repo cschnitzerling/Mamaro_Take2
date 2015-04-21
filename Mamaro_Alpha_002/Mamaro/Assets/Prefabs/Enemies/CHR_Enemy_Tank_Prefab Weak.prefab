@@ -9,7 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 401292}
   - 95: {fileID: 9559944}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CHR_Tank_Model_V10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,7 +26,7 @@ GameObject:
   - 4: {fileID: 480170}
   - 33: {fileID: 3329922}
   - 23: {fileID: 2377818}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Box009
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   - 4: {fileID: 441602}
   - 33: {fileID: 3315716}
   - 23: {fileID: 2334032}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60,7 +60,7 @@ GameObject:
   - 4: {fileID: 453504}
   - 33: {fileID: 3301310}
   - 23: {fileID: 2329206}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Box005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -77,7 +77,7 @@ GameObject:
   - 4: {fileID: 438320}
   - 33: {fileID: 3301488}
   - 23: {fileID: 2371486}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Box004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - 195: {fileID: 19525854}
   - 114: {fileID: 11407946}
   - 65: {fileID: 6544840}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CHR_Enemy_Tank_Prefab Weak
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -111,7 +111,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 480408}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ProjectilePos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,7 +128,7 @@ GameObject:
   - 4: {fileID: 430786}
   - 33: {fileID: 3367144}
   - 23: {fileID: 2328394}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -145,7 +145,7 @@ GameObject:
   - 4: {fileID: 419374}
   - 33: {fileID: 3329296}
   - 23: {fileID: 2325508}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder015
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -162,7 +162,7 @@ GameObject:
   - 4: {fileID: 433724}
   - 33: {fileID: 3327388}
   - 23: {fileID: 2396580}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder017
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -179,7 +179,7 @@ GameObject:
   - 4: {fileID: 480800}
   - 33: {fileID: 3382120}
   - 23: {fileID: 2308148}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder010
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -196,7 +196,7 @@ GameObject:
   - 4: {fileID: 466026}
   - 33: {fileID: 3356542}
   - 23: {fileID: 2310414}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder016
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -213,7 +213,7 @@ GameObject:
   - 4: {fileID: 481006}
   - 33: {fileID: 3314460}
   - 23: {fileID: 2357128}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder009
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -230,7 +230,7 @@ GameObject:
   - 4: {fileID: 449374}
   - 33: {fileID: 3361198}
   - 23: {fileID: 2361434}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GeoSphere001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -247,7 +247,7 @@ GameObject:
   - 4: {fileID: 489738}
   - 33: {fileID: 3347148}
   - 23: {fileID: 2346422}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Box002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -890,7 +890,7 @@ MonoBehaviour:
   destroyTime: 5
   explosion: {fileID: 180484, guid: 85d308a2e7ed867438ccf8993ee59b09, type: 2}
   fusionCore: {fileID: 197428, guid: 198957e62549abd46a70b05e07e8197c, type: 2}
-  health: 100
+  health: 50
   state: 0
   alert: 0
   isMoving: 0

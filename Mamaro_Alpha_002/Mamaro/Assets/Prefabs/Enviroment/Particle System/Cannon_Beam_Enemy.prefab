@@ -255,10 +255,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b71951dd928f4bc41849ed5d8912739a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
+  speed: 30
   destroyTime: 10
-  damageAmount: 20
-  explosion: {fileID: 180484, guid: 85d308a2e7ed867438ccf8993ee59b09, type: 2}
+  damageAmount: 25
+  explosion: {fileID: 106490, guid: ae0eedc1cd8e64b409821a1c829aa2b9, type: 2}
 --- !u!120 &12021232
 LineRenderer:
   m_ObjectHideFlags: 1
