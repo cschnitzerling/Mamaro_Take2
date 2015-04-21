@@ -114,7 +114,7 @@ public class FadeInOut : MonoBehaviour {
 		//guiTexture.enabled = true;
 		WhiteWash ();
 		
-		if (layerMesh.GetComponent<Renderer>().material.color.a >= 0.95f) 
+		if (layerMesh.GetComponent<Renderer>().material.color.a >= 0.99f) 
 		{
 			Application.LoadLevel("Level");
 		}
@@ -133,7 +133,7 @@ public class FadeInOut : MonoBehaviour {
 		//guiTexture.enabled = true;
 		WhiteWash ();
 		
-		if (layerMesh.GetComponent<Renderer>().material.color.a >= 0.95f) 
+		if (layerMesh.GetComponent<Renderer>().material.color.a >= 0.99f) 
 		{
 			Application.LoadLevel(Application.loadedLevel);
 		}
@@ -152,7 +152,7 @@ public class FadeInOut : MonoBehaviour {
 		//guiTexture.enabled = true;
 		WhiteWash ();
 
-		if (layerMesh.GetComponent<Renderer>().material.color.a >= 0.95f) 
+		if (layerMesh.GetComponent<Renderer>().material.color.a >= 0.99f) 
 		{
 			Application.LoadLevel("Credits");
 		}
