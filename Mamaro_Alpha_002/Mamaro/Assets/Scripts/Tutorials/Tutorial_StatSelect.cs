@@ -44,41 +44,18 @@ public class Tutorial_StatSelect : MonoBehaviour {
 		{
 		case 1:
 			//Intro
-				lessonTime = 6;
-				runTimer = true;
+			runTimer = true;
 			break;
 		case 2:
 			//Select Stat
-			if (MamaroController.inst.state.DPad.Left == XInputDotNetPure.ButtonState.Pressed || MamaroController.inst.state.DPad.Right == XInputDotNetPure.ButtonState.Pressed)
-			{
-				lessonTime = 3;
-				runTimer = true;
-			}
+			runTimer = true;
 			break;
 		case 3:
 			//Pressing up or down to open the socket.
-			if (MamaroController.inst.state.DPad.Up == XInputDotNetPure.ButtonState.Pressed || MamaroController.inst.state.DPad.Down == XInputDotNetPure.ButtonState.Pressed)
-			{
-				lessonTime = 3;
-				runTimer = true;
-			}
+			runTimer = true;
 			break;
 		case 4:
 			//Press up or down to add or remove.
-			if (MamaroController.inst.state.DPad.Up == XInputDotNetPure.ButtonState.Pressed || MamaroController.inst.state.DPad.Down == XInputDotNetPure.ButtonState.Pressed)
-			{
-				lessonTime = 3;
-				runTimer = true;
-			}
-			break;
-		case 5:
-			//try attacking the rock  with more power alocated to the melee
-			lessonTime = 6;
-			runTimer = true;
-			break;
-		case 6:
-			//If no spare sockets are available it will take power from the opposite skill
-			lessonTime = 6;
 			runTimer = true;
 			break;
 		case 7:

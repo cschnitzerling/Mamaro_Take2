@@ -164,11 +164,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c6acf427abdff740b8c471356e61625, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ui: {fileID: 0}
   buttonX: {fileID: 0}
   buttonY: {fileID: 0}
   intSize: .800000012
-  pickupTime: 2
+  pickupTime: 1
   previousTime: 0
   timerPickup: 0
 --- !u!135 &13502796

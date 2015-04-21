@@ -57,6 +57,9 @@ public class Game_Manager : MonoBehaviour
 
 	void Start()
 	{
+
+		//Set Time Scale
+		Time.timeScale = 1;
 		// link static vars
 		mAttack = Mamaro_Attack.inst;
 		mMove = MamaroMovement.inst;

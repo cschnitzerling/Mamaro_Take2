@@ -44,26 +44,13 @@ public class Tutorial_Movement : MonoBehaviour {
 		{
 		case 1:
 			//Left Stiick Movement.
-
-			if (MamaroController.inst.state.ThumbSticks.Left.X != 0 || MamaroController.inst.state.ThumbSticks.Left.Y != 0 )
-			{
-				runTimer = true;
-			}
+			runTimer = true;
 			break;
 		case 2:
 			//Left Stiick Movement.
-			if (MamaroController.inst.state.ThumbSticks.Right.X != 0)
-			{
-				runTimer = true;
-			}
+			runTimer = true;
 			break;
 		case 3:
-			if (MamaroController.inst.state.Buttons.RightShoulder == XInputDotNetPure.ButtonState.Pressed)
-			{
-			runTimer = true;
-			}
-			break;
-		case 4:
 			runTimer = true;
 			break;
 		case 5:
