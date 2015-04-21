@@ -38,6 +38,7 @@ public class Game_Manager : MonoBehaviour
 	public GameObject startPos;
 	public GameObject endPos;
 
+	public Transform resetPos;
 
 	void Awake()
 	{
@@ -55,6 +56,7 @@ public class Game_Manager : MonoBehaviour
 		abMan = Ability_Manager.inst;
 		cam = Cam_Manager.inst;
 
+		resetPos = Mamaro_Manager.inst.transform;
 		scripts = FindObjectsOfType<MonoBehaviour>();
 	}
 
@@ -71,6 +73,21 @@ public class Game_Manager : MonoBehaviour
 
 	void Update()
 	{
+		// reset the level
+		if (Input.GetKeyDown(KeyCode.F1))
+		{
+			Mamaro_Manager.inst.transform.position = resetPos.position;
+			Mamaro_Manager.inst.transform.rotation = resetPos.rotation;
+		}
+		
+		print ("Yes");
+		
+		// to quit the game
+		if(Input.GetKeyDown(KeyCode.Escape))
+		{
+			Application.LoadLevel("StartScreen");
+		}
+
 		// check for malMode
 		if(isMalfunction)
 		{
@@ -98,9 +115,16 @@ public class Game_Manager : MonoBehaviour
 			// game over
 			if(malPercent >= 100.0f)
 			{
-				//TODO load gameover cut scene
+				Application.LoadLevel("EndScene");
 			}
 		}
+	}
+
+	/// Puts player back at the start pos
+	public void ResetPlayer()
+	{
+		Mamaro_Manager.inst.transform.position = resetPos.position;
+		Mamaro_Manager.inst.transform.rotation = resetPos.rotation;
 	}
 
 	/// Switches scripts on or off
@@ -110,7 +134,7 @@ public class Game_Manager : MonoBehaviour
 		{
 			// set up malMode
 			Timer_mal = 0.0f;
-			isMalfunction = true;
+			//isMalfunction = true;
 
 			// put cam into position
 			cam.LerpTo(CamPos.Malfunction);
@@ -160,6 +184,10 @@ public class Game_Manager : MonoBehaviour
 	
 	public void ToggleMulfulction (bool toEnable)
 	{
+		arm.transform.position = startPos.transform.position;
+		arm.transform.rotation = startPos.transform.rotation;
+		malPercent = 0.0f;
+		isMalfunction = true;
 		malfunction.SetActive(toEnable);
 		EnableScripts(!toEnable);
 	}

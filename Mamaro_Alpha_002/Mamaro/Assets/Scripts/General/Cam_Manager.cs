@@ -70,8 +70,6 @@ public class Cam_Manager : MonoBehaviour
 		// is currently moving to another position
 		if(isMoving)
 		{
-
-			print ("hit");
 			// apply appropriate ease interpolation
 			LerpLin();
 			currentPos = Vector3.Lerp(startPos, targetPos, lerpInc);
