@@ -33,7 +33,8 @@ public class Script_Destruction_Manager : MonoBehaviour {
 			Audio_Manager.inst.PlayOnce(AA.Chr_Robot_Damage_MetalOnRock_2, transform.position);
 			Audio_Manager.inst.PlayOnce(AA.Env_Desert_DesertRock_Crumble_2, transform.position);
 			GameObject.Destroy (this.gameObject);
-			Instantiate (destructionObject, new Vector3 (transform.position.x, transform.position.y + 0, transform.position.z), transform.rotation);
+			GameObject destroInst = Instantiate (destructionObject, new Vector3 (transform.position.x, transform.position.y + 0, transform.position.z), transform.rotation) as GameObject;
+			//destroInst.transform.localScale = gameObject.GetComponentInChildren<Transform>().transform.localScale;
 		} 
 	}
 	void OnTriggerEnter(Collider col)
