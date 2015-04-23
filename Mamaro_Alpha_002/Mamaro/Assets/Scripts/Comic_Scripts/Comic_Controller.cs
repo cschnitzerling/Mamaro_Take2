@@ -13,12 +13,14 @@ public class Comic_Controller: MonoBehaviour {
 
 	public Comic_Camera_Move CamMove;
 
-	public End_Comic_Trigger isAtEnd;
+	public Comic_Trigger isinTrigger;
 
 	public static Comic_Controller inst;
 
 	public FadeInOut fadeOut;
-	public float roundTimeLeft, startTime, roundTimeSeconds;
+	public float roundTimeLeft, startTime, roundTimeSeconds, roundTimeSecDefualt;
+
+	public bool speedUp;
 	//###########################################
 	//Required For X Input
 	bool playerIndexSet = false;
@@ -33,7 +35,7 @@ public class Comic_Controller: MonoBehaviour {
 		fadeOut = GameObject.FindGameObjectWithTag ("FadeScene").GetComponent<FadeInOut> ();
 		animMove = GameObject.FindGameObjectWithTag ("LightTrig").GetComponent<Lightanimation_Controller> ();
 		CamMove = Camera.main.GetComponent<Comic_Camera_Move> ();
-		isAtEnd = GameObject.FindGameObjectWithTag ("AtEnd").GetComponent<End_Comic_Trigger> ();
+		isinTrigger = GameObject.FindGameObjectWithTag ("AtEnd").GetComponent<Comic_Trigger> ();
 		if (inst == null)
 		{
 			inst = this;
@@ -42,18 +44,25 @@ public class Comic_Controller: MonoBehaviour {
 	
 	void Start()
 	{
+		roundTimeSecDefualt = roundTimeSeconds;
 		startTime = Time.time;
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
+		speedUp = isinTrigger.speedUp;
+		if (isinTrigger.speedUp) {
+			roundTimeSeconds = 1.5f;
+		}else{
+			roundTimeSeconds = roundTimeSecDefualt;
+		}
 
 		{
 			roundTimeLeft = Time.time - startTime;
 			if (roundTimeLeft >= roundTimeSeconds)
 			{
-				if(isAtEnd.isIn){
+				if(isinTrigger.isEnd){
 					Debug.Log("beuin");
 					fadeOut.nextScene = true;
 				}
@@ -109,7 +118,7 @@ public class Comic_Controller: MonoBehaviour {
 
 		if (state.Buttons.A == ButtonState.Pressed && prevState.Buttons.A == ButtonState.Released)
 		{
-			if(isAtEnd.isIn){
+			if(isinTrigger.isEnd){
 				Debug.Log("beuin");
 				fadeOut.nextScene = true;
 			}
