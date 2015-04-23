@@ -8,7 +8,7 @@ Material:
   m_PrefabInternal: {fileID: 0}
   m_Name: Weenie_Building01_Texture
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: _DETAIL_MULX2 _NORMALMAP
+  m_ShaderKeywords: _DETAIL_MULX2
   m_LightmapFlags: 5
   m_CustomRenderQueue: -1
   m_SavedProperties:
@@ -67,8 +67,8 @@ Material:
         first:
           name: _DetailAlbedoMap
         second:
-          m_Texture: {fileID: 2800000, guid: a659c282ce8ea8c46adcc3973cdf2a5d, type: 3}
-          m_Scale: {x: 14.5200005, y: .319999993}
+          m_Texture: {fileID: 2800000, guid: 2ee75febd3759274ca8877c3a871530a, type: 3}
+          m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
@@ -138,7 +138,7 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: 1, g: 1, b: 1, a: 1}
+        second: {r: .691176474, g: .691176474, b: .691176474, a: 1}
       data:
         first:
           name: _EmissionColorUI
