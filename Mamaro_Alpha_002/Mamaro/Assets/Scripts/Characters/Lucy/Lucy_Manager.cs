@@ -19,8 +19,20 @@ public class Lucy_Manager : MonoBehaviour {
 
 	public float fearDecreaseTime;
 	private float timerFearDecrease;
+	
+	// fear bar vars
+	private int barDivide = 4;
 
-	public float repairDelay;//The time after takeing fear damage untill recharge begins.
+	public RectTransform fearBar;
+	private float maxBarY;
+	private Vector3 barVec = Vector3.one;
+	public RectTransform meter;
+	private float maxMeterY;
+	private Vector3 meterVec = Vector3.one;
+	public Material color;
+
+
+	public float repairDelay;//The time after taking fear damage untill recharge begins.
 	private float timerRepairDelay;//timer for the delay on recharge
 
 	public float repairInterval;//The timer in between when lucy is scared and repairing.
@@ -30,11 +42,7 @@ public class Lucy_Manager : MonoBehaviour {
 	private int repairAmountScared;//The Amount that lucy repairs mamar While in scared mode
 
 	private bool isRepairing;
-
-	private Vector3 meterVec = Vector3.one;
-	public RectTransform meter;
-	public Material color;
-
+	
 	public GameObject lucyIncFear;
 	public GameObject lucy;
 	Animator anim;
@@ -51,8 +59,12 @@ public class Lucy_Manager : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
+		// set the fear/meter bar largest Y scale
+		maxBarY = fearBar.rect.height;
+		maxMeterY = meter.rect.height;
+
 		anim = lucy.GetComponent<Animator>();
-		fear = 50;
+		fear = fearMax / barDivide;
 		mamaro = Mamaro_Manager.inst;
 		Audio_Manager.inst.PlayRecursive(AA.Chr_Lucy_Cry_1, transform.position, "LucyCry");
 		Audio_Manager.inst.StopRecursive("LucyCry");
@@ -62,8 +74,17 @@ public class Lucy_Manager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
+		// scale fear bar to current divide
+		fearMax = (int)maxMeterY / barDivide;
+
+		// scale bar size in respects to divide value
+		barVec.y = 1 - (maxBarY / barDivide) / 100;
+		fearBar.localScale = barVec;
+
+		// scale meter in respects to fear value
 		meterVec.y = ((float)fear / (float)fearMax);
 		meter.localScale = meterVec;
+
 		if (fear > 0)
 		{
 			timerFearDecrease += Time.deltaTime;
@@ -72,7 +93,7 @@ public class Lucy_Manager : MonoBehaviour {
 				OnChangeFear(FearType.Decrease);
 				timerFearDecrease = 0;
 			}
-				if (fear < 0)
+			if (fear < 0)
 			{
 				fear = 0;
 			}
@@ -286,6 +307,19 @@ public class Lucy_Manager : MonoBehaviour {
 				mamaro.health = mamaro.maxHealth;
 			}
 		}
+	}
+	
+	/// sequence when I core was destroyed
+	public void UpgradeFear()
+	{
+		// reset fear level
+		fear = 0;
+		
+		// reduce barDivide (no lower than 1)
+		if(barDivide > 1)
+			barDivide--;
+		
+		// add effects to bar
 	}
 }
 
