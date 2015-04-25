@@ -19,6 +19,7 @@ public class Comic_Controller: MonoBehaviour {
 	public float roundTimeLeft, startTime, roundTimeSeconds, roundTimeSecDefualt;
 
 	public bool speedUp;
+	public bool speedUpTwo;
 	//###########################################
 	//Required For X Input
 	bool playerIndexSet = false;
@@ -52,8 +53,15 @@ public class Comic_Controller: MonoBehaviour {
 		if (Input.GetButtonDown("Fire1")) {
 			CamMove.NewTarget();
 		}
+
 		if (speedUp) {
 			roundTimeSeconds = 1.5f;
+		}else{
+			roundTimeSeconds = roundTimeSecDefualt;
+		}
+
+		if (speedUpTwo) {
+			roundTimeSeconds = 0.9f;
 		}else{
 			roundTimeSeconds = roundTimeSecDefualt;
 		}

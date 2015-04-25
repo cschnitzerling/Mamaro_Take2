@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Comic_Trigger : MonoBehaviour {
 	public bool isIn, speedUp;
-	public bool isEnd, IsSpeedUp;
+	public bool isEnd, IsSpeedUp, IsSpeedUpTwo;
 	public Comic_Controller CamCon;
 	// Use this for initialization
 	void Awake () {
@@ -21,6 +21,10 @@ public class Comic_Trigger : MonoBehaviour {
 				if (IsSpeedUp) {
 				CamCon.speedUp = true;
 				}
+
+			if (IsSpeedUpTwo) {
+				CamCon.speedUpTwo = true;
+			}
 			} 
 	}
 
@@ -28,6 +32,8 @@ public class Comic_Trigger : MonoBehaviour {
 		if (col.gameObject.tag == "MainCamera") {
 			isIn = false;
 			CamCon.speedUp = false;
+			CamCon.speedUpTwo = false;
+
 		}
 	}
 
