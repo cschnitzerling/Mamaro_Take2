@@ -28,6 +28,8 @@ public class Lucy_Manager : MonoBehaviour {
 	public float maxMeterY;
 	public Vector3 meterVec = Vector3.one;
 	public Material color;
+	public ParticleSystem particle;
+	private float partStartSpeed;
 
 
 	public float repairDelay;//The time after taking fear damage untill recharge begins.
@@ -43,6 +45,7 @@ public class Lucy_Manager : MonoBehaviour {
 	
 	public GameObject lucyIncFear;
 	public GameObject lucy;
+	public GameObject lucyFixEffect;
 	Animator anim;
 
 
@@ -61,6 +64,8 @@ public class Lucy_Manager : MonoBehaviour {
 		maxBarY = fearBar.rect.height;
 		maxMeterY = meter.rect.height;
 		fearBar.sizeDelta = new Vector2(fearBar.rect.width, maxBarY / barDivide);
+
+		partStartSpeed = particle.startSpeed;
 
 		fear = 0; 
 
@@ -314,6 +319,9 @@ public class Lucy_Manager : MonoBehaviour {
 		//Reparing
 		if (timerRepair > repairInterval)
 		{
+			// show effect each fix
+			lucyFixEffect.SetActive(true);
+
 			if (mamaro.health < mamaro.maxHealth)
 			{
 				mamaro.health += amount;
@@ -336,7 +344,10 @@ public class Lucy_Manager : MonoBehaviour {
 		// reduce barDivide (no lower than 1)
 		if(barDivide > 1)
 			barDivide--;
-		
+
+		// speed scaled in respects to divide
+		particle.startSpeed = partStartSpeed / barDivide;
+
 		// switch on particles
 		upgradeParticle.SetActive(true);
 	}
