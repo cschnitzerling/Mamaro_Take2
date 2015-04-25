@@ -16,6 +16,7 @@ public class Mamaro_Manager : MonoBehaviour
 	public int maxHealth = 100;
 	public int smallDamage, mediumDamage, largeDamage;	// in regards to how much cam shake to apply
 	public Vector3 camMalfuncPos;
+	public GameObject coreUpgradeParticles;
 
 	// non-inspector assigned vars
 	//[HideInInspector]
@@ -129,6 +130,9 @@ public class Mamaro_Manager : MonoBehaviour
 		abMan.AddSpareCore();
 		isMalfunctioning = true;
 		GM.MalfunctionMode(true);
+
+		// show effects at spare's pos
+		coreUpgradeParticles.SetActive(true);
 	}
 
 	// adds x amount to health
