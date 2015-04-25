@@ -11,11 +11,10 @@ public class Lucy_Manager : MonoBehaviour {
 	Mamaro_Manager mamaro;
 	GameObject lucyTapping;
 
-	[System.NonSerialized]
 	public int fear;
 	public int fearMax;
-	public int fearScaredLevel;
-	public int fearFrightenedLevel;
+	private float fearScaredLevel;
+	private float fearFrightenedLevel;
 
 	public float fearDecreaseTime;
 	private float timerFearDecrease;
@@ -24,11 +23,10 @@ public class Lucy_Manager : MonoBehaviour {
 	private int barDivide = 4;
 
 	public RectTransform fearBar;
-	private float maxBarY;
-	private Vector3 barVec = Vector3.one;
+	public float maxBarY;
 	public RectTransform meter;
-	private float maxMeterY;
-	private Vector3 meterVec = Vector3.one;
+	public float maxMeterY;
+	public Vector3 meterVec = Vector3.one;
 	public Material color;
 
 
@@ -62,9 +60,11 @@ public class Lucy_Manager : MonoBehaviour {
 		// set the fear/meter bar largest Y scale
 		maxBarY = fearBar.rect.height;
 		maxMeterY = meter.rect.height;
+		fearBar.sizeDelta = new Vector2(fearBar.rect.width, maxBarY / barDivide);
+
+		fear = 0; 
 
 		anim = lucy.GetComponent<Animator>();
-		fear = fearMax / barDivide;
 		mamaro = Mamaro_Manager.inst;
 		Audio_Manager.inst.PlayRecursive(AA.Chr_Lucy_Cry_1, transform.position, "LucyCry");
 		Audio_Manager.inst.StopRecursive("LucyCry");
@@ -77,13 +77,25 @@ public class Lucy_Manager : MonoBehaviour {
 		// scale fear bar to current divide
 		fearMax = (int)maxMeterY / barDivide;
 
+		// scale fear thresholds
+		fearScaredLevel = (fearMax / barDivide) * 0.4f;		// hard coded //////////////////////
+		fearFrightenedLevel = (fearMax / barDivide) * 0.7f; // hard coded //////////////////////
+
 		// scale bar size in respects to divide value
-		barVec.y = 1 - (maxBarY / barDivide) / 100;
-		fearBar.localScale = barVec;
+		fearBar.sizeDelta = new Vector2(fearBar.rect.width, Mathf.Lerp(fearBar.rect.height, maxBarY / barDivide, 0.075f));
 
 		// scale meter in respects to fear value
 		meterVec.y = ((float)fear / (float)fearMax);
 		meter.localScale = meterVec;
+
+
+		// reduce fear faster when blocking
+		if(mamaro.isBlocking)
+		{
+			OnChangeFear(FearType.Decrease);
+			//TODO apply some pretty particles indicating faster reduction.
+		}
+
 
 		if (fear > 0)
 		{
@@ -139,7 +151,9 @@ public class Lucy_Manager : MonoBehaviour {
 		if (Input.GetKeyDown(KeyCode.O))          //
 		{                                        //
 			mamaro.health -= 20;                //
-		}                                      //
+		}
+		if(Input.GetKeyDown(KeyCode.F12))
+			UpgradeFear();
 		////////////////////////////////////////
 
 
@@ -156,13 +170,18 @@ public class Lucy_Manager : MonoBehaviour {
 			lucyIncFear.SetActive(true);
 		}
 
-		if (fear <= fearMax && fear >= 0)
+		if (fear <= fearMax / barDivide && fear >= 0)
 		{
-			fear += (int)fearType;
+			// bar reduces relative to the bar size
+			if(fearType == FearType.Decrease)
+				fear += (int)fearType * (5 - barDivide);
+			else
+				fear += (int)fearType;
 		}
-		if (fear > fearMax)
+
+		if (fear > fearMax / barDivide)
 		{
-			fear = fearMax;
+			fear = fearMax / barDivide;
 		}
 		else if (fear < 0)
 		{
@@ -223,7 +242,6 @@ public class Lucy_Manager : MonoBehaviour {
 		}
 
 		RepairMamaro(repairAmountRepair);
-
 	}
 
 	/// <summary>
@@ -319,7 +337,7 @@ public class Lucy_Manager : MonoBehaviour {
 		if(barDivide > 1)
 			barDivide--;
 		
-		// add effects to bar
+		//TODO add effects to bar
 	}
 }
 
