@@ -13,8 +13,6 @@ public class Comic_Controller: MonoBehaviour {
 
 	public Comic_Camera_Move CamMove;
 
-	public Comic_Trigger isinTrigger;
-
 	public static Comic_Controller inst;
 
 	public FadeInOut fadeOut;
@@ -35,7 +33,6 @@ public class Comic_Controller: MonoBehaviour {
 		fadeOut = GameObject.FindGameObjectWithTag ("FadeScene").GetComponent<FadeInOut> ();
 		animMove = GameObject.FindGameObjectWithTag ("LightTrig").GetComponent<Lightanimation_Controller> ();
 		CamMove = Camera.main.GetComponent<Comic_Camera_Move> ();
-		isinTrigger = GameObject.FindGameObjectWithTag ("AtEnd").GetComponent<Comic_Trigger> ();
 		if (inst == null)
 		{
 			inst = this;
@@ -51,8 +48,11 @@ public class Comic_Controller: MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		speedUp = isinTrigger.speedUp;
-		if (isinTrigger.speedUp) {
+
+		if (Input.GetButtonDown("Fire1")) {
+			CamMove.NewTarget();
+		}
+		if (speedUp) {
 			roundTimeSeconds = 1.5f;
 		}else{
 			roundTimeSeconds = roundTimeSecDefualt;
@@ -62,10 +62,10 @@ public class Comic_Controller: MonoBehaviour {
 			roundTimeLeft = Time.time - startTime;
 			if (roundTimeLeft >= roundTimeSeconds)
 			{
-				if(isinTrigger.isEnd){
-					Debug.Log("beuin");
-					fadeOut.nextScene = true;
-				}
+				//if(isinTrigger.isEnd){
+					//Debug.Log("beuin");
+					//fadeOut.nextScene = true;
+				//}
 				if(animMove.isIn){
 					animMove.hasPressed = true;
 					CamMove.NewTarget();
@@ -118,10 +118,11 @@ public class Comic_Controller: MonoBehaviour {
 
 		if (state.Buttons.A == ButtonState.Pressed && prevState.Buttons.A == ButtonState.Released)
 		{
-			if(isinTrigger.isEnd){
-				Debug.Log("beuin");
-				fadeOut.nextScene = true;
-			}
+			CamMove.NewTarget();
+			//if(isinTrigger.isEnd){
+			//	Debug.Log("beuin");
+				//fadeOut.nextScene = true;
+			//}
 			if(animMove.isIn){
 			animMove.hasPressed = true;
 				CamMove.NewTarget();

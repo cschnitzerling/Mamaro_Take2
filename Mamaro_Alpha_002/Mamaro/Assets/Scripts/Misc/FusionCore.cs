@@ -73,8 +73,7 @@ public class FusionCore : MonoBehaviour {
 
 		if (timerPickup > 1f)
 		{
-			//TODO Decrease Lucys Fear
-			//TODO Increase Lucy's fear bar
+			Lucy_Manager.inst.UpgradeFear();
 			Audio_Manager.inst.PlayOnce(AA.Chr_Robot_Attack_CannonHit_1, transform.position);
 			RemoveObject();
 		}

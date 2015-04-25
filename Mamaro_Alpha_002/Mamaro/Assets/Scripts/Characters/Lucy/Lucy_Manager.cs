@@ -11,16 +11,26 @@ public class Lucy_Manager : MonoBehaviour {
 	Mamaro_Manager mamaro;
 	GameObject lucyTapping;
 
-	[System.NonSerialized]
 	public int fear;
 	public int fearMax;
-	public int fearScaredLevel;
-	public int fearFrightenedLevel;
+	private float fearScaredLevel;
+	private float fearFrightenedLevel;
 
 	public float fearDecreaseTime;
 	private float timerFearDecrease;
+	
+	// fear bar vars
+	private int barDivide = 4;
 
-	public float repairDelay;//The time after takeing fear damage untill recharge begins.
+	public RectTransform fearBar;
+	public float maxBarY;
+	public RectTransform meter;
+	public float maxMeterY;
+	public Vector3 meterVec = Vector3.one;
+	public Material color;
+
+
+	public float repairDelay;//The time after taking fear damage untill recharge begins.
 	private float timerRepairDelay;//timer for the delay on recharge
 
 	public float repairInterval;//The timer in between when lucy is scared and repairing.
@@ -30,11 +40,7 @@ public class Lucy_Manager : MonoBehaviour {
 	private int repairAmountScared;//The Amount that lucy repairs mamar While in scared mode
 
 	private bool isRepairing;
-
-	private Vector3 meterVec = Vector3.one;
-	public RectTransform meter;
-	public Material color;
-
+	
 	public GameObject lucyIncFear;
 	public GameObject lucy;
 	Animator anim;
@@ -51,8 +57,14 @@ public class Lucy_Manager : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
+		// set the fear/meter bar largest Y scale
+		maxBarY = fearBar.rect.height;
+		maxMeterY = meter.rect.height;
+		fearBar.sizeDelta = new Vector2(fearBar.rect.width, maxBarY / barDivide);
+
+		fear = 0; 
+
 		anim = lucy.GetComponent<Animator>();
-		fear = 50;
 		mamaro = Mamaro_Manager.inst;
 		Audio_Manager.inst.PlayRecursive(AA.Chr_Lucy_Cry_1, transform.position, "LucyCry");
 		Audio_Manager.inst.StopRecursive("LucyCry");
@@ -62,8 +74,29 @@ public class Lucy_Manager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
+		// scale fear bar to current divide
+		fearMax = (int)maxMeterY / barDivide;
+
+		// scale fear thresholds
+		fearScaredLevel = (fearMax / barDivide) * 0.4f;		// hard coded //////////////////////
+		fearFrightenedLevel = (fearMax / barDivide) * 0.7f; // hard coded //////////////////////
+
+		// scale bar size in respects to divide value
+		fearBar.sizeDelta = new Vector2(fearBar.rect.width, Mathf.Lerp(fearBar.rect.height, maxBarY / barDivide, 0.075f));
+
+		// scale meter in respects to fear value
 		meterVec.y = ((float)fear / (float)fearMax);
 		meter.localScale = meterVec;
+
+
+		// reduce fear faster when blocking
+		if(mamaro.isBlocking)
+		{
+			OnChangeFear(FearType.Decrease);
+			//TODO apply some pretty particles indicating faster reduction.
+		}
+
+
 		if (fear > 0)
 		{
 			timerFearDecrease += Time.deltaTime;
@@ -72,7 +105,7 @@ public class Lucy_Manager : MonoBehaviour {
 				OnChangeFear(FearType.Decrease);
 				timerFearDecrease = 0;
 			}
-				if (fear < 0)
+			if (fear < 0)
 			{
 				fear = 0;
 			}
@@ -118,7 +151,9 @@ public class Lucy_Manager : MonoBehaviour {
 		if (Input.GetKeyDown(KeyCode.O))          //
 		{                                        //
 			mamaro.health -= 20;                //
-		}                                      //
+		}
+		if(Input.GetKeyDown(KeyCode.F12))
+			UpgradeFear();
 		////////////////////////////////////////
 
 
@@ -135,13 +170,18 @@ public class Lucy_Manager : MonoBehaviour {
 			lucyIncFear.SetActive(true);
 		}
 
-		if (fear <= fearMax && fear >= 0)
+		if (fear <= fearMax / barDivide && fear >= 0)
 		{
-			fear += (int)fearType;
+			// bar reduces relative to the bar size
+			if(fearType == FearType.Decrease)
+				fear += (int)fearType * (5 - barDivide);
+			else
+				fear += (int)fearType;
 		}
-		if (fear > fearMax)
+
+		if (fear > fearMax / barDivide)
 		{
-			fear = fearMax;
+			fear = fearMax / barDivide;
 		}
 		else if (fear < 0)
 		{
@@ -202,7 +242,6 @@ public class Lucy_Manager : MonoBehaviour {
 		}
 
 		RepairMamaro(repairAmountRepair);
-
 	}
 
 	/// <summary>
@@ -286,6 +325,19 @@ public class Lucy_Manager : MonoBehaviour {
 				mamaro.health = mamaro.maxHealth;
 			}
 		}
+	}
+	
+	/// sequence when I core was destroyed
+	public void UpgradeFear()
+	{
+		// reset fear level
+		fear = 0;
+		
+		// reduce barDivide (no lower than 1)
+		if(barDivide > 1)
+			barDivide--;
+		
+		//TODO add effects to bar
 	}
 }
 
