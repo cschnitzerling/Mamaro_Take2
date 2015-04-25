@@ -20,8 +20,8 @@ public class Lucy_Manager : MonoBehaviour {
 	private float timerFearDecrease;
 	
 	// fear bar vars
+	public GameObject upgradeParticle;
 	private int barDivide = 4;
-
 	public RectTransform fearBar;
 	public float maxBarY;
 	public RectTransform meter;
@@ -337,7 +337,8 @@ public class Lucy_Manager : MonoBehaviour {
 		if(barDivide > 1)
 			barDivide--;
 		
-		//TODO add effects to bar
+		// switch on particles
+		upgradeParticle.SetActive(true);
 	}
 }
 
