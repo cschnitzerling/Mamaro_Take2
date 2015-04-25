@@ -3,8 +3,10 @@ using System.Collections;
 
 public class ButtonScript : MonoBehaviour {
 	public bool mouseOver;
+	public Mamaro_StartAnim starAnim;
 	// Use this for initialization
-	void Start () {
+	void Awake () {
+		starAnim = GameObject.FindGameObjectWithTag ("Player").GetComponent<Mamaro_StartAnim> ();
 		}
 	public void OnMouseEnter(){
 		mouseOver = true;
@@ -24,7 +26,7 @@ public class ButtonScript : MonoBehaviour {
 		if(Input.GetMouseButton(0) && mouseOver == true){
 			if(mouseOver){
 				if(transform.name == "StartButton"){
-					Application.LoadLevel("ComicScene");
+					starAnim.ArmActive();
 				}
 				else if(transform.name == "GoBackStartButton")
 				{

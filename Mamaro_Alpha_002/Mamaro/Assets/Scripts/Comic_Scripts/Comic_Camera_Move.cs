@@ -9,10 +9,11 @@ public class Comic_Camera_Move : MonoBehaviour {
 	public Transform target, curPos;
 	public int counter;
 	public Lightanimation_Controller animMove;
-	public Comic_Trigger isAtEnd;
+	public Comic_Trigger pauser;
+	public bool isPaused;
 	// Use this for initialization
 	void Awake () {
-		isAtEnd = GameObject.FindGameObjectWithTag ("AtEnd").GetComponent<Comic_Trigger> ();
+		pauser = GameObject.FindGameObjectWithTag ("AtEnd").GetComponent<Comic_Trigger> ();
 		animMove = GameObject.FindGameObjectWithTag ("LightTrig").GetComponent<Lightanimation_Controller> ();
 
 		AddTargets ();
@@ -58,6 +59,7 @@ public class Comic_Camera_Move : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		isPaused = pauser.isPuased;
 		if (target == null) {
 			target = targets [0];
 		}
@@ -68,7 +70,7 @@ public class Comic_Camera_Move : MonoBehaviour {
 		}
 		if (target != null) {
 			if (!animMove.isPlaying && !animMove.hasPressed){
-				if(!isAtEnd.isEnd){
+				if(!isPaused){
 				transform.position = Vector3.Lerp (curPos.position, target.position, .05f);
 				}
 		}

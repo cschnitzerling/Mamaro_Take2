@@ -13,6 +13,8 @@ public class StartScene_Controller: MonoBehaviour {
 
 	public FadeInOut fadeOut;
 
+	public Mamaro_StartAnim starAnim;
+
 	//###########################################
 	//Required For X Input
 	bool playerIndexSet = false;
@@ -24,6 +26,7 @@ public class StartScene_Controller: MonoBehaviour {
 	
 	void Awake()
 	{
+
 		if (inst == null)
 		{
 			inst = this;
@@ -32,6 +35,7 @@ public class StartScene_Controller: MonoBehaviour {
 	
 	void Start()
 	{
+		starAnim = GameObject.FindGameObjectWithTag ("Player").GetComponent<Mamaro_StartAnim> ();
 	}
 	
 	// Update is called once per frame
@@ -40,7 +44,7 @@ public class StartScene_Controller: MonoBehaviour {
 
 
 		if (Input.GetButtonDown("Fire1")) {
-			Application.LoadLevel("ComicScene");
+			starAnim.ArmActive();
 		}
 
 		switch (InputDevice)
@@ -82,7 +86,7 @@ public class StartScene_Controller: MonoBehaviour {
 		//Dodge Controls
 		if (state.Buttons.A == ButtonState.Pressed && prevState.Buttons.A == ButtonState.Released)
 		{
-			Application.LoadLevel("ComicScene");
+			starAnim.ArmActive();
 		}
 
 
