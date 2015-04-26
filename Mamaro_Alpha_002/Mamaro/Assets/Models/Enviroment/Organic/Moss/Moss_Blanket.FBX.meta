@@ -1,15 +1,56 @@
 fileFormatVersion: 2
-guid: 4afc845cc9665f246a33ed1970e01e52
-timeCreated: 1428773592
+guid: 1ab0c07256d161b48954c29a65c73d9a
+timeCreated: 1430052066
 licenseType: Pro
 ModelImporter:
   serializedVersion: 18
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
-    2300000: //RootNode
-    3300000: //RootNode
+    100000: Bone011
+    100002: Bone012
+    100004: Bone013
+    100006: Bone014
+    100008: Bone015
+    100010: Bone016
+    100012: Bone017
+    100014: Bone018
+    100016: Bone019
+    100018: Bone020
+    100020: Bone021
+    100022: Bone022
+    100024: Bone023
+    100026: Bone024
+    100028: Bone025
+    100030: Bone026
+    100032: Bone027
+    100034: Bone028
+    100036: Bone029
+    100038: //RootNode
+    100040: Plane005
+    400000: Bone011
+    400002: Bone012
+    400004: Bone013
+    400006: Bone014
+    400008: Bone015
+    400010: Bone016
+    400012: Bone017
+    400014: Bone018
+    400016: Bone019
+    400018: Bone020
+    400020: Bone021
+    400022: Bone022
+    400024: Bone023
+    400026: Bone024
+    400028: Bone025
+    400030: Bone026
+    400032: Bone027
+    400034: Bone028
+    400036: Bone029
+    400038: //RootNode
+    400040: Plane005
     4300000: Plane005
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: Plane005
   materials:
     importMaterials: 1
     materialName: 0
@@ -63,7 +104,7 @@ ModelImporter:
     feetSpacing: 0
     rootMotionBoneName: 
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   additionalBone: 0
   userData: 
   assetBundleName: 

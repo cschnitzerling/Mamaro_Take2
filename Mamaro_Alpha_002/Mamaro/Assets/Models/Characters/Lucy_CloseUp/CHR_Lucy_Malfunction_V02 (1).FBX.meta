@@ -1,0 +1,263 @@
+fileFormatVersion: 2
+guid: 3c833ab2d7aa6164091d75998eeea999
+timeCreated: 1430026922
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: A
+    100002: Box001
+    100004: Box001 1
+    100006: Box001 2
+    100008: CATRigHub001
+    100010: CATRigHub002
+    100012: CATRigHub003
+    100014: CATRigLArm1
+    100016: CATRigLArm2
+    100018: CATRigLArmCollarbone
+    100020: CATRigLArmDigit11
+    100022: CATRigLArmDigit12
+    100024: CATRigLArmDigit21
+    100026: CATRigLArmDigit22
+    100028: CATRigLArmDigit23
+    100030: CATRigLArmDigit31
+    100032: CATRigLArmDigit32
+    100034: CATRigLArmDigit33
+    100036: CATRigLArmDigit41
+    100038: CATRigLArmDigit42
+    100040: CATRigLArmDigit43
+    100042: CATRigLArmDigit51
+    100044: CATRigLArmDigit52
+    100046: CATRigLArmDigit53
+    100048: CATRigLArmPalm
+    100050: CATRigLLeg1
+    100052: CATRigLLeg2
+    100054: CATRigLLegAnkle
+    100056: CATRigLLegDigit11
+    100058: CATRigLLegDigit12
+    100060: CATRigLLegPlatform
+    100062: CATRigRArm1
+    100064: CATRigRArm2
+    100066: CATRigRArmCollarbone
+    100068: CATRigRArmDigit11
+    100070: CATRigRArmDigit12
+    100072: CATRigRArmDigit21
+    100074: CATRigRArmDigit22
+    100076: CATRigRArmDigit23
+    100078: CATRigRArmDigit31
+    100080: CATRigRArmDigit32
+    100082: CATRigRArmDigit33
+    100084: CATRigRArmDigit41
+    100086: CATRigRArmDigit42
+    100088: CATRigRArmDigit43
+    100090: CATRigRArmDigit51
+    100092: CATRigRArmDigit52
+    100094: CATRigRArmDigit53
+    100096: CATRigRArmPalm
+    100098: CATRigRLeg1
+    100100: CATRigRLeg2
+    100102: CATRigRLegAnkle
+    100104: CATRigRLegDigit11
+    100106: CATRigRLegDigit12
+    100108: CATRigRLegPlatform
+    100110: CATRigSpine
+    100112: CATRigSpine1
+    100114: CATRigSpine2
+    100116: CATRigSpine3
+    100118: Character001
+    100120: //RootNode
+    100122: Happy Eyes
+    100124: iris001
+    100126: iris002
+    100128: M
+    100130: Mesh_Lucy
+    100132: O
+    100134: Open mouth
+    100136: R
+    100138: Sad
+    100140: Sad eyes
+    100142: Sadder eyes
+    100144: Smile
+    100146: Sphere001
+    100148: Sphere002
+    400000: A
+    400002: Box001
+    400004: Box001 1
+    400006: Box001 2
+    400008: CATRigHub001
+    400010: CATRigHub002
+    400012: CATRigHub003
+    400014: CATRigLArm1
+    400016: CATRigLArm2
+    400018: CATRigLArmCollarbone
+    400020: CATRigLArmDigit11
+    400022: CATRigLArmDigit12
+    400024: CATRigLArmDigit21
+    400026: CATRigLArmDigit22
+    400028: CATRigLArmDigit23
+    400030: CATRigLArmDigit31
+    400032: CATRigLArmDigit32
+    400034: CATRigLArmDigit33
+    400036: CATRigLArmDigit41
+    400038: CATRigLArmDigit42
+    400040: CATRigLArmDigit43
+    400042: CATRigLArmDigit51
+    400044: CATRigLArmDigit52
+    400046: CATRigLArmDigit53
+    400048: CATRigLArmPalm
+    400050: CATRigLLeg1
+    400052: CATRigLLeg2
+    400054: CATRigLLegAnkle
+    400056: CATRigLLegDigit11
+    400058: CATRigLLegDigit12
+    400060: CATRigLLegPlatform
+    400062: CATRigRArm1
+    400064: CATRigRArm2
+    400066: CATRigRArmCollarbone
+    400068: CATRigRArmDigit11
+    400070: CATRigRArmDigit12
+    400072: CATRigRArmDigit21
+    400074: CATRigRArmDigit22
+    400076: CATRigRArmDigit23
+    400078: CATRigRArmDigit31
+    400080: CATRigRArmDigit32
+    400082: CATRigRArmDigit33
+    400084: CATRigRArmDigit41
+    400086: CATRigRArmDigit42
+    400088: CATRigRArmDigit43
+    400090: CATRigRArmDigit51
+    400092: CATRigRArmDigit52
+    400094: CATRigRArmDigit53
+    400096: CATRigRArmPalm
+    400098: CATRigRLeg1
+    400100: CATRigRLeg2
+    400102: CATRigRLegAnkle
+    400104: CATRigRLegDigit11
+    400106: CATRigRLegDigit12
+    400108: CATRigRLegPlatform
+    400110: CATRigSpine
+    400112: CATRigSpine1
+    400114: CATRigSpine2
+    400116: CATRigSpine3
+    400118: Character001
+    400120: //RootNode
+    400122: Happy Eyes
+    400124: iris001
+    400126: iris002
+    400128: M
+    400130: Mesh_Lucy
+    400132: O
+    400134: Open mouth
+    400136: R
+    400138: Sad
+    400140: Sad eyes
+    400142: Sadder eyes
+    400144: Smile
+    400146: Sphere001
+    400148: Sphere002
+    2300000: A
+    2300002: Happy Eyes
+    2300004: iris001
+    2300006: iris002
+    2300008: M
+    2300010: O
+    2300012: Open mouth
+    2300014: R
+    2300016: Sad
+    2300018: Sad eyes
+    2300020: Sadder eyes
+    2300022: Smile
+    2300024: Sphere001
+    2300026: Sphere002
+    3300000: A
+    3300002: Happy Eyes
+    3300004: iris001
+    3300006: iris002
+    3300008: M
+    3300010: O
+    3300012: Open mouth
+    3300014: R
+    3300016: Sad
+    3300018: Sad eyes
+    3300020: Sadder eyes
+    3300022: Smile
+    3300024: Sphere001
+    3300026: Sphere002
+    4300000: Sad
+    4300002: Sad eyes
+    4300004: M
+    4300006: A
+    4300008: O
+    4300010: R
+    4300012: Box001
+    4300014: Sphere001
+    4300016: iris002
+    4300018: Sphere002
+    4300020: iris001
+    4300022: Mesh_Lucy
+    4300024: Open mouth
+    4300026: Sadder eyes
+    4300028: Smile
+    4300030: Happy Eyes
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: Box001 2
+    13700002: Mesh_Lucy
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

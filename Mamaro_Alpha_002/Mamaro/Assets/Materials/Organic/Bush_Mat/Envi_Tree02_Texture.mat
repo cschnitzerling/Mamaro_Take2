@@ -18,7 +18,7 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: a4bdebd7c94c9104f9c2274673cf670f, type: 3}
+          m_Texture: {fileID: 2800000, guid: e6d0d8661f2bf854a81400cc9c747c01, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -26,6 +26,10 @@ Material:
         first:
           name: _Cutoff
         second: .899999976
+      data:
+        first:
+          name: _Occlusion
+        second: 0
       data:
         first:
           name: _BaseLight
@@ -38,10 +42,6 @@ Material:
         first:
           name: _SquashAmount
         second: 1
-      data:
-        first:
-          name: _Occlusion
-        second: 0
     m_Colors:
       data:
         first:
