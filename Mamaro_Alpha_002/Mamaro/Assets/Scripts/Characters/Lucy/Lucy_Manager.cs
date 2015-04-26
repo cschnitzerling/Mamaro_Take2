@@ -319,13 +319,13 @@ public class Lucy_Manager : MonoBehaviour {
 		//Reparing
 		if (timerRepair > repairInterval)
 		{
-			// show effect each fix
-			lucyFixEffect.SetActive(true);
-
 			if (mamaro.health < mamaro.maxHealth)
 			{
 				mamaro.health += amount;
 				timerRepair -= repairInterval;
+
+				// show effect each fix
+				lucyFixEffect.SetActive(true);
 			}
 
 			if (mamaro.health > mamaro.maxHealth)
@@ -352,36 +352,6 @@ public class Lucy_Manager : MonoBehaviour {
 		upgradeParticle.SetActive(true);
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

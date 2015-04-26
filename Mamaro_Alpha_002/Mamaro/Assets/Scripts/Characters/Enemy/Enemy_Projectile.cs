@@ -40,7 +40,7 @@ public class Enemy_Projectile : MonoBehaviour {
 	void OnDestroy()
 	{
 		Instantiate(explosion, transform.position, Quaternion.identity);
-		Audio_Manager.inst.PlayOnce(AA.Env_General_PhysicalExpolsion_2);
+		Audio_Manager.inst.PlayOnce(AA.Env_General_PhysicalExpolsion_2, transform.position, 0.5f);
 		Destroy(gameObject);
 	}
 

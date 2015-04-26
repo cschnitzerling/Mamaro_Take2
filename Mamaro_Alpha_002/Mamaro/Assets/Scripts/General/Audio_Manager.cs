@@ -27,8 +27,8 @@ public class Audio_Manager : MonoBehaviour
 	// tracking one shot objects
 	private List<AudioSource> oneShots = new List<AudioSource>();
 
-	// the attached aSource
-	private AudioSource aSource;
+	// the main aSource
+	public AudioSource aSource;
 
 	// Use this for initialization
 	void Awake () 
@@ -39,9 +39,6 @@ public class Audio_Manager : MonoBehaviour
 
 		// occupy dictionary
 		LoadAudio ();
-
-		// assign audioSource
-		aSource = GetComponent<AudioSource>();
 	}
 
 	void Update()
@@ -61,17 +58,42 @@ public class Audio_Manager : MonoBehaviour
 	// Class Methods //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	/// plays requested audio clip at this position
-	public void PlayOnce(AA clip)
+//	public void PlayOnce(AA clip)
+//	{
+//		// check for errors in loading
+//		if (assets.ContainsKey(clip))
+//			aSource.PlayOneShot(assets[clip]);
+//		else
+//			Debug.LogError("The requested audio does not exist: (" + clip.ToString() + "). Check that your enum is up to date.");
+//	}
+
+	/// plays audio at this pos once
+	public void PlayOnce(AA clip, float volume = 1.0f)
 	{
 		// check for errors in loading
-		if (assets.ContainsKey(clip))
-			aSource.PlayOneShot(assets[clip]);
+		if(assets.ContainsKey(clip))
+		{
+			// instancitae an empty gameObject
+			GameObject tempObj = new GameObject();
+			tempObj.transform.position = aSource.transform.position;
+			tempObj.AddComponent<AudioSource>();
+			tempObj.name = "OneShot" + clip.ToString();
+			
+			// assign the audiosource
+			AudioSource tempA = tempObj.GetComponent<AudioSource>();
+			tempA.spatialBlend = 1.0f;
+			tempA.clip = assets[clip];
+			tempA.Play();
+			
+			// add to tracked oneShots
+			oneShots.Add(tempA);
+		}
 		else
 			Debug.LogError("The requested audio does not exist: (" + clip.ToString() + "). Check that your enum is up to date.");
 	}
 
 	/// plays audio at specified position once
-	public void PlayOnce(AA clip, Vector3 pos)
+	public void PlayOnce(AA clip, Vector3 pos, float volume = 1.0f)
 	{
 		// check for errors in loading
 		if(assets.ContainsKey(clip))
