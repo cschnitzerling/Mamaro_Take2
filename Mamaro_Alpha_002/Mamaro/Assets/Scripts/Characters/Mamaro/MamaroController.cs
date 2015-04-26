@@ -239,25 +239,37 @@ public class MamaroController : MonoBehaviour {
 				QT.Resist();
 		}
 
+		////////////////////////////////////////////////
 		//Punch Attack
-		if (Input.GetKey(KeyCode.E) && !Mamaro_Attack.inst.isChargeRange)
+		if (Input.GetKey(KeyCode.E))
 		{
-			Mamaro_Attack.inst.isChargePunch = true;
+			Mamaro_Attack.inst.ButtonDownPunch();
 		}
-		else
+		if (Input.GetKeyUp(KeyCode.E))
 		{
-			Mamaro_Attack.inst.isChargePunch = false;
+			Mamaro_Attack.inst.ButtonUpPunch();
+		}
+
+		//Range Attack
+		if (Input.GetKey(KeyCode.Q))
+		{
+			Mamaro_Attack.inst.ButtonDownRange();
+		}
+		if (Input.GetKeyUp(KeyCode.Q))
+		{
+			Mamaro_Attack.inst.ButtonUpRange();
 		}
 		
-		//Range Attack
-		if (Input.GetKey(KeyCode.Q) && !Mamaro_Attack.inst.isChargePunch)
+		//Block
+		if (Input.GetKeyDown(KeyCode.Z))
 		{
-			Mamaro_Attack.inst.isChargeRange = true;
+			mamaro.SetBlocking(true);
 		}
-		else
+		if (Input.GetKeyUp(KeyCode.Z))
 		{
-			Mamaro_Attack.inst.isChargeRange = false;
-		}
+			mamaro.SetBlocking(false);
+		}//////////////////////////////////////////////////////////////////////
+
 
 		//Interact With Cores
 		if (fusionCores.Count > 0)
