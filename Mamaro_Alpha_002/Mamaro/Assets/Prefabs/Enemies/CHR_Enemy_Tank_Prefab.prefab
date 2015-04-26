@@ -211,7 +211,7 @@ GameObject:
   - 54: {fileID: 5468464}
   - 195: {fileID: 19560318}
   - 114: {fileID: 11420092}
-  - 136: {fileID: 13684400}
+  - 65: {fileID: 6520642}
   m_Layer: 8
   m_Name: CHR_Enemy_Tank_Prefab
   m_TagString: Enemy
@@ -441,7 +441,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 168058}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 664.099976, y: 210, z: 616.299988}
+  m_LocalPosition: {x: 845, y: 185, z: 937}
   m_LocalScale: {x: 8, y: 8, z: 8}
   m_Children:
   - {fileID: 493858}
@@ -954,6 +954,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!65 &6520642
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 168058}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.35000002, y: .469999999, z: 1.80999994}
+  m_Center: {x: 0, y: .430000007, z: 0}
 --- !u!114 &11420092
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -985,19 +997,6 @@ MonoBehaviour:
   pDist: 0
   destPos: {x: 0, y: 0, z: 0}
   rb: {fileID: 0}
---- !u!136 &13684400
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 168058}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: .930000007
-  m_Height: 3.43000007
-  m_Direction: 2
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!195 &19560318
 NavMeshAgent:
   m_ObjectHideFlags: 1

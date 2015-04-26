@@ -293,15 +293,5 @@ public class MamaroController : MonoBehaviour {
 		{
 			Ability_Manager.inst.SocketRemove();
 		}
-		
-		
-//		if (Input.GetKeyDown(KeyCode.LeftArrow))
-//		{
-//			Ability_Manager_Chris_try.inst.SelectSocketLeft();
-//		}
-//		if (Input.GetKeyDown(KeyCode.RightArrow))
-//		{
-//			Ability_Manager_Chris_try.inst.SelectSocketRight();
-//		}
 	}
 }
