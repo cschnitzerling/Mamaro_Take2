@@ -73,7 +73,7 @@ public class Lucy_Manager : MonoBehaviour {
 		mamaro = Mamaro_Manager.inst;
 		Audio_Manager.inst.PlayRecursive(AA.Chr_Lucy_Cry_1, transform.position, "LucyCry");
 		Audio_Manager.inst.StopRecursive("LucyCry");
-		Audio_Manager.inst.SetVolume("LucyCry", 0.5f);
+		Audio_Manager.inst.SetVolume("LucyCry", 0.3f);
 	}
 	
 	// Update is called once per frame
@@ -123,10 +123,6 @@ public class Lucy_Manager : MonoBehaviour {
 		if (mamaro.isMalfunctioning)
 		{
 			ChangeState(LucyState.Tapping);
-			if(!Audio_Manager.inst.IsPlaying("LucyCry"))
-			{
-				Audio_Manager.inst.PlayRecursive("LucyCry");
-			}
 		}
 
 		//Switch for each of Lucy's States.
@@ -282,9 +278,19 @@ public class Lucy_Manager : MonoBehaviour {
 	/// Activates Lucy's Tapping Gameobject on mamaros eye lens
 	void Tapping()
 	{
+		if(!Audio_Manager.inst.IsPlaying("LucyCry") && !Game_Manager.inst.coreDestroyed)
+		{
+			Audio_Manager.inst.PlayRecursive("LucyCry");
+		}
+		else
+		{
+			//TODO play laughing
+		}
+
 		if (!mamaro.isMalfunctioning)
 		{
 			ChangeState(LucyState.Idle);
+			Audio_Manager.inst.StopRecursive("LucyCry");
 		}
 	}
 
