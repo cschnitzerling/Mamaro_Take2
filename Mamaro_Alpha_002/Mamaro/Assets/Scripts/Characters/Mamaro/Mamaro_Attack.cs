@@ -241,6 +241,5 @@ public class Mamaro_Attack : MonoBehaviour
 				rangedCharge = 0.0f;
 			}
 		}
-
 	}
 }
