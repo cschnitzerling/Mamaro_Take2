@@ -63,7 +63,7 @@ public class MamaroController : MonoBehaviour {
 		//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 		// check for pause
-		if(Game_Manager.inst.isPaused)
+		if(!Game_Manager.inst.isPaused)
 		{
 			switch (InputDevice)
 			{
@@ -97,19 +97,19 @@ public class MamaroController : MonoBehaviour {
 			Game_Manager.inst.PauseInput(Game_Manager.button.Start);
 
 		// A button input
-		if(state.Buttons.A == ButtonState.Pressed)
+		if(state.Buttons.A == ButtonState.Pressed && prevState.Buttons.A == ButtonState.Released)
 			Game_Manager.inst.PauseInput(Game_Manager.button.A);
 
 		// X button input
-		if(state.Buttons.X == ButtonState.Pressed)
+		if(state.Buttons.X == ButtonState.Pressed && prevState.Buttons.X == ButtonState.Released)
 			Game_Manager.inst.PauseInput(Game_Manager.button.X);
 
 		// Y button input
-		if(state.Buttons.Y == ButtonState.Pressed)
+		if(state.Buttons.Y == ButtonState.Pressed && prevState.Buttons.Y == ButtonState.Released)
 			Game_Manager.inst.PauseInput(Game_Manager.button.Y);
 
 		// B button input
-		if(state.Buttons.B == ButtonState.Pressed)
+		if(state.Buttons.B == ButtonState.Pressed && prevState.Buttons.B == ButtonState.Released)
 			Game_Manager.inst.PauseInput(Game_Manager.button.B);
 	}
 
