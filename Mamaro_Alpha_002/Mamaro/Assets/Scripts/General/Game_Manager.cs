@@ -15,6 +15,8 @@ public class Game_Manager : MonoBehaviour
 	private Ability_Manager abMan;
 	private Cam_Manager cam;
 
+	public bool isPaused = false;
+
 	// inspector assigned vars
 	public float malfunctionSecs;
 
@@ -85,14 +87,17 @@ public class Game_Manager : MonoBehaviour
 
 	void Update()
 	{
-		// reset the level
-		if (Input.GetKeyDown(KeyCode.F1))
+		// pause menu state
+		if(isPaused)
 		{
-
-			ResetPlayer();
+			Time.timeScale = 0.0f;
+			pauseScreen.enabled = true;
 		}
-		
-
+		else
+		{
+			pauseScreen.enabled = false;
+			Time.timeScale = 1.0f;
+		}
 		
 		// to quit the game
 		if(Input.GetKeyDown(KeyCode.Escape))
@@ -213,4 +218,90 @@ public class Game_Manager : MonoBehaviour
 		malfunction.SetActive(toEnable);
 		EnableScripts(!toEnable);
 	}
+
+	public enum button {A, X, Y, B, Start};
+	public Canvas pauseScreen;
+	public Image buttonLayout;
+	public Image areYouSure;
+
+	// handles user input during the pause state
+	public void PauseInput(button input)
+	{
+		switch (input) 
+		{
+		case button.A:
+
+			// check in first screen
+			if(!buttonLayout.enabled && !areYouSure.enabled)
+				isPaused = false;
+
+			// allow quit in are you sure screen
+			if(areYouSure.enabled)
+				Application.LoadLevel("StartScreen");
+
+			break;
+
+		case button.B:
+
+			// turn off are you sure image
+			if(areYouSure.enabled)
+				areYouSure.enabled = false;
+
+			// show are you sure image
+			if(!buttonLayout.enabled && !areYouSure.enabled)
+				areYouSure.enabled = true;
+
+			// turn off button layou image
+			if(buttonLayout.enabled)
+				buttonLayout.enabled = false;
+
+			break;
+
+		case button.X:
+
+			// check in first screen
+			if(!areYouSure.enabled && !buttonLayout.enabled)
+				Application.LoadLevel("Level");
+
+			break;
+
+		case button.Y:
+
+			// show button layout image
+			if(!areYouSure.enabled && !buttonLayout.enabled)
+				buttonLayout.enabled = true;
+
+			break;
+
+		case button.Start:
+
+			// turn off all images before exiting state
+			buttonLayout.enabled = false;
+			areYouSure.enabled = false;
+			isPaused = false;
+
+			break;
+
+		default:
+			Debug.Log("Switch fell through. Check you shiz!");
+			break;
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
