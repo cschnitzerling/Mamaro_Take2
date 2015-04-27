@@ -60,6 +60,7 @@ public class FusionCore : MonoBehaviour {
 
 		if (timerPickup > 1f)
 		{
+			Game_Manager.inst.coreDestroyed = false;
 			Mamaro_Manager.inst.OnCorePickUp();
 			Audio_Manager.inst.PlayOnce(AA.Chr_Robot_Attack_CannonCharge_3, transform.position);
 			RemoveObject();
@@ -73,6 +74,11 @@ public class FusionCore : MonoBehaviour {
 
 		if (timerPickup > 1f)
 		{
+			// initiate mal mode
+			Mamaro_Manager.inst.isMalfunctioning = true;
+			Game_Manager.inst.MalfunctionMode(true);
+			Game_Manager.inst.coreDestroyed = true;
+
 			Lucy_Manager.inst.UpgradeFear();
 			Audio_Manager.inst.PlayOnce(AA.Chr_Robot_Attack_CannonHit_1, transform.position);
 			RemoveObject();

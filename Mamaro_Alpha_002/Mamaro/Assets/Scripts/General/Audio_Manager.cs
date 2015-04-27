@@ -239,7 +239,7 @@ public class Audio_Manager : MonoBehaviour
 			trackedASources.Remove(key);
 		}
 		else
-			Debug.LogError("The key (" + key + ") does not exist in the tracked audio" +
+			Debug.Log("The key (" + key + ") does not exist in the tracked audio" +
 				"sources. The key may have been misspelt or the source has been destroyed.");
 	}
 

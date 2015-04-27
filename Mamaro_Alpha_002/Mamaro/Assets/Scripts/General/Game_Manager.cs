@@ -15,6 +15,10 @@ public class Game_Manager : MonoBehaviour
 	private Ability_Manager abMan;
 	private Cam_Manager cam;
 
+	public bool coreDestroyed = false;
+
+	public bool isPaused = false;
+
 	// inspector assigned vars
 	public float malfunctionSecs;
 
@@ -29,6 +33,7 @@ public class Game_Manager : MonoBehaviour
 	public string[] leftEnabled;
 
 	public GameObject malfunction;
+	public GameObject destroyCoreScreen;
 
 	public SpriteRenderer malFuncSprite;
 
@@ -85,13 +90,6 @@ public class Game_Manager : MonoBehaviour
 
 	void Update()
 	{
-		// reset the level
-		if (Input.GetKeyDown(KeyCode.F1))
-		{
-
-			ResetPlayer();
-		}
-		
 
 		
 		// to quit the game
@@ -103,40 +101,51 @@ public class Game_Manager : MonoBehaviour
 		// check for malMode
 		if(isMalfunction)
 		{
-			//TODO add cam effect (shader)
-			cam.ShakeCam(Shake.Small);
 
 			// start counting
 			Timer_mal += Time.deltaTime;
 
-			malPercent += malAmount * Time.deltaTime;
-
-			// Move arm towards Lucy
-			Vector3 pos = Vector3.Lerp(startPos.transform.position, endPos.transform.position, (malPercent / 100));
-			Quaternion rot =  Quaternion.Lerp(startPos.transform.rotation, endPos.transform.rotation, (malPercent / 100));
-			arm.transform.position = pos;
-			arm.transform.rotation = rot;
-
-			float percent = (float)malPercent / 100f;
-
-			Color tempColour = malFuncSprite.color;
-
-			tempColour.a = ((malPercent * 0.01f));
-			Vector3 tempScale = new Vector3 (1 - (percent /2),1 - (percent /2),1 - (percent /2));
-			malFuncSprite.gameObject.transform.localScale = tempScale;
-			malFuncSprite.color = tempColour;
-
-			// player resisted the malfunction
-			if(Timer_mal >= malfunctionSecs)
+			if(!coreDestroyed)
 			{
-				Timer_mal = 0.0f;
-				MalfunctionMode(false);
+				cam.ShakeCam(Shake.Small);
+
+				malPercent += malAmount * Time.deltaTime;
+				
+				// Move arm towards Lucy
+				Vector3 pos = Vector3.Lerp(startPos.transform.position, endPos.transform.position, (malPercent / 100));
+				Quaternion rot =  Quaternion.Lerp(startPos.transform.rotation, endPos.transform.rotation, (malPercent / 100));
+				arm.transform.position = pos;
+				arm.transform.rotation = rot;
+				
+				float percent = (float)malPercent / 100f;
+				
+				Color tempColour = malFuncSprite.color;
+				
+				tempColour.a = ((malPercent * 0.01f));
+				Vector3 tempScale = new Vector3 (1 - (percent /2),1 - (percent /2),1 - (percent /2));
+				malFuncSprite.gameObject.transform.localScale = tempScale;
+				malFuncSprite.color = tempColour;
+
+				// player resisted the malfunction
+				if(Timer_mal >= malfunctionSecs)
+				{
+					Timer_mal = 0.0f;
+					MalfunctionMode(false);
+				}
+
+				// game over
+				if(malPercent >= 100.0f)
+				{
+					Application.LoadLevel("EndScene");
+				}
 			}
-
-			// game over
-			if(malPercent >= 100.0f)
+			else
 			{
-				Application.LoadLevel("EndScene");
+				if(Timer_mal >= 5.0f)
+				{
+					Timer_mal = 0.0f;
+					MalfunctionMode(false);
+				}
 			}
 		}
 	}
@@ -206,11 +215,127 @@ public class Game_Manager : MonoBehaviour
 	
 	public void ToggleMulfulction (bool toEnable)
 	{
-		arm.transform.position = startPos.transform.position;
-		arm.transform.rotation = startPos.transform.rotation;
-		malPercent = 0.0f;
+		if(!coreDestroyed)
+		{
+			arm.transform.position = startPos.transform.position;
+			arm.transform.rotation = startPos.transform.rotation;
+			malPercent = 0.0f;
+			malfunction.SetActive(toEnable);
+		}
+		else
+		{
+			destroyCoreScreen.SetActive(true);
+		}
+
 		isMalfunction = true;
-		malfunction.SetActive(toEnable);
 		EnableScripts(!toEnable);
 	}
+
+	public enum button {A, X, Y, B, Start};
+	public GameObject pauseScreen;
+	public GameObject buttonLayout;
+	public GameObject areYouSure;
+	public Vector3 pausePos;
+
+	// handles user input during the pause state
+	public void PauseInput(button input)
+	{
+		switch (input) 
+		{
+		case button.A:
+
+			// check in first screen
+			if(!buttonLayout.activeSelf && !areYouSure.activeSelf)
+				isPaused = false;
+
+			// allow quit in are you sure screen
+			if(areYouSure.activeSelf)
+				Application.LoadLevel("StartScreen");
+
+			break;
+
+		case button.B:
+
+			// turn off are you sure image
+			if(areYouSure.activeSelf)
+				areYouSure.SetActive(false);				
+
+			// show are you sure image
+			else if(!buttonLayout.activeSelf && !areYouSure.activeSelf)
+				areYouSure.SetActive(true);
+
+			// turn off button layou image
+			else if(buttonLayout.activeSelf)
+				buttonLayout.SetActive(false);
+
+			break;
+
+		case button.X:
+
+			// check in first screen
+			if(!areYouSure.activeSelf && !buttonLayout.activeSelf)
+				Application.LoadLevel("Level");
+
+			break;
+
+		case button.Y:
+
+			// show button layout image
+			if(!areYouSure.activeSelf && !buttonLayout.activeSelf)
+				buttonLayout.SetActive(true);
+
+			break;
+
+		case button.Start:
+
+			if (!isPaused)
+			{
+				//Puase the Game
+				Time.timeScale = 0.0f;
+				pauseScreen.SetActive(true);
+				isPaused = true;
+//				pausePos = Mamaro_Manager.inst.gameObject.transform.position;
+				//MamaroMovement.inst.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+				//MamaroMovement.inst.moveDir = Vector3.zero;
+			}
+			else 
+			{
+				//UnPause
+				// turn off all images before exiting state
+				Time.timeScale = 1.0f;
+				buttonLayout.SetActive(false);
+				areYouSure.SetActive(false);
+				pauseScreen.SetActive(false);
+				isPaused = false;
+//				MamaroMovement.inst.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+//				Mamaro_Manager.inst.gameObject.transform.position = pausePos;
+//				MamaroMovement.inst.gameObject.GetComponent<Rigidbody>().isKinematic = false;
+				//MamaroMovement.inst.moveDir = Vector3.zero;
+			}
+
+
+			break;
+
+		default:
+			Debug.Log("Switch fell through. Check you shiz!");
+			break;
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

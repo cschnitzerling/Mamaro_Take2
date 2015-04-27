@@ -2,22 +2,31 @@
 using System.Collections;
 
 public class Explosion : MonoBehaviour {
-	float timer;
 
+
+	float timer;
+	ParticleSystem[] parts;
+
+	void Start()
+	{
+		parts = gameObject.GetComponentsInChildren<ParticleSystem>();
+
+		for (int i = 0; i < parts.Length; i++) 
+		{
+			parts[i].startSpeed = parts[i].startSpeed * Ability_Manager.inst.sockets[1].GetCoreCount() + 1;
+		}
+	}
 
 	// Update is called once per frame
 	void Update () {
 		timer += Time.deltaTime;
 
-		if (timer > 1)
+		if (timer > 0.5f)
 		{
-			ParticleSystem[] temp = gameObject.GetComponentsInChildren<ParticleSystem>();
-
-			for (int i = 0; i < temp.Length; i ++)
+			for (int i = 0; i < parts.Length; i ++)
 			{
-				temp[i].Stop();
+				parts[i].Stop();
 			}
-
 		}
 
 		if (timer > 5)

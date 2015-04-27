@@ -56,7 +56,7 @@ AnimatorController:
     m_DefaultWeight: 0
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - serializedVersion: 5
     m_Name: Block
     m_StateMachine: {fileID: 110775856}
@@ -68,7 +68,7 @@ AnimatorController:
     m_DefaultWeight: .850000024
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_MultiThreadedStateMachine: 1
 --- !u!206 &20678348
 BlendTree:
@@ -80,6 +80,14 @@ BlendTree:
   - serializedVersion: 2
     m_Motion: {fileID: 7400000, guid: d11b252974bcbb54dab8c2b959f86e24, type: 2}
     m_Threshold: 0
+    m_Position: {x: 0, y: 0}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: Blend
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 7400000, guid: d11b252974bcbb54dab8c2b959f86e24, type: 2}
+    m_Threshold: .0399999991
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
     m_CycleOffset: 0
