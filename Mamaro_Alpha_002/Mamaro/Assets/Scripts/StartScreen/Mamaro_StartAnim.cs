@@ -11,9 +11,9 @@ public class Mamaro_StartAnim : MonoBehaviour {
 	public FadeInOut fadeOut;
 	// Use this for initialization
 	void Awake () {
+
 		fadeOut = GameObject.FindGameObjectWithTag ("FadeScene").GetComponent<FadeInOut> ();
 		anim = GetComponent<Animator> ();
-		anim.SetBool ("Active", false);
 	}
 	
 	// Update is called once per frame

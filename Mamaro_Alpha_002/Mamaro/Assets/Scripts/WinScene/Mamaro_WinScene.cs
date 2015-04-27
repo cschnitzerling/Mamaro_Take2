@@ -11,24 +11,24 @@ public class Mamaro_WinScene : MonoBehaviour {
 	public FadeInOut fadeOut;
 	// Use this for initialization
 	void Awake () {
-		//fadeOut = GameObject.FindGameObjectWithTag ("FadeScene").GetComponent<FadeInOut> ();
+		fadeOut = GameObject.FindGameObjectWithTag ("FadeScene").GetComponent<FadeInOut> ();
 		anim = GetComponent<Animator> ();
-		anim.SetBool ("Active", false);
+		//anim.SetBool ("Active", false);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		anim.SetBool ("ArmActive", armActive);
-		transform.Translate(0,0,.06f);
 		if (walkOff) {
-			//transform.Translate(0,0,.06f);
+			transform.Translate(0,0,.06f);
 		}
 		if (endScene) {
-			//fadeOut.nextSceneTwo = true;
+			fadeOut.nextSceneTwo = true;
 		}
 		}
 
-	public void ArmActive(){
-		anim.SetBool ("ArmActive", true);
+	public void WalkActive(){
+		anim.SetTrigger ("Trig_walk");
+		walkOff = true;
+
 	}
 }

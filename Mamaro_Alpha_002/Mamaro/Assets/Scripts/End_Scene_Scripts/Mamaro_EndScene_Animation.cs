@@ -3,8 +3,9 @@ using System.Collections;
 
 public class Mamaro_EndScene_Animation : MonoBehaviour {
 	public Animator anim;
-	public bool handMarmActive, handMarmEnded;
 	public Mamaro_Hand_Animation handAnim;
+	public float roundTimeLeft, roundTimeSeconds, startTime;
+	public bool walk;
 	// Use this for initialization
 	void Awake () {
 		handAnim = GetComponentInChildren<Mamaro_Hand_Animation> ();
@@ -13,21 +14,27 @@ public class Mamaro_EndScene_Animation : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		handMarmActive = handAnim.handActive;
-		handMarmEnded = handAnim.handEnd;
+		roundTimeLeft = Time.time - startTime;
 
-		anim.SetBool ("HandActive", handMarmActive);
-
-		if (anim.GetBool ("Active") == true) {
-			transform.Translate(0,0,.06f);
-		}
-
-			if(handMarmEnded){
+		if (roundTimeLeft >= roundTimeSeconds)
+		{
 			anim.SetBool ("Active", true);
+			startTime = Time.time;
+			roundTimeLeft = 0;
 		}
+		if (anim.GetBool ("Walk") == true) {
+			walk = true;
+		}
+		if (walk) {
+			Walk();
+		}
+
+
 	}
 
-	public void HandActive()
+	public void Walk()
 	{
+		anim.SetBool ("Walk", true);
+		transform.Translate(0,0,.06f);
 	}
 }

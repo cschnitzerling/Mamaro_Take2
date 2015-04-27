@@ -53,7 +53,7 @@ Material:
       data:
         first:
           name: _Cutoff
-        second: .91900003
+        second: .541999996
       data:
         first:
           name: _Shininess
@@ -61,19 +61,19 @@ Material:
       data:
         first:
           name: _Occlusion
-        second: 10.1000004
-      data:
-        first:
-          name: _BaseLight
-        second: 1
-      data:
-        first:
-          name: _AO
-        second: 10
+        second: 0
       data:
         first:
           name: _SquashAmount
         second: 1
+      data:
+        first:
+          name: _BaseLight
+        second: .0850000009
+      data:
+        first:
+          name: _AO
+        second: 10
     m_Colors:
       data:
         first:

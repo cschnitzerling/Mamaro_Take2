@@ -25,6 +25,7 @@ TagManager:
   - LightTrig
   - AtEnd
   - Fist
+  - FusePoint
   layers:
   - Default
   - TransparentFX

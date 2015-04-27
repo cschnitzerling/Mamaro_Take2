@@ -49,7 +49,7 @@ public class Comic_Controller_2 : MonoBehaviour {
 
 			if (timerFade > 1)
 			{
-				//Application.LoadLevel(nextScene);
+				Application.LoadLevel(nextScene);
 				print("Finish");
 			}
 		}
