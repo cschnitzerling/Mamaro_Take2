@@ -29,7 +29,7 @@ public class Script_Destruction_Chunks : MonoBehaviour {
 		if (col.collider == mamaroFistCol) {
 			//Debug.Log ("MYFACE");
 			rigBod.isKinematic = false;
-			GameObject.Destroy(this.gameObject, 1);
+			GameObject.Destroy(this.gameObject);
 		}
 
 		if (col.gameObject.tag == "Destro") {

@@ -12,10 +12,10 @@ public class Script_Destruction_Manager : MonoBehaviour {
 		mamaro = GameObject.FindGameObjectWithTag ("Player");
 		//mamaroFistCol = mamaro.GetComponentInChildren<BoxCollider> ();
 		if (gameObject.tag == "Wall") {
-			GameObject WallDestroLoad = Resources.Load ("Envi_Destructables/Kelpi_Wall_Busted") as GameObject;
+			GameObject WallDestroLoad = Resources.Load ("Envi_Destructables/Kelpi_Wall_Destro") as GameObject;
 			destructionObject = WallDestroLoad;
 		} else if (gameObject.tag == "Build") {
-			GameObject BuildDestroLoad = Resources.Load ("Envi_Destructables/L_Building_Model_Destro") as GameObject;
+			GameObject BuildDestroLoad = Resources.Load ("Envi_Destructables/Kelpi_Building_Destro") as GameObject;
 			destructionObject = BuildDestroLoad;
 		} else if (gameObject.tag == "Ruin") {
 			GameObject RuinDestroLoad = Resources.Load ("Envi_Destructables/M_Rock_Thick_Destro") as GameObject;

@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Weenie_Building01_Texture
-  m_Shader: {fileID: 4800000, guid: 3954501323f24464f9e4418c78d8e8ce, type: 3}
+  m_Shader: {fileID: 4800000, guid: 6b5ab70cb867592488847e90aa96d00f, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
   m_CustomRenderQueue: -1
@@ -18,14 +18,14 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: 7774854a19e61e5438449038c92fd3b2, type: 3}
+          m_Texture: {fileID: 2800000, guid: 51f23f47521fdf94c87f3eea4e376bc2, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
           name: _BumpMap
         second:
-          m_Texture: {fileID: 2800000, guid: 1f326f2fb59f5604a9141666189f64dc, type: 3}
+          m_Texture: {fileID: 2800000, guid: 992d3191725bbcb4d991db53e5cd8868, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -85,11 +85,11 @@ Material:
       data:
         first:
           name: _Shininess
-        second: .078125
+        second: .122000001
       data:
         first:
           name: _Smoothness
-        second: 0
+        second: .0399999991
       data:
         first:
           name: _SrcBlend
@@ -150,11 +150,11 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: .691176474, g: .691176474, b: .691176474, a: 1}
+        second: {r: .213235319, g: .213235319, b: .213235319, a: 1}
       data:
         first:
           name: _SpecColor
-        second: {r: .5, g: .5, b: .5, a: 1}
+        second: {r: 1, g: 1, b: 1, a: 1}
       data:
         first:
           name: _EmissionColorUI

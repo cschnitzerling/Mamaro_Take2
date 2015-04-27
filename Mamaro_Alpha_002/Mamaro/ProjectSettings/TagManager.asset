@@ -26,6 +26,7 @@ TagManager:
   - AtEnd
   - Fist
   - FusePoint
+  - isEnd
   layers:
   - Default
   - TransparentFX
