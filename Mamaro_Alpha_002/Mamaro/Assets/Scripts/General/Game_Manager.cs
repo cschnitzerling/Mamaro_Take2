@@ -141,7 +141,7 @@ public class Game_Manager : MonoBehaviour
 			}
 			else
 			{
-				if(Timer_mal >= 5.0f)
+				if(Timer_mal >= 2.5f)
 				{
 					Timer_mal = 0.0f;
 					MalfunctionMode(false);
@@ -224,7 +224,7 @@ public class Game_Manager : MonoBehaviour
 		}
 		else
 		{
-			destroyCoreScreen.SetActive(true);
+			destroyCoreScreen.SetActive(toEnable);
 		}
 
 		isMalfunction = true;
