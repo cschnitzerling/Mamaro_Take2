@@ -91,11 +91,11 @@ public class Game_Manager : MonoBehaviour
 		if(isPaused)
 		{
 			Time.timeScale = 0.0f;
-			pauseScreen.enabled = true;
+			pauseScreen.SetActive(true);
 		}
 		else
 		{
-			pauseScreen.enabled = false;
+			pauseScreen.SetActive(false);
 			Time.timeScale = 1.0f;
 		}
 		
@@ -220,9 +220,9 @@ public class Game_Manager : MonoBehaviour
 	}
 
 	public enum button {A, X, Y, B, Start};
-	public Canvas pauseScreen;
-	public Image buttonLayout;
-	public Image areYouSure;
+	public GameObject pauseScreen;
+	public GameObject buttonLayout;
+	public GameObject areYouSure;
 
 	// handles user input during the pause state
 	public void PauseInput(button input)
@@ -232,11 +232,11 @@ public class Game_Manager : MonoBehaviour
 		case button.A:
 
 			// check in first screen
-			if(!buttonLayout.enabled && !areYouSure.enabled)
+			if(!buttonLayout.activeSelf && !areYouSure.activeSelf)
 				isPaused = false;
 
 			// allow quit in are you sure screen
-			if(areYouSure.enabled)
+			if(areYouSure.activeSelf)
 				Application.LoadLevel("StartScreen");
 
 			break;
@@ -244,23 +244,23 @@ public class Game_Manager : MonoBehaviour
 		case button.B:
 
 			// turn off are you sure image
-			if(areYouSure.enabled)
-				areYouSure.enabled = false;
+			if(areYouSure.activeSelf)
+				areYouSure.SetActive(false);				
 
 			// show are you sure image
-			if(!buttonLayout.enabled && !areYouSure.enabled)
-				areYouSure.enabled = true;
+			if(!buttonLayout.activeSelf && !areYouSure.activeSelf)
+				areYouSure.SetActive(true);
 
 			// turn off button layou image
-			if(buttonLayout.enabled)
-				buttonLayout.enabled = false;
+			if(buttonLayout.activeSelf)
+				buttonLayout.SetActive(false);
 
 			break;
 
 		case button.X:
 
 			// check in first screen
-			if(!areYouSure.enabled && !buttonLayout.enabled)
+			if(!areYouSure.activeSelf && !buttonLayout.activeSelf)
 				Application.LoadLevel("Level");
 
 			break;
@@ -268,16 +268,16 @@ public class Game_Manager : MonoBehaviour
 		case button.Y:
 
 			// show button layout image
-			if(!areYouSure.enabled && !buttonLayout.enabled)
-				buttonLayout.enabled = true;
+			if(!areYouSure.activeSelf && !buttonLayout.activeSelf)
+				buttonLayout.SetActive(true);
 
 			break;
 
 		case button.Start:
 
 			// turn off all images before exiting state
-			buttonLayout.enabled = false;
-			areYouSure.enabled = false;
+			buttonLayout.SetActive(false);
+			areYouSure.SetActive(false);
 			isPaused = false;
 
 			break;
