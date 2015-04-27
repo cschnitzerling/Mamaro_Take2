@@ -7,6 +7,7 @@ public class MamaroMovement : MonoBehaviour {
 
 	public Vector3 moveDir;
 	public Vector3 rotateEuler;
+	public Vector3 cameraEuler;
 	public float walkSpeed;
 	public float runSpeed;
 	public float turnSpeed;
@@ -18,6 +19,9 @@ public class MamaroMovement : MonoBehaviour {
 
 	public float dodgeForceVert;
 	public float dodgeForceHorz;
+
+	public float cameraMaxPitch;
+	public float cameraMinPitch;
 
 	public bool isRun;
 	public bool isDodge;
@@ -40,12 +44,15 @@ public class MamaroMovement : MonoBehaviour {
 		anim = GetComponentInChildren<Animator>();
 		isRun = false;
 		isDodge = false;
+
 	}
 
 	// Use this for initialization
 	void Start () 
 	{
 		socketMove = Ability_Manager.inst.GetSocket(Sockets.Speed);
+
+
 	}
 	
 	// Update is called once per frame
@@ -90,6 +97,19 @@ public class MamaroMovement : MonoBehaviour {
 			moveDir.y = rb.velocity.y;
 			//Set Velocity
 			rb.velocity = moveDir;
+
+
+			//if (Camera.main.transform.rotation.x < cameraMaxPitch)
+			{
+				Camera.main.transform.Rotate(cameraEuler);
+				Mamaro_Attack.inst.bulletSpawn.transform.Rotate (cameraEuler);
+			}
+
+
+//			if ((Camera.main.transform.rotation.x > cameraMinPitch && cameraEuler.x > 0) || (Camera.main.transform.rotation.x < cameraMaxPitch && cameraEuler.x < 0))
+//			{
+//				Camera.main.transform.Rotate(cameraEuler);
+//			}
 		}
 
 		//Add in booster to gravity

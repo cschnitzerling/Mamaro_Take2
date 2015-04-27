@@ -130,6 +130,10 @@ public class MamaroController : MonoBehaviour {
 		//RightStickMovement
 		move.rotateEuler.y = state.ThumbSticks.Right.X;
 
+
+		move.cameraEuler.x = -state.ThumbSticks.Right.Y;
+
+
 	
 
 		//LeftStick Clicked
