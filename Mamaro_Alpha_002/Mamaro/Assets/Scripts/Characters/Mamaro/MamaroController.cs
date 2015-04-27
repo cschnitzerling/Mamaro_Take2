@@ -42,19 +42,6 @@ public class MamaroController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		switch (InputDevice)
-		{
-		case ControllerType.Contoller:
-			XboxController();
-			break;
-		case ControllerType.Keyboard:
-			KeyboardController();
-			break;
-		}
-	}
-
-	void XboxController()
-	{
 		//#############################################################
 		// Find a PlayerIndex, for a single player game
 		// From XInput
@@ -74,7 +61,66 @@ public class MamaroController : MonoBehaviour {
 		}
 		state = GamePad.GetState(playerIndex);
 		//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-		
+
+		// check for pause
+		if(Game_Manager.inst.isPaused)
+		{
+			switch (InputDevice)
+			{
+			case ControllerType.Contoller:
+				XboxController();
+				break;
+			case ControllerType.Keyboard:
+				KeyboardController();
+				break;
+			}
+		}
+		else
+		{
+			if(InputDevice == ControllerType.Contoller)
+			PauseInput();
+		}
+
+
+
+		//###################################
+		//Set Previous COntroller State
+		prevState = state;
+		//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+	}
+
+	// allows for user input during the in game pause state
+	private void PauseInput()
+	{
+		// start button input
+		if(prevState.Buttons.Start != ButtonState.Pressed && state.Buttons.Start == ButtonState.Pressed)
+			Game_Manager.inst.PauseInput(Game_Manager.button.Start);
+
+		// A button input
+		if(state.Buttons.A == ButtonState.Pressed)
+			Game_Manager.inst.PauseInput(Game_Manager.button.A);
+
+		// X button input
+		if(state.Buttons.X == ButtonState.Pressed)
+			Game_Manager.inst.PauseInput(Game_Manager.button.X);
+
+		// Y button input
+		if(state.Buttons.Y == ButtonState.Pressed)
+			Game_Manager.inst.PauseInput(Game_Manager.button.Y);
+
+		// B button input
+		if(state.Buttons.B == ButtonState.Pressed)
+			Game_Manager.inst.PauseInput(Game_Manager.button.B);
+	}
+
+	void XboxController()
+	{
+
+		// pause game on press start
+		if(prevState.Buttons.Start != ButtonState.Pressed && state.Buttons.Start == ButtonState.Pressed)
+		{
+			Game_Manager.inst.isPaused = true;
+		}
 		
 		//LeftStickMovement
 		move.moveDir = Mamaro_Manager.inst.transform.right * state.ThumbSticks.Left.X / 2;
@@ -193,10 +239,7 @@ public class MamaroController : MonoBehaviour {
 
 
 
-		//###################################
-		//Set Previous COntroller State
-		prevState = state;
-		//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 	}
 
 	void KeyboardController()
