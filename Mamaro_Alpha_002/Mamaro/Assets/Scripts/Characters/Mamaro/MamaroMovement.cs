@@ -99,7 +99,7 @@ public class MamaroMovement : MonoBehaviour {
 			rb.velocity = moveDir;
 
 
-			if (Camera.main.transform.rotation.x < cameraMaxPitch)
+			//if (Camera.main.transform.rotation.x < cameraMaxPitch)
 			{
 				Camera.main.transform.Rotate(cameraEuler);
 				Mamaro_Attack.inst.bulletSpawn.transform.Rotate (cameraEuler);
