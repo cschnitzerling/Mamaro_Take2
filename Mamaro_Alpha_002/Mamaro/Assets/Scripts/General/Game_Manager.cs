@@ -87,17 +87,7 @@ public class Game_Manager : MonoBehaviour
 
 	void Update()
 	{
-		// pause menu state
-		if(isPaused)
-		{
-			Time.timeScale = 0.0f;
-			pauseScreen.SetActive(true);
-		}
-		else
-		{
-			pauseScreen.SetActive(false);
-			Time.timeScale = 1.0f;
-		}
+
 		
 		// to quit the game
 		if(Input.GetKeyDown(KeyCode.Escape))
@@ -223,6 +213,7 @@ public class Game_Manager : MonoBehaviour
 	public GameObject pauseScreen;
 	public GameObject buttonLayout;
 	public GameObject areYouSure;
+	public Vector3 pausePos;
 
 	// handles user input during the pause state
 	public void PauseInput(button input)
@@ -248,11 +239,11 @@ public class Game_Manager : MonoBehaviour
 				areYouSure.SetActive(false);				
 
 			// show are you sure image
-			if(!buttonLayout.activeSelf && !areYouSure.activeSelf)
+			else if(!buttonLayout.activeSelf && !areYouSure.activeSelf)
 				areYouSure.SetActive(true);
 
 			// turn off button layou image
-			if(buttonLayout.activeSelf)
+			else if(buttonLayout.activeSelf)
 				buttonLayout.SetActive(false);
 
 			break;
@@ -275,10 +266,31 @@ public class Game_Manager : MonoBehaviour
 
 		case button.Start:
 
-			// turn off all images before exiting state
-			buttonLayout.SetActive(false);
-			areYouSure.SetActive(false);
-			isPaused = false;
+			if (!isPaused)
+			{
+				//Puase the Game
+				Time.timeScale = 0.0f;
+				pauseScreen.SetActive(true);
+				isPaused = true;
+//				pausePos = Mamaro_Manager.inst.gameObject.transform.position;
+				//MamaroMovement.inst.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+				//MamaroMovement.inst.moveDir = Vector3.zero;
+			}
+			else 
+			{
+				//UnPause
+				// turn off all images before exiting state
+				Time.timeScale = 1.0f;
+				buttonLayout.SetActive(false);
+				areYouSure.SetActive(false);
+				pauseScreen.SetActive(false);
+				isPaused = false;
+//				MamaroMovement.inst.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+//				Mamaro_Manager.inst.gameObject.transform.position = pausePos;
+//				MamaroMovement.inst.gameObject.GetComponent<Rigidbody>().isKinematic = false;
+				//MamaroMovement.inst.moveDir = Vector3.zero;
+			}
+
 
 			break;
 

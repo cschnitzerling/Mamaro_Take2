@@ -77,6 +77,7 @@ public class MamaroController : MonoBehaviour {
 		}
 		else
 		{
+			MamaroMovement.inst.moveDir = Vector3.zero;
 			if(InputDevice == ControllerType.Contoller)
 			PauseInput();
 		}
@@ -119,7 +120,7 @@ public class MamaroController : MonoBehaviour {
 		// pause game on press start
 		if(prevState.Buttons.Start != ButtonState.Pressed && state.Buttons.Start == ButtonState.Pressed)
 		{
-			Game_Manager.inst.isPaused = true;
+			Game_Manager.inst.PauseInput(Game_Manager.button.Start);
 		}
 		
 		//LeftStickMovement
