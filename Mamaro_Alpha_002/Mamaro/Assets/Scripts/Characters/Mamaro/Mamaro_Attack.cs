@@ -51,9 +51,14 @@ public class Mamaro_Attack : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		//TODO apply gate for if pause here
 		ChargePunch();
 		ChargeRanged();
+
+		// show guidance beam if upgraded ranged
+		if(isChargeRange && Ability_Manager.inst.sockets[1].GetCoreCount() >= 2)
+			ShowAimGuide(true);
+		else
+			ShowAimGuide(false);
 
 		if (timerShotDelay > 0)
 		{
@@ -202,6 +207,36 @@ public class Mamaro_Attack : MonoBehaviour
 				punchCharge = 0.0f;
 			}
 		}
+	}
+
+	// auto aim vars
+	public LineRenderer beam;
+	public Vector3 targetPos;
+	public float beamLength = 50.0f;
+
+	// returns the end point for the beam
+	public void ShowAimGuide(bool show)
+	{
+		// we've hit something
+		RaycastHit hit = new RaycastHit();
+		if (Physics.SphereCast(bulletSpawn.transform.position, 0.1f, bulletSpawn.transform.forward, out hit, Mathf.Infinity))
+		{
+			targetPos = hit.point;
+		}
+		else
+		{
+			// nothing was hit so draw beam at beam length
+			targetPos = bulletSpawn.transform.forward * beamLength;
+		}
+
+		if (show)
+		{
+			beam.enabled = true;
+			beam.SetPosition(0, bulletSpawn.transform.position);
+			beam.SetPosition(1, targetPos);
+		}
+		else
+			beam.enabled = false;
 	}
 
 	// adds ranged charge from 0 to 100 in respects to time held
