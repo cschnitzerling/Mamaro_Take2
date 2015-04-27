@@ -20,8 +20,42 @@ AnimatorController:
     m_DefaultWeight: 0
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_MultiThreadedStateMachine: 1
+--- !u!1102 &110203860
+AnimatorState:
+  serializedVersion: 5
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: MalfunctionV2
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_Motion: {fileID: 7400000, guid: ed6d497059e5bf34188e01c3ee92ef88, type: 2}
+  m_Tag: 
+--- !u!1102 &110259788
+AnimatorState:
+  serializedVersion: 5
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Lucy_Yelling
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_Motion: {fileID: 7400000, guid: 3c833ab2d7aa6164091d75998eeea999, type: 3}
+  m_Tag: 
 --- !u!1102 &110296586
 AnimatorState:
   serializedVersion: 5
@@ -50,6 +84,12 @@ AnimatorStateMachine:
   - serializedVersion: 1
     m_State: {fileID: 110296586}
     m_Position: {x: 144, y: -144, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 110203860}
+    m_Position: {x: -144, y: -144, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 110259788}
+    m_Position: {x: -229, y: -71, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -62,4 +102,4 @@ AnimatorStateMachine:
   m_EntryPosition: {x: -60, y: 144, z: 0}
   m_ExitPosition: {x: 396, y: 144, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
-  m_DefaultState: {fileID: 110296586}
+  m_DefaultState: {fileID: 110259788}
