@@ -15,6 +15,8 @@ public class Game_Manager : MonoBehaviour
 	private Ability_Manager abMan;
 	private Cam_Manager cam;
 
+	public bool coreDestroyed = false;
+
 	public bool isPaused = false;
 
 	// inspector assigned vars
@@ -31,6 +33,7 @@ public class Game_Manager : MonoBehaviour
 	public string[] leftEnabled;
 
 	public GameObject malfunction;
+	public GameObject destroyCoreScreen;
 
 	public SpriteRenderer malFuncSprite;
 
@@ -98,40 +101,51 @@ public class Game_Manager : MonoBehaviour
 		// check for malMode
 		if(isMalfunction)
 		{
-			//TODO add cam effect (shader)
-			cam.ShakeCam(Shake.Small);
 
 			// start counting
 			Timer_mal += Time.deltaTime;
 
-			malPercent += malAmount * Time.deltaTime;
-
-			// Move arm towards Lucy
-			Vector3 pos = Vector3.Lerp(startPos.transform.position, endPos.transform.position, (malPercent / 100));
-			Quaternion rot =  Quaternion.Lerp(startPos.transform.rotation, endPos.transform.rotation, (malPercent / 100));
-			arm.transform.position = pos;
-			arm.transform.rotation = rot;
-
-			float percent = (float)malPercent / 100f;
-
-			Color tempColour = malFuncSprite.color;
-
-			tempColour.a = ((malPercent * 0.01f));
-			Vector3 tempScale = new Vector3 (1 - (percent /2),1 - (percent /2),1 - (percent /2));
-			malFuncSprite.gameObject.transform.localScale = tempScale;
-			malFuncSprite.color = tempColour;
-
-			// player resisted the malfunction
-			if(Timer_mal >= malfunctionSecs)
+			if(!coreDestroyed)
 			{
-				Timer_mal = 0.0f;
-				MalfunctionMode(false);
+				cam.ShakeCam(Shake.Small);
+
+				malPercent += malAmount * Time.deltaTime;
+				
+				// Move arm towards Lucy
+				Vector3 pos = Vector3.Lerp(startPos.transform.position, endPos.transform.position, (malPercent / 100));
+				Quaternion rot =  Quaternion.Lerp(startPos.transform.rotation, endPos.transform.rotation, (malPercent / 100));
+				arm.transform.position = pos;
+				arm.transform.rotation = rot;
+				
+				float percent = (float)malPercent / 100f;
+				
+				Color tempColour = malFuncSprite.color;
+				
+				tempColour.a = ((malPercent * 0.01f));
+				Vector3 tempScale = new Vector3 (1 - (percent /2),1 - (percent /2),1 - (percent /2));
+				malFuncSprite.gameObject.transform.localScale = tempScale;
+				malFuncSprite.color = tempColour;
+
+				// player resisted the malfunction
+				if(Timer_mal >= malfunctionSecs)
+				{
+					Timer_mal = 0.0f;
+					MalfunctionMode(false);
+				}
+
+				// game over
+				if(malPercent >= 100.0f)
+				{
+					Application.LoadLevel("EndScene");
+				}
 			}
-
-			// game over
-			if(malPercent >= 100.0f)
+			else
 			{
-				Application.LoadLevel("EndScene");
+				if(Timer_mal >= 5.0f)
+				{
+					Timer_mal = 0.0f;
+					MalfunctionMode(false);
+				}
 			}
 		}
 	}
@@ -201,11 +215,19 @@ public class Game_Manager : MonoBehaviour
 	
 	public void ToggleMulfulction (bool toEnable)
 	{
-		arm.transform.position = startPos.transform.position;
-		arm.transform.rotation = startPos.transform.rotation;
-		malPercent = 0.0f;
+		if(!coreDestroyed)
+		{
+			arm.transform.position = startPos.transform.position;
+			arm.transform.rotation = startPos.transform.rotation;
+			malPercent = 0.0f;
+			malfunction.SetActive(toEnable);
+		}
+		else
+		{
+			destroyCoreScreen.SetActive(true);
+		}
+
 		isMalfunction = true;
-		malfunction.SetActive(toEnable);
 		EnableScripts(!toEnable);
 	}
 

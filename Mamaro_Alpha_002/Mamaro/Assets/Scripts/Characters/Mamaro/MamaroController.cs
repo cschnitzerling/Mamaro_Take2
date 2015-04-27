@@ -176,7 +176,6 @@ public class MamaroController : MonoBehaviour {
 			else if (state.Buttons.Y == ButtonState.Pressed)
 			{
 				fusionCores[0].CollectCore();
-				//print ("Y");
 			}
 		}
 
