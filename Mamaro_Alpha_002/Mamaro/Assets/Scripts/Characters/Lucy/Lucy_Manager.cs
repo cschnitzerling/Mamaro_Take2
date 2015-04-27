@@ -79,6 +79,9 @@ public class Lucy_Manager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
+		// keep audio source with camera
+		Audio_Manager.inst.SetRecursivePos("LucyCry", Camera.main.transform.position);
+
 		// scale fear bar to current divide
 		fearMax = (int)maxMeterY / barDivide;
 
@@ -199,12 +202,16 @@ public class Lucy_Manager : MonoBehaviour {
 		{
 			anim.SetBool("Bool_Scared", true);
 			anim.SetBool("Bool_Repair", false);
+
+			Audio_Manager.inst.PlayRecursive("LucyCry");
+
 			ChangeState(LucyState.Petrified);
 		}
 		else if(fear > fearScaredLevel)
 		{
 			anim.SetBool("Bool_Scared", false);
 			anim.SetBool("Bool_Repair", true);
+			Audio_Manager.inst.StopRecursive("LucyCry");
 			ChangeState(LucyState.Scared);
 		}
 		else 

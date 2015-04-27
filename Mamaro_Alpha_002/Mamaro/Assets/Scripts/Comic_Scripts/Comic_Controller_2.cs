@@ -79,7 +79,7 @@ public class Comic_Controller_2 : MonoBehaviour {
 					NextTarget();
 					isMove = true;
 				}
-		}
+			}
 		}
 	}
 

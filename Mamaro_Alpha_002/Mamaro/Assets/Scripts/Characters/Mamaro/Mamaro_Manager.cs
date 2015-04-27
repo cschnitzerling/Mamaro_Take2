@@ -78,6 +78,10 @@ public class Mamaro_Manager : MonoBehaviour
 			// let Lucy know
 			//lucy.OnChangeFear(FearType.Damage);
 
+			// reduce when blocking
+			if(isBlocking)
+				amount = amount / Ability_Manager.inst.sockets[3].GetCoreCount() + 1;
+
 			// check for dead
 			if(health - amount <= 0)
 			{

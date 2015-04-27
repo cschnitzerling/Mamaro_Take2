@@ -166,7 +166,9 @@ public class Mamaro_Attack : MonoBehaviour
 		}
 
 		aRangeOnce = false;
-		Audio_Manager.inst.DestroyRecursive("RangeKey");
+
+		if(Audio_Manager.inst.RecursiveExists("RangeKey"))
+			Audio_Manager.inst.DestroyRecursive("RangeKey");
 	}
 
 	// adds punch charge from 0 to 100 in respects to time held
