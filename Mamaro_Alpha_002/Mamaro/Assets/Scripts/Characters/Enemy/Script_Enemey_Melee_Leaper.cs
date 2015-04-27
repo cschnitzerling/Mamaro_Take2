@@ -90,7 +90,8 @@ public class Script_Enemey_Melee_Leaper : MonoBehaviour {
 				}
 			}
 		}
-		
+
+
 		switch(state)
 		{
 		case EnemyState.Wander:
