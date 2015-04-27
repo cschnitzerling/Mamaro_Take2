@@ -17,12 +17,6 @@ public class FadeInOut : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-			if (Input.GetKeyDown ("space")){
-				if (!sceneStarting) 
-				{
-				washStarting = true;
-				}
-		}
 		if (washStarting) {
 			StartWash();
 		}
