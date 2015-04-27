@@ -14,6 +14,8 @@ public class LaserFire : MonoBehaviour {
 	void Awake()
 	{
 		rb = GetComponent<Rigidbody>();
+
+		damage *= Ability_Manager.inst.sockets[1].GetCoreCount() + 1;
 	}
 
 	// Use this for initialization
@@ -33,6 +35,5 @@ public class LaserFire : MonoBehaviour {
 		}
 
 		Destroy (gameObject);
-
 	}
 }
