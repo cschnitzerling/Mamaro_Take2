@@ -1246,7 +1246,7 @@ MonoBehaviour:
   lineSight: 50
   lineSightAttack: 20
   speedWalk: 50
-  speedRun: 100
+  speedRun: 150
   enemyRotate: 0
   enemyRotateSpeed: 10
   enemyMove: {x: 0, y: 0, z: 0}
