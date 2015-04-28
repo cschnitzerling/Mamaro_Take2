@@ -19,7 +19,7 @@ public class Mamaro_StartAnim : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (endScene) {
-			fadeOut.nextSceneTwo = true;
+			fadeOut.nextScene = true;
 		}
 		}
 
