@@ -93,7 +93,7 @@ public class Mamaro_Attack : MonoBehaviour
 			if(!aPunchOnce)
 			{
 				aPunchOnce = true;
-				Audio_Manager.inst.PlayOnce(AA.Chr_Mamaro_Attack_ChargePunch_1);
+				Audio_Manager.inst.PlayOnce(AA.Chr_Mamaro_Attack_ChargePunch_1, 0.5f);
 			}
 		}
 	}
@@ -146,7 +146,7 @@ public class Mamaro_Attack : MonoBehaviour
 			if(!aRangeOnce)
 			{
 				aRangeOnce = true;
-				Audio_Manager.inst.PlayOnce(AA.Chr_Robot_Attack_CannonCharge_3);
+				Audio_Manager.inst.PlayOnce(AA.Chr_Robot_Attack_CannonCharge_3, 0.5f);
 				Audio_Manager.inst.PlayRecursive(AA.Chr_Robot_Attack_HoldCharge_1, transform.position, "RangeKey");
 			}
 		}
@@ -161,7 +161,7 @@ public class Mamaro_Attack : MonoBehaviour
 
 			isChargeRange = false;
 			isAttackRange = true;
-			Audio_Manager.inst.PlayOnce(AA.Chr_Robot_Attack_CannonFire_1);
+			Audio_Manager.inst.PlayOnce(AA.Chr_Robot_Attack_CannonFire_1, 0.5f);
 			timerShotDelay = shotDelay;
 		}
 
@@ -223,12 +223,13 @@ public class Mamaro_Attack : MonoBehaviour
 		RaycastHit hit = new RaycastHit();
 		if (Physics.SphereCast(bulletSpawn.transform.position, 0.1f, bulletSpawn.transform.forward, out hit, Mathf.Infinity))
 		{
-			targetPos = hit.point;
+			//targetPos = hit.point;
+			targetPos = bulletSpawn.transform.position + bulletSpawn.transform.forward * beamLength;
 		}
 		else
 		{
 			// nothing was hit so draw beam at beam length
-			targetPos = bulletSpawn.transform.forward * beamLength;
+			targetPos =  bulletSpawn.transform.position + bulletSpawn.transform.forward * beamLength;
 		}
 
 		if (show)

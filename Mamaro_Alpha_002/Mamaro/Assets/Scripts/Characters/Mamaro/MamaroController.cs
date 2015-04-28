@@ -131,7 +131,7 @@ public class MamaroController : MonoBehaviour {
 		move.rotateEuler.y = state.ThumbSticks.Right.X;
 
 
-		move.cameraEuler.x = -state.ThumbSticks.Right.Y;
+		move.cameraEuler.x = state.ThumbSticks.Right.Y;
 
 
 	

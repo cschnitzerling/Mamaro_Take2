@@ -963,8 +963,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 193904}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: -.370000005, z: 0}
+  m_LocalScale: {x: 1.41658378, y: 1.4165839, z: 1.4165839}
   m_Children:
   - {fileID: 438502}
   - {fileID: 435696}
@@ -990,8 +990,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 113926}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 517.400024, y: 286.600006, z: -466.600006}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: -1.62920685e-07}
+  m_LocalPosition: {x: 825.01001, y: 173.839996, z: 1341.19995}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 452458}
@@ -1243,7 +1243,7 @@ MonoBehaviour:
   player: {fileID: 0}
   health: 100
   damage: 20
-  lineSight: 50
+  lineSight: 170
   lineSightAttack: 20
   speedWalk: 50
   speedRun: 150
@@ -1272,9 +1272,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 3
-  m_Height: 12
+  m_Height: 14.8400002
   m_Direction: 1
-  m_Center: {x: 0, y: 4, z: 0}
+  m_Center: {x: 0, y: 6.5, z: 0}
 --- !u!137 &13702896
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

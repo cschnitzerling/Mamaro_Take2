@@ -11,7 +11,6 @@ public class MamaroMovement : MonoBehaviour {
 	public float walkSpeed;
 	public float runSpeed;
 	public float turnSpeed;
-	public float pitchSpeed;
 
 	public float runMaxTime;
 	public float runCooldownRate;
@@ -20,8 +19,14 @@ public class MamaroMovement : MonoBehaviour {
 	public float dodgeForceVert;
 	public float dodgeForceHorz;
 
-	public float cameraMaxPitch;
-	public float cameraMinPitch;
+	public float pitchSpeed;
+	public float maxUpAngle;
+	public float maxDownAngle;
+	public bool fullRotUp = false;
+	public bool fullRotDown = false;
+	public Quaternion startRot;
+
+	float dodgeTimer;
 
 	public bool isRun;
 	public bool isDodge;
@@ -52,7 +57,7 @@ public class MamaroMovement : MonoBehaviour {
 	{
 		socketMove = Ability_Manager.inst.GetSocket(Sockets.Speed);
 
-
+		startRot = Camera.main.transform.localRotation;
 	}
 	
 	// Update is called once per frame
@@ -83,7 +88,13 @@ public class MamaroMovement : MonoBehaviour {
 		//Set All Data to Rigid Body.
 		if (isDodge)
 		{
+			dodgeTimer += Time.deltaTime;
 
+			if (dodgeTimer > 1)
+			{
+				isDodge = false;
+				dodgeTimer = 0;
+			}
 
 		}
 		else
@@ -99,11 +110,67 @@ public class MamaroMovement : MonoBehaviour {
 			rb.velocity = moveDir;
 
 
-			//if (Camera.main.transform.rotation.x < cameraMaxPitch)
+			//print (Quaternion.Angle(Camera.main.transform.localRotation, startRot));
+			
+			// user input (needs converting to xbox)
+			float input = cameraEuler.x * Time.deltaTime * pitchSpeed;
+
+			// the applied variable to rotation
+			float appliedRot = 0.0f;
+
+			startRot.y = Camera.main.transform.rotation.y;
+			startRot.z = Camera.main.transform.rotation.z;
+
+
+
+			// attempting to rot up && check at limit
+			if(input > 0 && !fullRotUp)
 			{
-				Camera.main.transform.Rotate(cameraEuler);
-				Mamaro_Attack.inst.bulletSpawn.transform.Rotate (cameraEuler);
+
+
+				// prevent over rotation
+				if(Quaternion.Angle(Camera.main.transform.localRotation, startRot) + input > maxUpAngle)
+				{
+					appliedRot += -2.0f;//maxUpAngle - Quaternion.Angle(Camera.main.transform.localRotation, startRot) - 0.8f;
+
+					fullRotUp = true;
+				}
+				else
+				{
+					// unlimit opposite rot
+					fullRotDown = false;
+
+					appliedRot = input;
+				}
 			}
+			
+			
+			// attempting to rot up && check if within limit
+			else if(input < 0 && !fullRotDown)
+			{
+
+
+				// prevent over rotation
+				if(Quaternion.Angle(Camera.main.transform.localRotation, startRot) - input > maxDownAngle)
+				{
+					//appliedRot = maxDownAngle - Quaternion.Angle(Camera.main.transform.localRotation, startRot) - 0.8f;
+					appliedRot += 2.0f;
+					fullRotDown = true;
+				}
+				else
+				{
+					// unlimit opposite rot
+					fullRotUp = false;
+					
+					appliedRot = input;
+				}
+			}
+
+			//print (appliedRot);
+
+			// apply rotation
+			Camera.main.transform.Rotate(new Vector3(input, 0.0f, 0.0f));
+			Mamaro_Attack.inst.bulletSpawn.transform.Rotate(new Vector3(input, 0.0f, 0.0f));
 
 
 //			if ((Camera.main.transform.rotation.x > cameraMinPitch && cameraEuler.x > 0) || (Camera.main.transform.rotation.x < cameraMaxPitch && cameraEuler.x < 0))
@@ -151,19 +218,27 @@ public class MamaroMovement : MonoBehaviour {
 	{
 		if (!isDodge)
 		{
-			rb.velocity = Vector3.zero;
-			rb.AddForce(dir * dodgeForceHorz  * (1 + ((float)socketMove.GetCoreCount() / 4)),ForceMode.Impulse);
-			rb.AddForce(Vector3.up * dodgeForceVert,ForceMode.Impulse);
-			isDodge = true;
+			if (dir.x > 0)
+			{
+				rb.velocity = Vector3.zero;
+				rb.AddForce(Vector3.right * dodgeForceHorz  * (1 + ((float)socketMove.GetCoreCount() / 4)),ForceMode.Impulse);
+				rb.AddForce(Vector3.up * dodgeForceVert,ForceMode.Impulse);
+				isDodge = true;
+			}
+			else
+			{
+				rb.velocity = Vector3.zero;
+				rb.AddForce(Vector3.left * dodgeForceHorz  * (1 + ((float)socketMove.GetCoreCount() / 4)),ForceMode.Impulse);
+				rb.AddForce(Vector3.up * dodgeForceVert,ForceMode.Impulse);
+				isDodge = true;
+			}
 		}
 	}
 
 	void OnCollisionEnter(Collision col)
 	{
 		isDodge = false;
-
-
-
+		dodgeTimer = 0;
 	}
 }
 

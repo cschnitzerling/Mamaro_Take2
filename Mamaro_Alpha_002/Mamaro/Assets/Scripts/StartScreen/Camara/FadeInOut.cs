@@ -13,6 +13,11 @@ public class FadeInOut : MonoBehaviour {
 		//layerMesh.
 		//guiTexture.pixelInset = new Rect (0.0f, 0.0f, Screen.width, Screen.height);
 	}
+
+	void Start()
+	{
+		Time.timeScale = 1.0f;
+	}
 	
 	// Update is called once per frame
 	void Update () 
@@ -134,7 +139,7 @@ public class FadeInOut : MonoBehaviour {
 		
 		if (layerMesh.GetComponent<Renderer>().material.color.a >= 0.99f) 
 		{
-			Application.LoadLevel("ComicScene");
+			Application.LoadLevel("Level");
 		}
 		
 		/*

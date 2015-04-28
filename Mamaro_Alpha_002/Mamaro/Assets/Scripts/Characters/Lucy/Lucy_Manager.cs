@@ -71,16 +71,16 @@ public class Lucy_Manager : MonoBehaviour {
 
 		anim = lucy.GetComponent<Animator>();
 		mamaro = Mamaro_Manager.inst;
-		Audio_Manager.inst.PlayRecursive(AA.Chr_Lucy_Cry_1, transform.position, "LucyCry");
-		Audio_Manager.inst.StopRecursive("LucyCry");
-		Audio_Manager.inst.SetVolume("LucyCry", 0.3f);
+		//Audio_Manager.inst.PlayRecursive(AA.Chr_Lucy_Cry_1, transform.position, "LucyCry");
+		//Audio_Manager.inst.StopRecursive("LucyCry");
+		//Audio_Manager.inst.SetVolume("LucyCry", 0.3f);
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
 		// keep audio source with camera
-		Audio_Manager.inst.SetRecursivePos("LucyCry", Camera.main.transform.position);
+		//Audio_Manager.inst.SetRecursivePos("LucyCry", Camera.main.transform.position);
 
 		// scale fear bar to current divide
 		fearMax = (int)maxMeterY / barDivide;
@@ -199,7 +199,7 @@ public class Lucy_Manager : MonoBehaviour {
 			anim.SetBool("Bool_Scared", true);
 			anim.SetBool("Bool_Repair", false);
 
-			Audio_Manager.inst.PlayRecursive("LucyCry");
+			//Audio_Manager.inst.PlayRecursive("LucyCry");
 
 			ChangeState(LucyState.Petrified);
 		}
@@ -207,14 +207,14 @@ public class Lucy_Manager : MonoBehaviour {
 		{
 			anim.SetBool("Bool_Scared", false);
 			anim.SetBool("Bool_Repair", true);
-			Audio_Manager.inst.StopRecursive("LucyCry");
+			//Audio_Manager.inst.StopRecursive("LucyCry");
 			ChangeState(LucyState.Scared);
 		}
 		else 
 		{
 			anim.SetBool("Bool_Scared", false);
 			anim.SetBool("Bool_Repair", false);
-			Audio_Manager.inst.StopRecursive("LucyCry");
+			//Audio_Manager.inst.StopRecursive("LucyCry");
 			ChangeState(LucyState.Idle);
 		}
 	}
@@ -278,11 +278,11 @@ public class Lucy_Manager : MonoBehaviour {
 	/// Activates Lucy's Tapping Gameobject on mamaros eye lens
 	void Tapping()
 	{
-		if(!Audio_Manager.inst.IsPlaying("LucyCry") && !Game_Manager.inst.coreDestroyed)
+		//if(!Audio_Manager.inst.IsPlaying("LucyCry") && !Game_Manager.inst.coreDestroyed)
 		{
-			Audio_Manager.inst.PlayRecursive("LucyCry");
+			//Audio_Manager.inst.PlayRecursive("LucyCry");
 		}
-		else
+//		else
 		{
 			//TODO play laughing
 		}
@@ -290,7 +290,7 @@ public class Lucy_Manager : MonoBehaviour {
 		if (!mamaro.isMalfunctioning)
 		{
 			ChangeState(LucyState.Idle);
-			Audio_Manager.inst.StopRecursive("LucyCry");
+			//Audio_Manager.inst.StopRecursive("LucyCry");
 		}
 	}
 

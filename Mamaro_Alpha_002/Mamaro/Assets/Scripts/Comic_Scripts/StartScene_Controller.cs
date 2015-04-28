@@ -84,7 +84,7 @@ public class StartScene_Controller: MonoBehaviour {
 
 
 		//Dodge Controls
-		if (state.Buttons.A == ButtonState.Pressed && prevState.Buttons.A == ButtonState.Released)
+		if ((state.Buttons.A == ButtonState.Pressed && prevState.Buttons.A == ButtonState.Released) || (state.Buttons.Start == ButtonState.Pressed && prevState.Buttons.Start == ButtonState.Released))
 		{
 			starAnim.ArmActive();
 		}

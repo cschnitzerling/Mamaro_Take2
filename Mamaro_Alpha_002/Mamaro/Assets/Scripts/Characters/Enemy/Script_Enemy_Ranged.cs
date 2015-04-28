@@ -297,7 +297,7 @@ public class Script_Enemy_Ranged : MonoBehaviour
 			breakTimer += Time.deltaTime;
 			if(breakTimer > 2.0f)
 			{
-				Debug.LogError("While loop was stuck in constant loop. Check your logic!");
+				Debug.Log("While loop was stuck in constant loop. Check your logic!");
 				foundPath = true;
 			}
 

@@ -1,20 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BackToMain : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-
-	}
-
+public class BackToMain : MonoBehaviour 
+{
 	public void LoadMainMenu()
 	{
-		Application.LoadLevel("StartScreen");
+		Application.LoadLevel("SplashScreen");
 	}
 }
