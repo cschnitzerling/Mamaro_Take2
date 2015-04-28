@@ -171,7 +171,7 @@ public class Lucy_Manager : MonoBehaviour {
 	{
 		if ((int)fearType > 0)
 		{
-			lucyIncFear.SetActive(true);
+			//lucyIncFear.SetActive(true);
 		}
 
 		if (fear <= fearMax / barDivide && fear >= 0)

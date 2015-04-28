@@ -163,6 +163,7 @@ public class Game_Manager : MonoBehaviour
 	{
 		if(on)
 		{
+			isMalfunction = true;
 			// set up malMode
 			Timer_mal = 0.0f;
 			//isMalfunction = true;

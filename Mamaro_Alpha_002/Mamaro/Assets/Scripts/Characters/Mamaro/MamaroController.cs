@@ -131,7 +131,7 @@ public class MamaroController : MonoBehaviour {
 		move.rotateEuler.y = state.ThumbSticks.Right.X;
 
 
-		move.cameraEuler.x = state.ThumbSticks.Right.Y;
+		move.cameraEuler.x = -state.ThumbSticks.Right.Y;
 
 
 	
@@ -177,7 +177,7 @@ public class MamaroController : MonoBehaviour {
 				fusionCores[0].DestroyCore();
 
 			}
-			else if (state.Buttons.Y == ButtonState.Pressed)
+			else if (state.Buttons.B == ButtonState.Pressed)
 			{
 				fusionCores[0].CollectCore();
 			}

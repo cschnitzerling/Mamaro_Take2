@@ -117,8 +117,9 @@ public class Mamaro_Manager : MonoBehaviour
 	void OnDeath()
 	{
 
-		OnCorePickUp();
-		GM.buttonAdd = 6;
+		//OnCorePickUp();
+		Ability_Manager.inst.spareCores = 10;
+		OnCorePickUp ();
 
 	}
 
