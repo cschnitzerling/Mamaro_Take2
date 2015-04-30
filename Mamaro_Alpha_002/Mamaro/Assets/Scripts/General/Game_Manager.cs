@@ -251,7 +251,7 @@ public class Game_Manager : MonoBehaviour
 
 			// allow quit in are you sure screen
 			if(areYouSure.activeSelf)
-				Application.LoadLevel("StartScreen");
+				Application.LoadLevel("SplashScreen");
 
 			break;
 

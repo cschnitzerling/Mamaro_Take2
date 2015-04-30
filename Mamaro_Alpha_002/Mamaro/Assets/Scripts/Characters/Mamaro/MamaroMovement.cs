@@ -221,14 +221,14 @@ public class MamaroMovement : MonoBehaviour {
 			if (dir.x > 0)
 			{
 				rb.velocity = Vector3.zero;
-				rb.AddForce(Vector3.right * dodgeForceHorz  * (1 + ((float)socketMove.GetCoreCount() / 4)),ForceMode.Impulse);
+				rb.AddForce(transform.right * dodgeForceHorz  * (1 + ((float)socketMove.GetCoreCount() / 4)),ForceMode.Impulse);
 				rb.AddForce(Vector3.up * dodgeForceVert,ForceMode.Impulse);
 				isDodge = true;
 			}
 			else
 			{
 				rb.velocity = Vector3.zero;
-				rb.AddForce(Vector3.left * dodgeForceHorz  * (1 + ((float)socketMove.GetCoreCount() / 4)),ForceMode.Impulse);
+				rb.AddForce(-transform.right * dodgeForceHorz  * (1 + ((float)socketMove.GetCoreCount() / 4)),ForceMode.Impulse);
 				rb.AddForce(Vector3.up * dodgeForceVert,ForceMode.Impulse);
 				isDodge = true;
 			}
