@@ -12,7 +12,7 @@ public class Script_Enemey_Melee_Leaper : MonoBehaviour {
 		Dead
 	}
 	
-	public Mamaro_Manager player;
+	Mamaro_Manager player;
 	
 	//Enemy Stats
 	public int health;
@@ -27,30 +27,32 @@ public class Script_Enemey_Melee_Leaper : MonoBehaviour {
 	//Enemy Movement
 	public float speedWalk;
 	public float speedRun;
-	public float enemyRotate;
+	float enemyRotate;
 	public float enemyRotateSpeed;
-	public Vector3 enemyMove;
+	Vector3 enemyMove;
 	
 	//Enemy States
-	public EnemyState state = EnemyState.Wander;
+	EnemyState state = EnemyState.Wander;
 	
 	//Enemy Times
-	public float timer = 0;
+	float timer = 0;
 	public float wanderTime = 5f;
 	public float rotateTime = 2f;
 	public float chaseTime = 3f;
-	public float idleTime;
+	float idleTime;
 	
 	//Attack Stats
 	public float attackSpeed;
 	public float attackRadius;
-	public float attackForce;
+	//public float attackForce;
 	public float attackTime;
 	public float attackUp;
 
 	public bool isAttacking;
 
 	Animator anim;
+
+	public MeleeHitBox hitCollider;
 	
 	// Use this for initialization
 	void Start () 
@@ -58,6 +60,8 @@ public class Script_Enemey_Melee_Leaper : MonoBehaviour {
 		anim = gameObject.GetComponentInChildren<Animator>();
 		state = EnemyState.Rotate;
 		player = Mamaro_Manager.inst;
+
+		hitCollider.SetDamage(damage);
 	}
 	
 	// Update is called once per frame
@@ -65,7 +69,7 @@ public class Script_Enemey_Melee_Leaper : MonoBehaviour {
 	{
 		GetComponent<Rigidbody>().AddForce(Vector3.down * 100);
 		//Line of Sight Check
-		look = new Ray (transform.position,(player.transform.position - transform.position));
+		look = new Ray ((transform.position + (Vector3.up * 1)),((player.transform.position) - transform.position));
 		if (state == EnemyState.Dead)
 		{
 		}
@@ -185,7 +189,8 @@ public class Script_Enemey_Melee_Leaper : MonoBehaviour {
 		GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
 		Vector3 rot = (new Vector3 (Random.Range (3f, 10f), Random.Range (3f, 10f), Random.Range (3f, 10f)) * 0.1f);
 		GetComponent<Rigidbody>().AddRelativeTorque (rot,ForceMode.Impulse);
-		Destroy (gameObject,1);
+		GetComponent<Rigidbody>().AddForce((transform.position - player.transform.position).normalized * 2 ,ForceMode.Impulse);
+		Destroy (gameObject,3);
 	}
 
 	void OnChangeState(EnemyState es)
@@ -244,7 +249,7 @@ public class Script_Enemey_Melee_Leaper : MonoBehaviour {
 	{
 		if (col.collider.tag == "Player")
 		{
-			col.gameObject.SendMessage ("OnTakeDamage", damage,SendMessageOptions.DontRequireReceiver);
+			//col.gameObject.SendMessage ("OnTakeDamage", damage,SendMessageOptions.DontRequireReceiver);
 			//player.knockBackForce = attackForce;
 			//col.gameObject.SendMessage ("KnockBack", transform.position);
 		}

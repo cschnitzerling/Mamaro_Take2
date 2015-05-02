@@ -92,7 +92,7 @@ GameObject:
   - 114: {fileID: 11432102}
   m_Layer: 0
   m_Name: CHR_Enemy_Melee_Prefab
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -652,6 +652,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &196382
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 436842}
+  - 65: {fileID: 6546352}
+  - 114: {fileID: 11461658}
+  m_Layer: 0
+  m_Name: Hit Trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
 --- !u!4 &400354
 Transform:
   m_ObjectHideFlags: 1
@@ -839,6 +856,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 452458}
   m_RootOrder: 1
+--- !u!4 &436842
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 196382}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 7.16512394, z: 3.55786109}
+  m_LocalScale: {x: .705923676, y: .705923617, z: .705923617}
+  m_Children: []
+  m_Father: {fileID: 452458}
+  m_RootOrder: 3
 --- !u!4 &436966
 Transform:
   m_ObjectHideFlags: 1
@@ -969,6 +998,7 @@ Transform:
   - {fileID: 438502}
   - {fileID: 435696}
   - {fileID: 422548}
+  - {fileID: 436842}
   m_Father: {fileID: 456340}
   m_RootOrder: 0
 --- !u!4 &452958
@@ -991,7 +1021,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 113926}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: -1.62920685e-07}
-  m_LocalPosition: {x: 825.01001, y: 173.839996, z: 1341.19995}
+  m_LocalPosition: {x: 546.018799, y: 276.634308, z: -486.623718}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 452458}
@@ -1212,6 +1242,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!65 &6546352
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 196382}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 6, y: 4, z: 8}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &9534664
 Animator:
   serializedVersion: 3
@@ -1240,28 +1282,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87b5f3c221d01d94dbd2b5d1a1331351, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   health: 100
   damage: 20
   lineSight: 170
   lineSightAttack: 20
   speedWalk: 50
   speedRun: 150
-  enemyRotate: 0
   enemyRotateSpeed: 10
-  enemyMove: {x: 0, y: 0, z: 0}
-  state: 0
-  timer: 0
   wanderTime: 5
   rotateTime: 2
   chaseTime: 3
-  idleTime: 0
   attackSpeed: 150
   attackRadius: 30
-  attackForce: 100
   attackTime: 2
   attackUp: 50
   isAttacking: 0
+  hitCollider: {fileID: 11461658}
+--- !u!114 &11461658
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 196382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 799f8231ec41e574f94c31abecd28e99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!136 &13668744
 CapsuleCollider:
   m_ObjectHideFlags: 1
