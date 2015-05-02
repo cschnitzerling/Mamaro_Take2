@@ -13,26 +13,39 @@ public class FusionCore : MonoBehaviour {
 	public float previousTime;
 	public float timerPickup;
 
-	private string audioKey;
+	// audio vars
+	private Audio_Manager am;
+	private string keyHum = "Hum";
+	[Range(0.0f, 1.0f)]
+	public float humVolume = 1.0f;
+	[Range(0.0f, 1.0f)]
+	public float pickUpVolume = 1.0f;
+	[Range(0.0f, 1.0f)]
+	public float destroyVolume = 1.0f;
 
 	// Use this for initialization
 	void Start () 
 	{
+		keyHum += GetInstanceID().ToString();
+
+		am = Audio_Manager.inst;
 		ui = Pickup_UI.inst.gameObject;
 
 		buttonX = Pickup_UI.inst.buttonX;
 		buttonY = Pickup_UI.inst.buttonY;
 
-		audioKey = gameObject.GetInstanceID().ToString();
 		ui.SetActive (false);
 		timerPickup = 0;
-		Audio_Manager.inst.PlayRecursive(AA.Chr_Robot_Attack_HoldCharge_1, transform.position, audioKey);
 
+		am.PlayLooped(AA.Env_Powercore_idle_1, transform.position, keyHum, humVolume);
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
+		// update looped pos / vol
+		am.UpdateVol(keyHum, humVolume, transform.position);
+
 		//////////////////////////////////////////////////////////////////////////////
 		/// 
 		if (Input.GetKeyDown(KeyCode.Escape))
@@ -62,7 +75,7 @@ public class FusionCore : MonoBehaviour {
 		{
 			Game_Manager.inst.coreDestroyed = false;
 			Mamaro_Manager.inst.OnCorePickUp();
-			Audio_Manager.inst.PlayOnce(AA.Chr_Robot_Attack_CannonCharge_3, transform.position);
+			am.PlayOneShot(AA.Chr_mamaro_powerup_pick_up, transform.position,  pickUpVolume);
 			RemoveObject();
 		}
 	}
@@ -80,7 +93,7 @@ public class FusionCore : MonoBehaviour {
 			Game_Manager.inst.coreDestroyed = true;
 
 			Lucy_Manager.inst.UpgradeFear();
-			Audio_Manager.inst.PlayOnce(AA.Chr_Robot_Attack_CannonHit_1, transform.position);
+			am.PlayOneShot(AA.Env_General_ElectricalExplosion, transform.position, destroyVolume);
 			RemoveObject();
 		}
 	}
@@ -117,7 +130,9 @@ public class FusionCore : MonoBehaviour {
 			ui.SetActive(false);
 		}
 
-		Audio_Manager.inst.DestroyRecursive(audioKey);
+		// destroy looped audio
+		am.DestroySource(keyHum);
+
 		Destroy(gameObject);
 	}
 }

@@ -11,12 +11,17 @@ public class Mamaro_Manager : MonoBehaviour
 	private Ability_Manager abMan;
 	private Cam_Manager cam;
 	private Lucy_Manager lucy;
+	private Audio_Manager am;
 
 	// inspector assigned vars
 	public int maxHealth = 100;
 	public int smallDamage, mediumDamage, largeDamage;	// in regards to how much cam shake to apply
 	public Vector3 camMalfuncPos;
 	public GameObject coreUpgradeParticles;
+
+	// audio vars
+	[Range(0.0f, 1.0f)]
+	public float repairVolume = 1.0f;
 
 	// non-inspector assigned vars
 	//[HideInInspector]
@@ -39,6 +44,7 @@ public class Mamaro_Manager : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
+		am = Audio_Manager.inst;
 		GM = Game_Manager.inst;
 		abMan = Ability_Manager.inst;
 		cam = Cam_Manager.inst;
@@ -152,7 +158,8 @@ public class Mamaro_Manager : MonoBehaviour
 			else
 				health += amount;
 
-			Audio_Manager.inst.PlayOnce(AA.Chr_Mamaro_Attack_ChargePunch_1);
+			// repair audio
+			am.PlayOneShot(AA.Chr_Lucy_Foley_Combat_StunCharge, repairVolume);
 		}
 	}
 

@@ -7,13 +7,20 @@ public class Enemy_Projectile : MonoBehaviour {
 	public float destroyTime;
 	public int damageAmount;
 	public GameObject explosion;
-	
+
+	[Range(0.0f, 1.0f)]
+	public float pHitVolume = 1.0f;
+	[Range(0.0f, 1.0f)]
+	public float explodeVolume = 1.0f;
+
+	private Audio_Manager am;
 	private float timerDestroy;
 	private Rigidbody rb;
 
 	// Use this for initialization
 	void Start () 
 	{
+		am = Audio_Manager.inst;
 		rb = GetComponent<Rigidbody>();
 		transform.rotation = Quaternion.LookRotation(Mamaro_Manager.inst.transform.position - transform.position);
 	}
@@ -40,7 +47,6 @@ public class Enemy_Projectile : MonoBehaviour {
 	void OnDestroy()
 	{
 		Instantiate(explosion, transform.position, Quaternion.identity);
-		Audio_Manager.inst.PlayOnce(AA.Env_General_PhysicalExpolsion_2, transform.position, 0.5f);
 		Destroy(gameObject);
 	}
 
@@ -48,7 +54,16 @@ public class Enemy_Projectile : MonoBehaviour {
 	{
 		if(otherObj.transform.tag == "Player")
 		{
+			// play audio at mamaro pos
+			am.PlayOneShot(AA.Chr_Robot_Attack_CannonHit_1, pHitVolume);
+
+			// send damage 
 			Mamaro_Manager.inst.OnTakeDamage(damageAmount);
+		}
+		else
+		{
+			// play audio at collision pos
+			am.PlayOneShot(AA.Env_General_ElectricalExplosion, otherObj.transform.position, explodeVolume);
 		}
 
 		OnDestroy();

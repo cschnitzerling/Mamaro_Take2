@@ -33,6 +33,22 @@ public class Mamaro_Attack : MonoBehaviour
 	float timerxx;
 
 
+	// audio vars
+	private Audio_Manager am;
+	[Range(0.0f, 1.0f)]
+	public float punchHoldVolume = 1.0f;
+	[Range(0.0f, 1.0f)]
+	public float punchVolume = 1.0f;
+	[Range(0.0f, 1.0f)]
+	public float chargeVolume = 1.0f;
+	[Range(0.0f, 1.0f)]
+	public float chargeHoldVolume = 1.0f;
+	[Range(0.0f, 1.0f)]
+	public float fireVolume = 1.0f;
+
+	private string keyCharge = "Charge";
+	private string keyChargeHold = "HoldCharge";
+
 	//Animation Variables
 	Animator anim;
 
@@ -47,10 +63,30 @@ public class Mamaro_Attack : MonoBehaviour
 		anim = GetComponentInChildren<Animator>();
 		fistCollider.enabled = false;
 	}
-	
+
+	void Start()
+	{
+		am = Audio_Manager.inst;
+
+		// set up audio keys
+		keyCharge += this.GetInstanceID().ToString();
+		keyChargeHold += this.GetInstanceID().ToString();
+
+		// create looped sources
+		am.PlayLooped(AA.Chr_Robot_Attack_CannonCharge_3, transform.position, keyCharge, chargeVolume);
+		am.GetSource(keyCharge).Stop();
+
+		am.PlayLooped(AA.Chr_Robot_Attack_HoldCharge_1, transform.position, keyChargeHold, chargeHoldVolume);
+		am.GetSource(keyChargeHold).Stop();
+	}
+
 	// Update is called once per frame
 	void Update () 
 	{
+		// update looped audio pos
+		am.UpdateVol(keyCharge, chargeVolume, transform.localPosition);
+		am.UpdateVol(keyChargeHold, chargeHoldVolume, transform.localPosition);
+
 		ChargePunch();
 		ChargeRanged();
 
@@ -93,7 +129,7 @@ public class Mamaro_Attack : MonoBehaviour
 			if(!aPunchOnce)
 			{
 				aPunchOnce = true;
-				Audio_Manager.inst.PlayOnce(AA.Chr_Mamaro_Attack_ChargePunch_1, 0.5f);
+				am.PlayOneShot(AA.Chr_Mamaro_Attack_ChargePunch_1, punchHoldVolume);
 			}
 		}
 	}
@@ -132,7 +168,7 @@ public class Mamaro_Attack : MonoBehaviour
 		}
 
 		aPunchOnce = false;
-		Audio_Manager.inst.PlayOnce(AA.Chr_Mamaro_Movement_Dodge_2);
+		am.PlayOneShot(AA.Chr_Mamaro_Movement_Dodge_2, punchVolume);
 	}
 
 	// applies ranged attack sequence
@@ -146,8 +182,10 @@ public class Mamaro_Attack : MonoBehaviour
 			if(!aRangeOnce)
 			{
 				aRangeOnce = true;
-				Audio_Manager.inst.PlayOnce(AA.Chr_Robot_Attack_CannonCharge_3, 0.5f);
-				Audio_Manager.inst.PlayRecursive(AA.Chr_Robot_Attack_HoldCharge_1, transform.position, "RangeKey");
+
+				// play charge audio
+				am.GetSource(keyCharge).Play();
+				am.GetSource(keyChargeHold).Play();
 			}
 		}
 	}
@@ -161,14 +199,21 @@ public class Mamaro_Attack : MonoBehaviour
 
 			isChargeRange = false;
 			isAttackRange = true;
-			Audio_Manager.inst.PlayOnce(AA.Chr_Robot_Attack_CannonFire_1, 0.5f);
+
+			// play stronger audio if upgraded
+			if(Ability_Manager.inst.sockets[1].GetCoreCount() > 1)
+				am.PlayOneShot(AA.Chr_Robot_Attack_CanonFire_2, fireVolume);
+			else
+				am.PlayOneShot(AA.Chr_Robot_Attack_CannonFire_1, fireVolume);
+
 			timerShotDelay = shotDelay;
 		}
 
 		aRangeOnce = false;
 
-		if(Audio_Manager.inst.RecursiveExists("RangeKey"))
-			Audio_Manager.inst.DestroyRecursive("RangeKey");
+		// stop charge audio
+		am.GetSource(keyCharge).Stop();
+		am.GetSource(keyChargeHold).Stop();
 	}
 
 	// adds punch charge from 0 to 100 in respects to time held

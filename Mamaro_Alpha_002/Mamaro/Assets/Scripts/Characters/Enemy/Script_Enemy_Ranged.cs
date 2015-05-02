@@ -22,6 +22,22 @@ public class Script_Enemy_Ranged : MonoBehaviour
 	public float destroyTime = 5.0f;
 	public GameObject explosion;
 	public GameObject fusionCore;
+	public bool showGizmos = true;
+
+	// Audio vars
+	private Audio_Manager am;
+
+	[Range(0.0f, 1.0f)]
+	public float hoverVolume = 1.0f;
+	[Range(0.0f, 1.0f)]
+	public float shotVolume = 1.0f;
+	[Range(0.0f, 1.0f)]
+	public float damageVolume = 1.0f;
+	[Range(0.0f, 1.0f)]
+	public float deathVolume = 1.0f;
+	private float volVariation;
+	private string keyHover = "Hover";
+	private int soundAlt = 1;
 
 	// private vars
 	public int health = 100;
@@ -35,13 +51,16 @@ public class Script_Enemy_Ranged : MonoBehaviour
 	private NavMeshAgent nav;
 	private float timerFire = 0.0f;
 	private float timerDestroy;
-	private string audioKey;
 
 	// Use this for initialization
 	void Start () 
 	{
-		audioKey = GetInstanceID().ToString();
-		Audio_Manager.inst.PlayRecursive(AA.Chr_Robot_Attack_HoldCharge_1, transform.position, audioKey);
+		// set up looped hover audio
+		am = Audio_Manager.inst;
+		keyHover += this.GetInstanceID().ToString();
+		am.PlayLooped(AA.Chr_Robot_Attack_HoldCharge_1, transform.position, keyHover, hoverVolume);
+		volVariation = hoverVolume;
+
 		nav = GetComponent<NavMeshAgent>();
 		mamaroM = Mamaro_Manager.inst;
 		rb = GetComponent<Rigidbody>();
@@ -54,9 +73,11 @@ public class Script_Enemy_Ranged : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
+		// update hover audio pos / vol
+		am.UpdateVol(keyHover, hoverVolume, transform.position);
+
 		// track player dist
 		pDist = Vector3.Distance(mamaroM.transform.position, this.transform.position);
-		Audio_Manager.inst.SetRecursivePos(audioKey, transform.position);
 
 		///test////////
 		if(Input.GetKeyDown(KeyCode.F5))
@@ -111,9 +132,9 @@ public class Script_Enemy_Ranged : MonoBehaviour
 
 			// louder volume when moving
 			if(isMoving)
-				Audio_Manager.inst.SetVolume(audioKey, Mathf.Lerp(Audio_Manager.inst.GetVolume(audioKey), 1.0f, 0.1f));
+				hoverVolume = volVariation;
 			else
-				Audio_Manager.inst.SetVolume(audioKey, Mathf.Lerp(Audio_Manager.inst.GetVolume(audioKey), 0.5f, 0.1f));
+				hoverVolume = volVariation * 0.6f;
 
 			if(!isMoving)
 			{
@@ -138,7 +159,7 @@ public class Script_Enemy_Ranged : MonoBehaviour
 			timerFire += Time.deltaTime;
 			if(timerFire >= fireRate)
 			{
-				Audio_Manager.inst.PlayOnce(AA.Chr_Robot_Attack_Laser_1, transform.position);
+				am.PlayOneShot(AA.Chr_Lucy_Foley_Combat_StunFire, transform.position, shotVolume);
 				Instantiate(projectile, shootPos.position, shootPos.rotation);
 				timerFire = 0.0f;
 			}
@@ -184,7 +205,12 @@ public class Script_Enemy_Ranged : MonoBehaviour
 	/// reduces health and checks for death
 	public void OnTakeDamage(int amount)
 	{
-		Audio_Manager.inst.PlayOnce(AA.Chr_Robot_Damage_MetalOnMetal_2, transform.position);
+		// alternate damage sounds
+		soundAlt++;
+		if(soundAlt % 2 == 0)
+			am.PlayOneShot(AA.Chr_Robot_Damage_MetalOnMetal_1, transform.position, damageVolume);
+		else
+			am.PlayOneShot(AA.Chr_Robot_Damage_MetalOnMetal_2, transform.position, damageVolume);
 
 		alert = true;
 		state = EnemyState.Offensive;
@@ -201,7 +227,7 @@ public class Script_Enemy_Ranged : MonoBehaviour
 			// death sequence
 			DetachChildren(this.transform);
 			Explode();
-			Audio_Manager.inst.PlayOnce(AA.Env_General_PhysicalExpolsion_2, transform.position);
+			am.PlayOneShot(AA.Chr_Robot_Damage_Clang_2, transform.position, deathVolume);
 			timerDestroy = destroyTime;
 		}
 	}
@@ -210,7 +236,6 @@ public class Script_Enemy_Ranged : MonoBehaviour
 	public void Explode()
 	{
 		Destroy (nav);
-		Audio_Manager.inst.PlayOnce(AA.Env_General_PhysicalExpolsion_2, transform.position);
 		Vector3 centerPos = new Vector3 (transform.position.x, transform.position.y + 10.0f, transform.position.z);
 		Instantiate (fusionCore, centerPos, Quaternion.identity);
 		Instantiate(explosion, centerPos, Quaternion.identity);
@@ -224,6 +249,9 @@ public class Script_Enemy_Ranged : MonoBehaviour
 				hit.GetComponent<Rigidbody>().AddExplosionForce(explosionPower, explosionPos, explosionPower, 0.35F, ForceMode.Impulse);
 			}
 		}
+
+		// destroy obj and audio loop
+		am.DestroySource (keyHover);
 		Destroy(gameObject);
 	}
 
@@ -326,12 +354,15 @@ public class Script_Enemy_Ranged : MonoBehaviour
 	/// draw inspector gizoms
 	void OnDrawGizmos() 
 	{
-		// engagement radius
-		Gizmos.color = Color.yellow;
-		Gizmos.DrawWireSphere(transform.position, engagementRadius);
-		
-		// destPos
-		Gizmos.color = Color.green;
-		Gizmos.DrawWireSphere(destPos, 2.0f);
+		if(showGizmos)
+		{
+			// engagement radius
+			Gizmos.color = Color.yellow;
+			Gizmos.DrawWireSphere(transform.position, engagementRadius);
+			
+			// destPos
+			Gizmos.color = Color.green;
+			Gizmos.DrawWireSphere(destPos, 2.0f);
+		}
 	}
 }

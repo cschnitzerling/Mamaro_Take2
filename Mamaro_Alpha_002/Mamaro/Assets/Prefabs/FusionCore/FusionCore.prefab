@@ -83,7 +83,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 197428}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 644.400024, y: 210.199997, z: 635.5}
+  m_LocalPosition: {x: 497.600006, y: 289.799988, z: -502.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 433558}
@@ -170,6 +170,9 @@ MonoBehaviour:
   pickupTime: 1
   previousTime: 0
   timerPickup: 0
+  humVolume: .430000007
+  pickUpVolume: 1
+  destroyVolume: 1
 --- !u!135 &13502796
 SphereCollider:
   m_ObjectHideFlags: 1
