@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Enum = System.Enum;
+using UnityEngine.Audio;
 
 /// <summary>
 /// Loads and handles all audio assets
@@ -10,6 +11,9 @@ public class Audio_Manager : MonoBehaviour
 {
 	// static instance of Audio_Manager
 	public static Audio_Manager inst;
+
+	// auido group for all foley audio
+	public AudioMixerGroup aMix;
 	
 	// storage for all loaded audio assets
 	private Dictionary<AA, AudioClip> assets = new Dictionary<AA, AudioClip>();
@@ -68,6 +72,7 @@ public class Audio_Manager : MonoBehaviour
 			AudioSource tempA = tempObj.GetComponent<AudioSource>();
 			tempA.clip = assets[clip];
 			tempA.volume = volume;
+			tempA.outputAudioMixerGroup = aMix;
 			
 			// apply 3D sound if true
 			if(threeD)
@@ -97,6 +102,7 @@ public class Audio_Manager : MonoBehaviour
 			// assign the audiosource
 			AudioSource tempA = tempObj.GetComponent<AudioSource>();
 			tempA.clip = assets[clip];
+			tempA.outputAudioMixerGroup = aMix;
 			
 			// scale vol in respects to dist/hearDist
 			if(scaleVol)
@@ -159,6 +165,7 @@ public class Audio_Manager : MonoBehaviour
 				AudioSource tempA = tempObj.GetComponent<AudioSource>();
 				tempA.loop = true;
 				tempA.clip = assets[clip];
+				tempA.outputAudioMixerGroup = aMix;
 				
 				// scale vol in respects to dist/hearDist
 				if(scaleVol)
@@ -253,6 +260,7 @@ public class Audio_Manager : MonoBehaviour
 			
 			// assign the audiosource
 			AudioSource tempA = tempObj.GetComponent<AudioSource>();
+			tempA.outputAudioMixerGroup = aMix;
 			
 			// add to tracked Dict
 			trackedASources.Add(key, tempA);
@@ -307,5 +315,11 @@ public class Audio_Manager : MonoBehaviour
 			          "sources. The key may have been misspelt or the source has been destroyed.");
 		
 		return tempAS;
+	}
+
+	/// returns the specific audio clip
+	public AudioClip GetClip(AA clip)
+	{
+		return assets[clip];
 	}
 }
