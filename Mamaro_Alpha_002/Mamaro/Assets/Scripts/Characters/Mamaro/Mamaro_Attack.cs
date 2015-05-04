@@ -74,6 +74,7 @@ public class Mamaro_Attack : MonoBehaviour
 
 		// create looped sources
 		am.PlayLooped(AA.Chr_Robot_Attack_CannonCharge_3, transform.position, keyCharge, chargeVolume);
+		am.GetSource(keyCharge).loop = false;
 		am.GetSource(keyCharge).Stop();
 
 		am.PlayLooped(AA.Chr_Robot_Attack_HoldCharge_1, transform.position, keyChargeHold, chargeHoldVolume);

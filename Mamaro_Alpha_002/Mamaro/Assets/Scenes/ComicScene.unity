@@ -39799,6 +39799,7 @@ GameObject:
   - 114: {fileID: 1602765812}
   - 114: {fileID: 1602765818}
   - 114: {fileID: 1602765819}
+  - 114: {fileID: 1602765820}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -39958,8 +39959,9 @@ AudioSource:
   m_GameObject: {fileID: 1602765804}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 49b51e351f2e0c24c8456ac1cca3091e, type: 3}
+  OutputAudioMixerGroup: {fileID: 24300001, guid: e1d8b0372486f444a960103c37308b25,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: 486803c8735651148af68dd76e4ada61, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -40128,6 +40130,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerIndex: 0
+--- !u!114 &1602765820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1602765804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 346ba084abb85474a94254f0609e8760, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  off: {fileID: 24592480, guid: e1d8b0372486f444a960103c37308b25, type: 2}
+  transSpeed: 8
+  target: {fileID: 590590174}
 --- !u!1 &1621773995
 GameObject:
   m_ObjectHideFlags: 0
@@ -43582,9 +43598,9 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1699665301}
-  m_Text: 'The metal gaint
+  m_Text: 'as the metal
 
-    began to rise'
+    giant rose up'
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
@@ -46968,7 +46984,7 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1866596975}
-  m_Text: The Earth began to shake violently
+  m_Text: The ground started to shake
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1

@@ -6,6 +6,11 @@ public class LaserFire : MonoBehaviour {
 	public float speed;
 	public int damage;
 
+	// audio vars
+	private Audio_Manager am;
+	[Range(0.0f, 1.0f)]
+	private float explodeVolume = 1.0f;
+
 	public GameObject explosion;
 	float timer;
 
@@ -21,6 +26,7 @@ public class LaserFire : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
+		am = Audio_Manager.inst;
 		rb.velocity = transform.forward * speed;
 	}
 	
@@ -30,9 +36,10 @@ public class LaserFire : MonoBehaviour {
 
 		if (col.tag == "Enemy")
 		{
-
 			col.SendMessage("OnTakeDamage",20);
 		}
+
+		am.PlayOneShot(AA.Env_General_physicalExplosion, transform.position, explodeVolume);
 
 		Destroy (gameObject);
 	}

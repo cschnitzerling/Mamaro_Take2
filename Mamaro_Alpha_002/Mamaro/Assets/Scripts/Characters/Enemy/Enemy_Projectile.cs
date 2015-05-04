@@ -63,7 +63,7 @@ public class Enemy_Projectile : MonoBehaviour {
 		else
 		{
 			// play audio at collision pos
-			am.PlayOneShot(AA.Env_General_ElectricalExplosion, otherObj.transform.position, explodeVolume);
+			am.PlayOneShot(AA.Env_General_ElectricalExplosion, transform.position, explodeVolume);
 		}
 
 		OnDestroy();
