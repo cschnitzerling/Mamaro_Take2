@@ -135,110 +135,108 @@ public class MamaroController : MonoBehaviour {
 
 
 	
-
-		//LeftStick Clicked
-		//if moveing and not run for to long
-		if (move.moveDir.magnitude > 0 && move.timerRun < move.runMaxTime)
-		{
-			//LeftStick pressed and was not previously pressed
-			if (state.Buttons.LeftStick == ButtonState.Pressed && prevState.Buttons.LeftStick == ButtonState.Released)
-			{
-				move.isRun = !move.isRun;
-			}
-		}
-		else
-		{
-			move.isRun = false;
-		}
-		
-		//Dodge Controls
-		if (state.Buttons.A == ButtonState.Pressed && prevState.Buttons.A == ButtonState.Released && move.moveDir.magnitude > 0)
-		{
-			Vector3 tempDir;
-			tempDir = move.moveDir;
-			tempDir = tempDir.normalized;
-			move.Dodge(tempDir);
-		}
-
 		// Quick Time controls
 		if(Game_Manager.inst.isMalfunction)
 		{
 			if(state.Buttons.A == ButtonState.Pressed && prevState.Buttons.A == ButtonState.Released)
 				Game_Manager.inst.IncreaseSanity();
 		}
-
-
-		//Interact With Cores
-		if (fusionCores.Count > 0)
+		else
 		{
-			//PickupCores
-			if (state.Buttons.X == ButtonState.Pressed)
+			//LeftStick Clicked
+			//if moveing and not run for to long
+			if (move.moveDir.magnitude > 0 && move.timerRun < move.runMaxTime)
 			{
-				fusionCores[0].DestroyCore();
-
+				//LeftStick pressed and was not previously pressed
+				if (state.Buttons.LeftStick == ButtonState.Pressed && prevState.Buttons.LeftStick == ButtonState.Released)
+				{
+					move.isRun = !move.isRun;
+				}
 			}
-			else if (state.Buttons.B == ButtonState.Pressed)
+			else
 			{
-				fusionCores[0].CollectCore();
+				move.isRun = false;
 			}
+			
+			//Dodge Controls
+			if (state.Buttons.A == ButtonState.Pressed && prevState.Buttons.A == ButtonState.Released && move.moveDir.magnitude > 0)
+			{
+				Vector3 tempDir;
+				tempDir = move.moveDir;
+				tempDir = tempDir.normalized;
+				move.Dodge(tempDir);
+			}
+
+			//Interact With Cores
+			if (fusionCores.Count > 0)
+			{
+				//PickupCores
+				if (state.Buttons.X == ButtonState.Pressed)
+				{
+					fusionCores[0].DestroyCore();
+
+				}
+				else if (state.Buttons.B == ButtonState.Pressed)
+				{
+					fusionCores[0].CollectCore();
+				}
+			}
+
+			//Punch Attack
+			if (state.Triggers.Right > 0)
+			{
+				Mamaro_Attack.inst.ButtonDownPunch();
+			}
+			if (state.Triggers.Right == 0 && prevState.Triggers.Right > 0)
+			{
+				Mamaro_Attack.inst.ButtonUpPunch();
+			}
+
+			//Range Attack
+			if (state.Triggers.Left > 0)
+			{
+				Mamaro_Attack.inst.ButtonDownRange();
+			}
+			if (state.Triggers.Left == 0 && prevState.Triggers.Left > 0)
+			{
+				Mamaro_Attack.inst.ButtonUpRange();
+			}
+
+			//Block
+			if (state.Buttons.LeftShoulder == ButtonState.Pressed && prevState.Buttons.LeftShoulder == ButtonState.Released)
+			{
+				mamaro.SetBlocking(true);
+			}
+			if (state.Buttons.LeftShoulder == ButtonState.Released && prevState.Buttons.LeftShoulder == ButtonState.Pressed)
+			{
+				mamaro.SetBlocking(false);
+			}
+
+
+
+
+
+
+			//Adust Ability Cores
+			if (state.DPad.Left == ButtonState.Pressed && prevState.DPad.Left == ButtonState.Released)
+			{
+				Ability_Manager.inst.SelectSocketLeft();
+			}
+			else if (state.DPad.Right == ButtonState.Pressed && prevState.DPad.Right == ButtonState.Released)
+			{
+				Ability_Manager.inst.SelectSocketRight();
+			}
+
+			if (state.DPad.Up == ButtonState.Pressed && prevState.DPad.Up == ButtonState.Released)
+			{
+				Ability_Manager.inst.SocketAdd();
+			}
+			else if (state.DPad.Down == ButtonState.Pressed && prevState.DPad.Down == ButtonState.Released)
+			{
+				Ability_Manager.inst.SocketRemove();
+			}
+
 		}
-
-		//Punch Attack
-		if (state.Triggers.Right > 0)
-		{
-			Mamaro_Attack.inst.ButtonDownPunch();
-		}
-		if (state.Triggers.Right == 0 && prevState.Triggers.Right > 0)
-		{
-			Mamaro_Attack.inst.ButtonUpPunch();
-		}
-
-		//Range Attack
-		if (state.Triggers.Left > 0)
-		{
-			Mamaro_Attack.inst.ButtonDownRange();
-		}
-		if (state.Triggers.Left == 0 && prevState.Triggers.Left > 0)
-		{
-			Mamaro_Attack.inst.ButtonUpRange();
-		}
-
-		//Block
-		if (state.Buttons.LeftShoulder == ButtonState.Pressed && prevState.Buttons.LeftShoulder == ButtonState.Released)
-		{
-			mamaro.SetBlocking(true);
-		}
-		if (state.Buttons.LeftShoulder == ButtonState.Released && prevState.Buttons.LeftShoulder == ButtonState.Pressed)
-		{
-			mamaro.SetBlocking(false);
-		}
-
-
-
-
-
-
-		//Adust Ability Cores
-		if (state.DPad.Left == ButtonState.Pressed && prevState.DPad.Left == ButtonState.Released)
-		{
-			Ability_Manager.inst.SelectSocketLeft();
-		}
-		else if (state.DPad.Right == ButtonState.Pressed && prevState.DPad.Right == ButtonState.Released)
-		{
-			Ability_Manager.inst.SelectSocketRight();
-		}
-
-		if (state.DPad.Up == ButtonState.Pressed && prevState.DPad.Up == ButtonState.Released)
-		{
-			Ability_Manager.inst.SocketAdd();
-		}
-		else if (state.DPad.Down == ButtonState.Pressed && prevState.DPad.Down == ButtonState.Released)
-		{
-			Ability_Manager.inst.SocketRemove();
-		}
-
-
-
 
 
 
@@ -283,7 +281,7 @@ public class MamaroController : MonoBehaviour {
 		if(mamaro.isMalfunctioning)
 		{
 			if(Input.GetKeyDown(KeyCode.Space))
-				QT.Resist();
+				Game_Manager.inst.IncreaseSanity();
 		}
 
 		////////////////////////////////////////////////

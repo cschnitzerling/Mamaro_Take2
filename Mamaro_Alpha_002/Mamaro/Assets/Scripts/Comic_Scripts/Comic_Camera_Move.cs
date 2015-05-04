@@ -13,7 +13,7 @@ public class Comic_Camera_Move : MonoBehaviour {
 	public bool isPaused;
 	// Use this for initialization
 	void Awake () {
-		pauser = GameObject.FindGameObjectWithTag ("AtEnd").GetComponent<Comic_Trigger> ();
+		//pauser = GameObject.FindGameObjectWithTag ("AtEnd").GetComponent<Comic_Trigger> ();
 		animMove = GameObject.FindGameObjectWithTag ("LightTrig").GetComponent<Lightanimation_Controller> ();
 
 		AddTargets ();
