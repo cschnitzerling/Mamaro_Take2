@@ -161,10 +161,12 @@ public class MamaroController : MonoBehaviour {
 			//Dodge Controls
 			if (state.Buttons.A == ButtonState.Pressed && prevState.Buttons.A == ButtonState.Released && move.moveDir.magnitude > 0)
 			{
-				Vector3 tempDir;
-				tempDir = move.moveDir;
-				tempDir = tempDir.normalized;
-				move.Dodge(tempDir);
+				if (state.ThumbSticks.Left.X != 0)
+				{
+					Vector3 tempDir = Camera.main.transform.right * state.ThumbSticks.Left.X;
+					tempDir = tempDir.normalized;
+					move.Dodge(tempDir);
+				}
 			}
 
 			//Interact With Cores

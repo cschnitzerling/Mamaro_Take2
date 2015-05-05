@@ -188,50 +188,14 @@ public class MamaroMovement : MonoBehaviour {
 
 	}
 
-	//for 4 direction dodging
-	public void Dodge(Direction dir)
-	{
-		if (!isDodge)
-		{
-			switch (dir)
-			{
-			case Direction.Forward:
-				rb.AddForce(Vector3.forward * dodgeForceHorz  * (1 + ((float)socketMove.GetCoreCount() / 4)),ForceMode.Impulse);
-				break;
-			case Direction.Back:
-				rb.AddForce(Vector3.forward * -dodgeForceHorz * (1 + ((float)socketMove.GetCoreCount() / 4)),ForceMode.Impulse);
-				break;
-			case Direction.Left:
-				rb.AddForce(Vector3.right * -dodgeForceHorz * (1 + ((float)socketMove.GetCoreCount() / 4)),ForceMode.Impulse);
-				break;
-			case Direction.Right:
-				rb.AddForce(Vector3.right * dodgeForceHorz * (1 + ((float)socketMove.GetCoreCount() / 4)),ForceMode.Impulse);
-				break;
-			}
-			rb.AddForce(Vector3.up * dodgeForceVert * (1 + ((float)socketMove.GetCoreCount() / 4)),ForceMode.Impulse);
-
-			isDodge = true;
-		}
-	}
-
 	public void Dodge(Vector3 dir)
 	{
 		if (!isDodge)
 		{
-			if (dir.x > 0)
-			{
-				rb.velocity = Vector3.zero;
-				rb.AddForce(transform.right * dodgeForceHorz  * (1 + ((float)socketMove.GetCoreCount() / 4)),ForceMode.Impulse);
-				rb.AddForce(Vector3.up * dodgeForceVert,ForceMode.Impulse);
-				isDodge = true;
-			}
-			else
-			{
-				rb.velocity = Vector3.zero;
-				rb.AddForce(-transform.right * dodgeForceHorz  * (1 + ((float)socketMove.GetCoreCount() / 4)),ForceMode.Impulse);
-				rb.AddForce(Vector3.up * dodgeForceVert,ForceMode.Impulse);
-				isDodge = true;
-			}
+			rb.velocity = Vector3.zero;
+			rb.AddForce(dir * dodgeForceHorz  * (1 + ((float)socketMove.GetCoreCount() / 4)),ForceMode.Impulse);
+			rb.AddForce(Vector3.up * dodgeForceVert,ForceMode.Impulse);
+			isDodge = true;
 		}
 	}
 
