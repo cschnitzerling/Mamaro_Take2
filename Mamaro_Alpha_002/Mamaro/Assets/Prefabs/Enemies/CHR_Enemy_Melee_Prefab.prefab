@@ -90,6 +90,7 @@ GameObject:
   - 54: {fileID: 5433354}
   - 136: {fileID: 13668744}
   - 114: {fileID: 11432102}
+  - 195: {fileID: 19575360}
   m_Layer: 0
   m_Name: CHR_Enemy_Melee_Prefab
   m_TagString: Enemy
@@ -1021,8 +1022,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 113926}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: -1.62920685e-07}
-  m_LocalPosition: {x: 546.018799, y: 276.634308, z: -486.623718}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 450, y: 278.5, z: -495}
+  m_LocalScale: {x: 1.24017286, y: 1.24017322, z: 1.24017322}
   m_Children:
   - {fileID: 452458}
   m_Father: {fileID: 0}
@@ -1293,10 +1294,12 @@ MonoBehaviour:
   rotateTime: 2
   chaseTime: 3
   attackSpeed: 150
-  attackRadius: 30
+  attackRadius: 100
   attackTime: 2
   attackUp: 50
   isAttacking: 0
+  fusionCore: {fileID: 197428, guid: 198957e62549abd46a70b05e07e8197c, type: 2}
+  explosion: {fileID: 180484, guid: 85d308a2e7ed867438ccf8993ee59b09, type: 2}
   hitCollider: {fileID: 11461658}
 --- !u!114 &11461658
 MonoBehaviour:
@@ -1309,6 +1312,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 799f8231ec41e574f94c31abecd28e99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitSound: {fileID: 8300000, guid: 7a8ada7d609a72540a9f4fa36641bacd, type: 3}
+  playSound: 1
 --- !u!136 &13668744
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -2029,6 +2034,26 @@ SkinnedMeshRenderer:
     m_Center: {x: -2.33730912, y: -.0189149678, z: -.0510208011}
     m_Extent: {x: .318279982, y: .272517949, z: .300801754}
   m_DirtyAABB: 0
+--- !u!195 &19575360
+NavMeshAgent:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 113926}
+  m_Enabled: 1
+  m_Radius: 2.6099999
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 7.01000023
+  m_BaseOffset: -.529999971
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

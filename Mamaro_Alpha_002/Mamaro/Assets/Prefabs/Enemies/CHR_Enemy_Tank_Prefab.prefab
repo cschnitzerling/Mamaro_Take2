@@ -326,7 +326,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 154580}
   m_LocalRotation: {x: 3.7252903e-07, y: -.707106888, z: .707106709, w: -4.46906796e-07}
-  m_LocalPosition: {x: -.0199999996, y: -.275999993, z: -.0900000036}
+  m_LocalPosition: {x: -.0199999996, y: -.800000012, z: -.0900000036}
   m_LocalScale: {x: 1.5, y: 2.20000005, z: .370000005}
   m_Children:
   - {fileID: 498868}
@@ -442,7 +442,7 @@ Transform:
   m_GameObject: {fileID: 168058}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 77, y: -105.900002, z: 1967}
-  m_LocalScale: {x: 8, y: 8, z: 8}
+  m_LocalScale: {x: 5.10390186, y: 5.10390186, z: 5.10390186}
   m_Children:
   - {fileID: 493858}
   - {fileID: 428184}
@@ -977,19 +977,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8b0daa3618d7f44faa8a86245902a92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 30
-  rotSpeed: 10
-  catchUpSpeed: 50
+  moveSpeed: 0
+  rotSpeed: 2
+  catchUpSpeed: 0
   engagementRadius: 170
   lowHealthThreshold: 0
   explosionRadius: 15
   explosionPower: 20
   projectile: {fileID: 174928, guid: 0aeaa9fd1c5175b4bbac866b6614d3e4, type: 2}
   shootPos: {fileID: 428184}
-  fireRate: 3
+  fireRate: 5
   destroyTime: 5
   explosion: {fileID: 180484, guid: 85d308a2e7ed867438ccf8993ee59b09, type: 2}
   fusionCore: {fileID: 197428, guid: 198957e62549abd46a70b05e07e8197c, type: 2}
+  showGizmos: 1
+  hoverVolume: 1
+  shotVolume: 1
+  damageVolume: 1
+  deathVolume: 1
   health: 50
   state: 0
   alert: 0

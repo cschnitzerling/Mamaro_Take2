@@ -36,6 +36,7 @@ public class Script_Destruction_Manager : MonoBehaviour {
 
 	void Start()
 	{
+
 		am = Audio_Manager.inst;
 	}
 
@@ -66,6 +67,7 @@ public class Script_Destruction_Manager : MonoBehaviour {
 
 	void OnTriggerStay(Collider col)
 	{
+
 		if (col.tag == "Fist") {
 			Debug.Log ("Ouch");
 		}

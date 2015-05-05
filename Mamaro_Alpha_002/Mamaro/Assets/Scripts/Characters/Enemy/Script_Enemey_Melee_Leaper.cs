@@ -2,7 +2,8 @@
 using System.Collections;
 
 public class Script_Enemey_Melee_Leaper : MonoBehaviour {
-		
+	
+
 	public enum EnemyState
 	{
 		Wander,
@@ -32,7 +33,7 @@ public class Script_Enemey_Melee_Leaper : MonoBehaviour {
 	Vector3 enemyMove;
 	
 	//Enemy States
-	EnemyState state = EnemyState.Wander;
+	public EnemyState state = EnemyState.Wander;
 	
 	//Enemy Times
 	float timer = 0;
@@ -49,8 +50,13 @@ public class Script_Enemey_Melee_Leaper : MonoBehaviour {
 	public float attackUp;
 
 	public bool isAttacking;
-
+	public GameObject fusionCore;
+	public GameObject explosion;
 	Animator anim;
+
+	public Vector3 destPos;
+	public float pDist;
+	private NavMeshAgent nav;
 
 	public MeleeHitBox hitCollider;
 	
@@ -61,12 +67,16 @@ public class Script_Enemey_Melee_Leaper : MonoBehaviour {
 		state = EnemyState.Rotate;
 		player = Mamaro_Manager.inst;
 
+		nav = GetComponent<NavMeshAgent>();
+
 		hitCollider.SetDamage(damage);
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () 
 	{
+		pDist = Vector3.Distance(player.transform.position, this.transform.position);
+
 		GetComponent<Rigidbody>().AddForce(Vector3.down * 100);
 		//Line of Sight Check
 		look = new Ray ((transform.position + (Vector3.up * 1)),((player.transform.position) - transform.position));
@@ -118,6 +128,11 @@ public class Script_Enemey_Melee_Leaper : MonoBehaviour {
 	
 	void Chase()
 	{
+		Vector3 lookPos = new Vector3(player.gameObject.transform.position.x, transform.position.y, player.gameObject.transform.position.z);
+		LookTowards(lookPos);
+		nav.SetDestination(destPos);
+		nav.speed = speedRun;
+
 		timer += Time.deltaTime;
 		attackTime = 1f;
 		Vector3 playerVec = player.transform.position;
@@ -134,7 +149,12 @@ public class Script_Enemey_Melee_Leaper : MonoBehaviour {
 			OnChangeState(EnemyState.Wander);
 		}
 	}
-	
+
+	public void LookTowards(Vector3 target)
+	{
+		transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(target - transform.position), rotateTime * Time.deltaTime);
+	}
+
 	void Wander()
 	{
 		
@@ -218,8 +238,8 @@ public class Script_Enemey_Melee_Leaper : MonoBehaviour {
 			timer = 0;
 			break;
 		case EnemyState.Rotate:
-			timer = 0;
 			enemyRotate = Random.Range (-1.0f, 1.0f);
+			timer = 0;
 			break;
 		case EnemyState.Wander:
 
@@ -242,6 +262,10 @@ public class Script_Enemey_Melee_Leaper : MonoBehaviour {
 		if (health <= 0 && state != EnemyState.Dead)
 		{
 			OnChangeState(EnemyState.Dead);
+			Vector3 centerPos = new Vector3 (transform.position.x, transform.position.y + 10.0f, transform.position.z);
+			Instantiate (fusionCore, centerPos, Quaternion.identity);
+			Instantiate(explosion, centerPos, Quaternion.identity);
+
 		}
 	}
 	
