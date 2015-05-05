@@ -18,7 +18,7 @@ public class Music_Manager : MonoBehaviour
 	private Mamaro_Manager mama;
 
 	// music mixer vars
-	public AudioMixerSnapshot forestMain, forestDrum, cityMain, cityDrum, desertMain, desertDrum;
+	public AudioMixerSnapshot forestMain, forestDrum, cityMain, cityDrum, desertMain, desertDrum, mute;
 
 
 	public float transitionSpeed = 1.0f;
@@ -53,42 +53,49 @@ public class Music_Manager : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		// update area
-		float dist = Vector3.Distance (startPos, transform.position);
-		if(currentArea == Area.Forest && dist > TransRegion[0].size)
-			TransitioMusic(Area.City);
-
-		if(currentArea != Area.Forest && dist < TransRegion[0].size)
-			TransitioMusic(Area.Forest);
-
-		if (currentArea == Area.City && dist > TransRegion [1].size)
-			TransitioMusic (Area.Desert);
-
-		if (currentArea == Area.Desert && dist < TransRegion [1].size)
-			TransitioMusic (Area.City);
-
-	
-
-		// stay with mamaro's current pos
-		transform.position = mama.transform.position;
-
-		// bring in drums when enemies are close
-		int count = 0;
-		foreach(GameObject g in enemies)
+		if(Game_Manager.inst.isMalfunction || Game_Manager.inst.isPaused)
 		{
-			if(g != null)
-			{
-				if(Vector3.Distance(transform.position, g.transform.position) <= drumRange)
-					count++;
-			}
+			mute.TransitionTo(transitionSpeed);
 		}
-
-
-		if (count > 0)
-			currentD.TransitionTo (transitionSpeed);
 		else
-			currentM.TransitionTo (transitionSpeed);
+		{
+			// update area
+			float dist = Vector3.Distance (startPos, transform.position);
+			if(currentArea == Area.Forest && dist > TransRegion[0].size)
+				TransitioMusic(Area.City);
+			
+			if(currentArea != Area.Forest && dist < TransRegion[0].size)
+				TransitioMusic(Area.Forest);
+			
+			if (currentArea == Area.City && dist > TransRegion [1].size)
+				TransitioMusic (Area.Desert);
+			
+			if (currentArea == Area.Desert && dist < TransRegion [1].size)
+				TransitioMusic (Area.City);
+			
+			
+			
+			// stay with mamaro's current pos
+			transform.position = mama.transform.position;
+			
+			// bring in drums when enemies are close
+			int count = 0;
+			foreach(GameObject g in enemies)
+			{
+				if(g != null)
+				{
+					if(Vector3.Distance(transform.position, g.transform.position) <= drumRange)
+						count++;
+				}
+			}
+			
+			
+			if (count > 0)
+				currentD.TransitionTo (transitionSpeed);
+			else
+				currentM.TransitionTo (transitionSpeed);
 
+		}
 	}
 
 	public void TransitionDrums(bool on)

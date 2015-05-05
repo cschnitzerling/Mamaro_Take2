@@ -15,6 +15,7 @@ AudioMixerController:
   - {fileID: 24529804}
   - {fileID: 24508912}
   - {fileID: 24559766}
+  - {fileID: 24519118}
   m_StartSnapshot: {fileID: 24500003}
   m_SuspendThreshold: -80
   m_EnableSuspend: 1
@@ -30,7 +31,7 @@ AudioMixerController:
     - 780d277ed5570d04a96eab18f2a9ef06
     name: View
   m_CurrentViewIndex: 0
-  m_TargetSnapshot: {fileID: 24500003}
+  m_TargetSnapshot: {fileID: 24519118}
 --- !u!243 &24300001
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
@@ -279,6 +280,23 @@ AudioMixerSnapshotController:
     8bffd4a8fad1e98419cc765c9600fa5d: -80
     ad6827ec5c3bffd4691936834f09c8ca: -9.83328629
     263f589dc521b254d95c25d7fd287122: .0255785119
+    3edad90fa35922d49bb1bccad96d95fa: -80
+  m_TransitionOverrides: {}
+--- !u!245 &24519118
+AudioMixerSnapshotController:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Mute
+  m_AudioMixer: {fileID: 24100000}
+  m_SnapshotID: 549afda3011063c4abd730c934b674a4
+  m_FloatValues:
+    4fd1fb3226ac70b488c147dc76dc0512: -80
+    b8afc384477baf04b82cb3e55ca6ca84: -80
+    050990e4268e609498c7f8368187d4d3: -80
+    8bffd4a8fad1e98419cc765c9600fa5d: -80
+    ad6827ec5c3bffd4691936834f09c8ca: -80
+    263f589dc521b254d95c25d7fd287122: -80
     3edad90fa35922d49bb1bccad96d95fa: -80
   m_TransitionOverrides: {}
 --- !u!245 &24529804

@@ -11,7 +11,12 @@ public class Ability_Manager : MonoBehaviour
 	public AbilitySocket[] sockets = new AbilitySocket[4];
 	public Text spareCoreDisplayText;
 
-	
+
+	// audio vars
+	private Audio_Manager am;
+	[Range(0.0f, 1.0f)]
+	public float beepVolume = 1.0f;
+
 	// private vars
 	public int spareCores = 0;
 	public int selectedSocket = 0;
@@ -34,6 +39,8 @@ public class Ability_Manager : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
+		am = Audio_Manager.inst;
+
 		// set all cores to deactive
 		SetSockets(0,0,0,0,2);
 		sockets[0].oppositeSocket = sockets[1];
@@ -136,7 +143,7 @@ public class Ability_Manager : MonoBehaviour
 				{
 					sockets[selectedSocket].AddCore();
 					spareCores--;
-
+					am.PlayOneShot(AA.Chr_Lucy_Foley_Laptop_PowerOn, beepVolume);
 					ActivateChangeSprite(selectedSocket, true);
 				}
 				else if(sockets[selectedSocket].oppositeSocket.GetCoreCount() > 0)
@@ -157,6 +164,7 @@ public class Ability_Manager : MonoBehaviour
 			// remove core and reset sHangTimer
 			sockets[selectedSocket].RemoveCore();
 			spareCores++;
+			am.PlayOneShot(AA.Chr_Lucy_Foley_Laptop_PowerOn, beepVolume);
 
 			ActivateChangeSprite(selectedSocket, true);
 		}

@@ -31,6 +31,12 @@ public class Lucy_Manager : MonoBehaviour {
 	public ParticleSystem particle;
 	private float partStartSpeed;
 
+	// audio vars
+	private Audio_Manager am;
+	[Range(0.0f, 1.0f)]
+	public float cryVolume = 1.0f;
+	private string keyCry = "Cry";
+
 
 	public float repairDelay;//The time after taking fear damage untill recharge begins.
 	private float timerRepairDelay;//timer for the delay on recharge
@@ -47,9 +53,7 @@ public class Lucy_Manager : MonoBehaviour {
 	public GameObject lucy;
 	public GameObject lucyFixEffect;
 	Animator anim;
-
-
-
+	
 	void Awake()
 	{
 		if (inst == null)
@@ -57,6 +61,7 @@ public class Lucy_Manager : MonoBehaviour {
 			inst = this;
 		}
 	}
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -71,9 +76,9 @@ public class Lucy_Manager : MonoBehaviour {
 
 		anim = lucy.GetComponent<Animator>();
 		mamaro = Mamaro_Manager.inst;
-		//Audio_Manager.inst.PlayRecursive(AA.Chr_Lucy_Cry_1, transform.position, "LucyCry");
-		//Audio_Manager.inst.StopRecursive("LucyCry");
-		//Audio_Manager.inst.SetVolume("LucyCry", 0.3f);
+
+		am = Audio_Manager.inst;
+
 	}
 	
 	// Update is called once per frame
