@@ -57,7 +57,7 @@ public class Script_Destruction_Chunks : MonoBehaviour {
 	}
 
 	public void Collide(){
-		AudioSource.PlayClipAtPoint (rockClash, Camera.main.transform.position, .5f);
+		//AudioSource.PlayClipAtPoint (rockClash, Camera.main.transform.position, .5f);
 		Instantiate (colDust, transform.position, transform.rotation);
 		rigBod.isKinematic = false;
 		GameObject.Destroy(this.gameObject, 6);

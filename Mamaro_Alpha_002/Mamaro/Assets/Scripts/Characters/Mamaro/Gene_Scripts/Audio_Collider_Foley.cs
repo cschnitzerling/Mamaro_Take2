@@ -19,7 +19,7 @@ public class Audio_Collider_Foley : MonoBehaviour {
 			AudioSource.PlayClipAtPoint (hitSound, Camera.main.transform.position, 1f);
 			LucyScreamSwitch();
 			if(lucyGasping){
-				AudioSource.PlayClipAtPoint (lucyGasp, Camera.main.transform.position, .5f);
+				//AudioSource.PlayClipAtPoint (lucyGasp, Camera.main.transform.position, .5f);
 			lucyGasping = false;
 			}
 		}
